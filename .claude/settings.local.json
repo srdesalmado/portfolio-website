@@ -5,7 +5,13 @@
       "Bash(cp -r \"/Users/carlos/Documents/portfolio-site/.\" \"/Users/carlos/Documents/Site Porfolio/\")",
       "Bash(rm -rf \"/Users/carlos/Documents/portfolio-site\")",
       "Bash(npm install:*)",
-      "Bash(npx shadcn@latest init --defaults --yes)"
+      "Bash(npx shadcn@latest init --defaults --yes)",
+      "Bash(npx shadcn@latest add badge card --yes)",
+      "Bash(npm run:*)",
+      "mcp__Claude_Preview__preview_start",
+      "Bash(npx shadcn@latest init --preset bInVsaO --template next)",
+      "Bash(printf \"y\\\\ny\\\\n\")",
+      "Bash(yes)"
     ]
   }
 }
