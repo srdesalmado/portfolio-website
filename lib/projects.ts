@@ -37,11 +37,7 @@ export const projects: Project[] = [
     description:
       "How to build a concept that differentiates a disruptive brand in a disruptive market by itself?",
     tags: ["Branding", "Identity"],
-    metrics: [
-      { value: "6", label: "Team members" },
-      { value: "2022", label: "Year" },
-      { value: "Brand Gym", label: "Agency" },
-    ],
+    metrics: [],
     coverLabel: "Klavi Brand Identity",
     coverImage: "/klavi-cover.png",
     year: "2022",

@@ -84,42 +84,19 @@ export default async function CaseStudyPage({
             </div>
           </div>
 
-          {/* Title */}
-          <h1
-            className="text-[clamp(2.5rem,5.5vw,4.5rem)] font-semibold leading-[1.0] max-w-3xl"
-            style={{ color: "var(--text-primary)", letterSpacing: "-0.03em" }}
-          >
-            {project.title}
-          </h1>
-
-          {/* Description + meta side by side on desktop */}
-          <div className="grid grid-cols-1 md:grid-cols-[1fr_auto] gap-10 md:gap-24 pt-4" style={{ borderTop: "1px solid var(--border-color)" }}>
+          {/* Title + description */}
+          <div className="flex flex-col gap-6">
+            <h1
+              className="text-[clamp(2.5rem,5.5vw,4.5rem)] font-semibold leading-[1.0] max-w-3xl"
+              style={{ color: "var(--text-primary)", letterSpacing: "-0.03em" }}
+            >
+              {project.title}
+            </h1>
             <p className="leading-[1.75] max-w-xl" style={{ color: "var(--text-secondary)", fontSize: 16 }}>
               {project.description}
             </p>
-            <div className="grid grid-cols-2 gap-x-12 gap-y-4 shrink-0">
-              {metaRows.map((item) => (
-                <div key={item.label} className="flex flex-col gap-1">
-                  <span className="text-[14px] uppercase tracking-[0.18em]" style={{ color: "var(--text-muted)" }}>
-                    {item.label}
-                  </span>
-                  <span style={{ color: "var(--text-secondary)", fontSize: 14 }}>
-                    {item.value}
-                  </span>
-                </div>
-              ))}
-              {project.team && (
-                <div className="col-span-2 flex flex-col gap-1 pt-2" style={{ borderTop: "1px solid var(--border-color)" }}>
-                  <span className="text-[14px] uppercase tracking-[0.18em]" style={{ color: "var(--text-muted)" }}>
-                    Team
-                  </span>
-                  <span style={{ color: "var(--text-secondary)", fontSize: 14 }}>
-                    {project.team}
-                  </span>
-                </div>
-              )}
-            </div>
           </div>
+
         </div>
 
         {/* ─── Cover image ─── */}
@@ -142,8 +119,34 @@ export default async function CaseStudyPage({
           </div>
         </div>
 
+        {/* ─── Meta ─── */}
+        <div className="py-10" style={{ borderTop: "1px solid var(--border-color)", borderBottom: "1px solid var(--border-color)" }}>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-x-12 gap-y-6">
+            {metaRows.map((item) => (
+              <div key={item.label} className="flex flex-col gap-1">
+                <span className="text-[14px] uppercase tracking-[0.18em]" style={{ color: "var(--text-muted)" }}>
+                  {item.label}
+                </span>
+                <span style={{ color: "var(--text-secondary)", fontSize: 14 }}>
+                  {item.value}
+                </span>
+              </div>
+            ))}
+            {project.team && (
+              <div className="col-span-2 md:col-span-4 flex flex-col gap-1 pt-4" style={{ borderTop: "1px solid var(--border-color)" }}>
+                <span className="text-[14px] uppercase tracking-[0.18em]" style={{ color: "var(--text-muted)" }}>
+                  Team
+                </span>
+                <span style={{ color: "var(--text-secondary)", fontSize: 14 }}>
+                  {project.team}
+                </span>
+              </div>
+            )}
+          </div>
+        </div>
+
         {/* ─── Metrics ─── */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-0 py-10" style={{ borderTop: "1px solid var(--border-color)", borderBottom: "1px solid var(--border-color)" }}>
+        {project.metrics.length > 0 && <div className="grid grid-cols-1 md:grid-cols-3 gap-0 py-10" style={{ borderTop: "1px solid var(--border-color)", borderBottom: "1px solid var(--border-color)" }}>
           {project.metrics.map((m, i) => (
             <div
               key={m.label}
@@ -165,7 +168,7 @@ export default async function CaseStudyPage({
               </span>
             </div>
           ))}
-        </div>
+        </div>}
 
         {/* ─── Quote / Key insight ─── */}
         {project.quote && (
