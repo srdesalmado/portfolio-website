@@ -295,7 +295,7 @@ export default function StyleguidePage() {
             <ColorChip hex="#e5e5e5" name="--border-color" usage="Border" />
             <ColorChip hex="#0f0f0f" name="--text-primary" usage="Heading" />
             <ColorChip hex="#3d3d3d" name="--text-secondary" usage="Body" />
-            <ColorChip hex="#999999" name="--text-muted" usage="Caption" />
+            <ColorChip hex="#666666" name="--text-muted" usage="Caption" />
           </div>
 
           {/* Neutral — Dark */}
@@ -308,8 +308,8 @@ export default function StyleguidePage() {
             <ColorChip hex="#1a1a1a" name="--surface" usage="Surface" dark />
             <ColorChip hex="#2a2a2a" name="--border-color" usage="Border" dark />
             <ColorChip hex="#f0f0f0" name="--text-primary" usage="Heading" dark />
-            <ColorChip hex="#666666" name="--text-secondary" usage="Body" dark />
-            <ColorChip hex="#444444" name="--text-muted" usage="Caption" dark />
+            <ColorChip hex="#999999" name="--text-secondary" usage="Body" dark />
+            <ColorChip hex="#666666" name="--text-muted" usage="Caption" dark />
           </div>
 
           {/* Highlight */}

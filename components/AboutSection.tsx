@@ -54,7 +54,7 @@ export default function AboutSection() {
 
             <div
               className="flex flex-col gap-4 text-[16px] leading-[1.7]"
-              style={{ color: "#666666" }}
+              style={{ color: "#999999" }}
             >
               <p>{t.p1}</p>
               <p>

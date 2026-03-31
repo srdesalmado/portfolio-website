@@ -90,7 +90,7 @@
   --border-color: #e5e5e5;
   --text-primary: #0f0f0f;
   --text-secondary: #3d3d3d;
-  --text-muted: #999999;
+  --text-muted: #666666;
 }
 
 @layer base {

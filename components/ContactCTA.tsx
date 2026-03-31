@@ -36,7 +36,7 @@ export default function ContactCTA() {
 
           {/* Bottom row */}
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 pt-8 border-t" style={{ borderColor: "#2a2a2a" }}>
-            <p className="text-[16px] leading-relaxed max-w-sm" style={{ color: "#666666" }}>
+            <p className="text-[16px] leading-relaxed max-w-sm" style={{ color: "#999999" }}>
               {t.subheading}
             </p>
 
@@ -52,7 +52,7 @@ export default function ContactCTA() {
                 <a
                   href="tel:+5548936186883"
                   className="text-[14px] transition-colors duration-200 hover:text-purple-400"
-                  style={{ color: "#444444" }}
+                  style={{ color: "#666666" }}
                 >
                   +55 (48) 9 3618-6883
                 </a>
@@ -60,7 +60,7 @@ export default function ContactCTA() {
                 <a
                   href="mailto:carlos@studiohorizon.com.br"
                   className="text-[14px] transition-colors duration-200 hover:text-purple-400"
-                  style={{ color: "#444444" }}
+                  style={{ color: "#666666" }}
                 >
                   carlos@studiohorizon.com.br
                 </a>
@@ -73,11 +73,11 @@ export default function ContactCTA() {
       <div
         className="max-w-[1100px] mx-auto px-8 pb-8 flex items-center justify-between"
       >
-        <span className="text-[14px] font-mono" style={{ color: "#444444" }}>© {new Date().getFullYear()} carlos.psd</span>
+        <span className="text-[14px] font-mono" style={{ color: "#666666" }}>© {new Date().getFullYear()} carlos.psd</span>
         <a
           href="/styleguide"
           className="text-[14px] font-mono transition-colors duration-200 hover:text-purple-600"
-          style={{ color: "#444444" }}
+          style={{ color: "#666666" }}
         >
           design system
         </a>
