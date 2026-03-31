@@ -51,20 +51,16 @@ export default function ContactCTA() {
               <div className="flex items-center gap-4">
                 <a
                   href="tel:+5548936186883"
-                  className="text-[14px] transition-colors duration-200"
+                  className="text-[14px] transition-colors duration-200 hover:text-purple-400"
                   style={{ color: "#444444" }}
-                  onMouseEnter={(e) => (e.currentTarget.style.color = "#888888")}
-                  onMouseLeave={(e) => (e.currentTarget.style.color = "#444444")}
                 >
                   +55 (48) 9 3618-6883
                 </a>
                 <span style={{ color: "#2a2a2a" }}>·</span>
                 <a
                   href="mailto:carlos@studiohorizon.com.br"
-                  className="text-[14px] transition-colors duration-200"
+                  className="text-[14px] transition-colors duration-200 hover:text-purple-400"
                   style={{ color: "#444444" }}
-                  onMouseEnter={(e) => (e.currentTarget.style.color = "#888888")}
-                  onMouseLeave={(e) => (e.currentTarget.style.color = "#444444")}
                 >
                   carlos@studiohorizon.com.br
                 </a>
