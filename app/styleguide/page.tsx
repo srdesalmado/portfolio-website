@@ -298,19 +298,18 @@ export default function StyleguidePage() {
             <ColorChip hex="#999999" name="--text-muted" usage="Caption" />
           </div>
 
-          {/* Neutral — Dark — dark panel */}
+          {/* Neutral — Dark */}
           <SubLabel>Neutral — Dark context</SubLabel>
           <div
             className="flex flex-wrap gap-8 p-8 mb-14"
-            style={{ backgroundColor: "#0f0f0f", borderRadius: 12, border: "1px solid #1a1a1a" }}
+            style={{ backgroundColor: "#080808", borderRadius: 12, border: "1px solid #1a1a1a" }}
           >
-            <ColorChip hex="#080808" name="hero-bg" usage="Hero background" dark />
-            <ColorChip hex="#0f0f0f" name="section-bg" usage="Dark section bg" dark />
-            <ColorChip hex="#1a1a1a" name="border-dark" usage="Border" dark />
-            <ColorChip hex="#2a2a2a" name="border-subtle" usage="Divider" dark />
-            <ColorChip hex="#f0f0f0" name="text-primary" usage="Heading" dark />
-            <ColorChip hex="#666666" name="text-secondary" usage="Body" dark />
-            <ColorChip hex="#444444" name="text-muted" usage="Caption" dark />
+            <ColorChip hex="#080808" name="--bg" usage="Page background" dark />
+            <ColorChip hex="#1a1a1a" name="--surface" usage="Surface" dark />
+            <ColorChip hex="#2a2a2a" name="--border-color" usage="Border" dark />
+            <ColorChip hex="#f0f0f0" name="--text-primary" usage="Heading" dark />
+            <ColorChip hex="#666666" name="--text-secondary" usage="Body" dark />
+            <ColorChip hex="#444444" name="--text-muted" usage="Caption" dark />
           </div>
 
           {/* Highlight */}
