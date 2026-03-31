@@ -87,8 +87,8 @@ export default async function CaseStudyPage({
           {/* Title + description */}
           <div className="flex flex-col gap-6">
             <h1
-              className="text-[clamp(2.5rem,5.5vw,4.5rem)] font-semibold leading-[1.0] max-w-3xl"
-              style={{ color: "var(--text-primary)", letterSpacing: "-0.03em" }}
+              className="text-[28px] md:text-[40px] font-semibold leading-[1.1] max-w-3xl"
+              style={{ color: "var(--text-primary)", letterSpacing: "-0.02em" }}
             >
               {project.title}
             </h1>
