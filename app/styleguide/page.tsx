@@ -2,6 +2,7 @@
 
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
+import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from "@/components/ui/card"
 
 /* ─── helpers ─────────────────────────────────────────── */
 function Divider() {
@@ -378,20 +379,13 @@ export default function StyleguidePage() {
           {/* Buttons */}
           <div className="mb-14">
             <SubLabel>Button — variants</SubLabel>
-            <div className="flex flex-wrap gap-4 items-center mb-4">
+            <div className="flex flex-wrap gap-4 items-center">
               <Button variant="default">Default</Button>
               <Button variant="outline">Outline</Button>
               <Button variant="secondary">Secondary</Button>
               <Button variant="ghost">Ghost</Button>
               <Button variant="destructive">Destructive</Button>
               <Button variant="link">Link</Button>
-            </div>
-            <SubLabel>Button — sizes</SubLabel>
-            <div className="flex flex-wrap gap-4 items-center">
-              <Button size="xs">XS</Button>
-              <Button size="sm">Small</Button>
-              <Button size="default">Default</Button>
-              <Button size="lg">Large</Button>
             </div>
           </div>
 
@@ -446,32 +440,25 @@ export default function StyleguidePage() {
             </div>
           </div>
 
-          {/* Testimonial card */}
+          {/* Card */}
           <div className="mb-14">
-            <SubLabel>Testimonial Card</SubLabel>
+            <SubLabel>Card</SubLabel>
             <div className="max-w-sm">
-              <div
-                className="rounded-2xl p-6 flex flex-col gap-4"
-                style={{
-                  backgroundColor: "var(--dark-surface)",
-                  border: "1px solid var(--dark-border)",
-                }}
-              >
-                <p className="text-[14px] leading-relaxed italic flex-1" style={{ color: "var(--dark-text-secondary)" }}>
-                  &ldquo;Carlos has a rare ability to simplify complex systems without losing depth.&rdquo;
-                </p>
-                <div
-                  className="flex flex-col gap-0.5 pt-4 border-t"
-                  style={{ borderColor: "var(--dark-border)" }}
-                >
-                  <span className="text-[14px] font-medium" style={{ color: "var(--dark-text-primary)" }}>
-                    Ricardo M.
-                  </span>
-                  <span className="text-[14px] font-mono" style={{ color: "var(--dark-text-muted)" }}>
-                    CPO at AmFi
-                  </span>
-                </div>
-              </div>
+              <Card>
+                <CardHeader>
+                  <CardTitle>Card title</CardTitle>
+                  <CardDescription>Supporting description text goes here.</CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-sm" style={{ color: "var(--text-secondary)" }}>
+                    This is the card body content area. Use it for any supporting information.
+                  </p>
+                </CardContent>
+                <CardFooter className="gap-3">
+                  <Button variant="default">Confirm</Button>
+                  <Button variant="ghost">Cancel</Button>
+                </CardFooter>
+              </Card>
             </div>
           </div>
 
@@ -517,7 +504,7 @@ export default function StyleguidePage() {
               <a
                 href="#"
                 className="text-[14px] transition-colors duration-200 hover:text-purple-400"
-                style={{ color: "#999999" }}
+                style={{ color: "#c4c4c4" }}
               >
                 View all work →
               </a>

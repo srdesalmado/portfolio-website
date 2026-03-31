@@ -60,7 +60,7 @@ export default function Hero() {
             animate="visible"
             variants={fadeUp}
             className="text-[14px] tracking-[0.18em] uppercase font-medium"
-            style={{ color: "var(--dark-text-muted)" }}
+            style={{ color: "var(--accent-on-dark)" }}
           >
             {t.greeting}
           </motion.p>
@@ -74,8 +74,8 @@ export default function Hero() {
             style={{ color: "var(--dark-text-primary)", letterSpacing: "-0.03em" }}
           >
             {lang === "en"
-              ? "Hi, I'm Carlos Henrique, a Multidisciplinary Product Designer."
-              : "Oi, sou Carlos Henrique, Designer de Produto Multidisciplinar."}
+              ? "I'm Carlos Henrique, a Multidisciplinary Product Designer."
+              : "Sou Carlos Henrique, Designer de Produto Multidisciplinar."}
           </motion.h1>
 
           <motion.div
@@ -95,15 +95,13 @@ export default function Hero() {
             <div className="flex gap-6 items-center">
               <a
                 href="#work"
-                className="text-[14px] font-medium border-b pb-px transition-colors duration-200 hover:text-purple-400 hover:border-purple-400"
-                style={{ color: "var(--dark-text-primary)", borderColor: "rgba(255,255,255,0.3)" }}
+                className="text-[14px] font-medium border-b border-white/30 pb-px text-white/90 transition-colors duration-200 hover:text-purple-400 hover:border-purple-400"
               >
                 {t.cta_work}
               </a>
               <a
                 href="#about"
-                className="text-[14px] transition-colors duration-200 hover:text-purple-400"
-                style={{ color: "var(--dark-text-muted)" }}
+                className="text-[14px] text-white/60 transition-colors duration-200 hover:text-purple-400"
               >
                 {t.cta_about} →
               </a>
