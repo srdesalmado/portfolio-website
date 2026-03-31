@@ -37,36 +37,39 @@ export default function ProjectCard({ project }: { project: Project }) {
           <div className="absolute inset-0" style={{ backgroundColor: "rgba(0,0,0,0.18)" }} />
         </div>
 
-        {/* Info overlay at bottom — hover only */}
-        <div className="absolute inset-x-0 bottom-0 p-5 flex flex-col gap-3 transition-all duration-300 translate-y-2 opacity-0 group-hover:translate-y-0 group-hover:opacity-100">
-          {/* Badges */}
-          <div className="flex flex-wrap gap-2">
-            {project.tags.map((tag) => (
-              <Badge
-                key={tag}
-                variant="outline"
-                className="border-white/20 text-white/80 bg-white/10 backdrop-blur-sm hover:bg-white/20"
-              >
-                {tag}
-              </Badge>
-            ))}
-          </div>
+        {/* Year — top right, always visible */}
+        <div className="absolute top-4 right-4">
+          <span className="text-[14px]" style={{ color: "rgba(255,255,255,0.5)" }}>{project.year}</span>
+        </div>
 
-          {/* Title + year */}
-          <div className="flex items-end justify-between gap-4">
-            <h3
-              className="font-semibold text-[18px] leading-snug"
-              style={{ color: "#ffffff", letterSpacing: "-0.02em" }}
+        {/* Badges — top left, hover only */}
+        <div className="absolute inset-x-0 top-0 p-4 flex flex-wrap gap-2 transition-all duration-300 -translate-y-1 opacity-0 group-hover:translate-y-0 group-hover:opacity-100">
+          {project.tags.map((tag) => (
+            <Badge
+              key={tag}
+              variant="outline"
+              className="border-white/20 text-white/80 bg-white/10 backdrop-blur-sm"
             >
-              {project.title}
-            </h3>
-            <span
-              className="font-mono text-[14px] shrink-0 pb-0.5"
-              style={{ color: "rgba(255,255,255,0.4)" }}
-            >
-              {project.year}
-            </span>
-          </div>
+              {tag}
+            </Badge>
+          ))}
+        </div>
+
+        {/* Info overlay at bottom — hover only */}
+        <div className="absolute inset-x-0 bottom-0 p-5 flex flex-col gap-2 transition-all duration-300 translate-y-2 opacity-0 group-hover:translate-y-0 group-hover:opacity-100">
+          <h3
+            className="font-semibold text-[18px] leading-snug"
+            style={{ color: "#ffffff", letterSpacing: "-0.02em" }}
+          >
+            {project.title}
+          </h3>
+          {/* Description */}
+          <p
+            className="text-[13px] leading-snug line-clamp-2"
+            style={{ color: "rgba(255,255,255,0.6)" }}
+          >
+            {project.description}
+          </p>
         </div>
       </div>
     </Link>
