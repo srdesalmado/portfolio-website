@@ -70,7 +70,7 @@ export default function Hero() {
             initial="hidden"
             animate="visible"
             variants={fadeUp}
-            className="text-[48px] md:text-[80px] font-semibold leading-[1.04] max-w-4xl"
+            className="text-[36px] md:text-[80px] font-semibold leading-[1.04] max-w-4xl"
             style={{ color: "var(--dark-text-primary)", letterSpacing: "-0.03em" }}
           >
             {lang === "en"

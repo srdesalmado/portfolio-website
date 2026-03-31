@@ -524,58 +524,44 @@ export default function StyleguidePage() {
 
           {/* Project card specimen */}
           <div>
-            <SubLabel>Project Card — hover state shown</SubLabel>
-            <div className="max-w-sm">
-              <div
-                className="relative w-full overflow-hidden"
-                style={{ aspectRatio: "4/3", borderRadius: 12, backgroundColor: "var(--dark-surface)" }}
-              >
-                {/* Placeholder label */}
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <span className="font-mono text-[14px]" style={{ color: "var(--dark-border)" }}>
-                    cover image
-                  </span>
-                </div>
-                {/* Base scrim */}
-                <div
-                  className="absolute inset-0"
-                  style={{
-                    background: "linear-gradient(to top, rgba(0,0,0,0.72) 0%, rgba(0,0,0,0.18) 50%, transparent 100%)",
-                  }}
-                />
-                {/* Extra hover overlay */}
-                <div className="absolute inset-0" style={{ backgroundColor: "rgba(0,0,0,0.38)" }} />
-                {/* Info overlay */}
-                <div className="absolute inset-x-0 bottom-0 p-5 flex flex-col gap-3">
-                  {/* Badges (hover-revealed) */}
-                  <div className="flex flex-wrap gap-2">
-                    <Badge
-                      variant="outline"
-                      className="border-white/20 text-white/80 bg-white/10 backdrop-blur-sm"
-                    >
-                      Fintech
-                    </Badge>
-                    <Badge
-                      variant="outline"
-                      className="border-white/20 text-white/80 bg-white/10 backdrop-blur-sm"
-                    >
-                      Product Design
-                    </Badge>
+            <div className="flex gap-6 flex-wrap">
+              <div>
+                <SubLabel>Project Card — default</SubLabel>
+                <div className="max-w-sm w-64">
+                  <div
+                    className="relative w-full overflow-hidden"
+                    style={{ aspectRatio: "4/3", borderRadius: 12, backgroundColor: "var(--dark-surface)" }}
+                  >
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <span className="font-mono text-[14px]" style={{ color: "var(--dark-border)" }}>cover image</span>
+                    </div>
                   </div>
-                  {/* Title + year */}
-                  <div className="flex items-end justify-between gap-4">
-                    <h3
-                      className="font-semibold text-[18px] leading-snug"
-                      style={{ color: "#ffffff", letterSpacing: "-0.02em" }}
-                    >
-                      AmFi — Tokenized Credit Platform
-                    </h3>
-                    <span
-                      className="font-mono text-[14px] shrink-0 pb-0.5"
-                      style={{ color: "rgba(255,255,255,0.4)" }}
-                    >
-                      2024
-                    </span>
+                </div>
+              </div>
+              <div>
+                <SubLabel>Project Card — hover</SubLabel>
+                <div className="max-w-sm w-64">
+                  <div
+                    className="relative w-full overflow-hidden"
+                    style={{ aspectRatio: "4/3", borderRadius: 12, backgroundColor: "var(--dark-surface)" }}
+                  >
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <span className="font-mono text-[14px]" style={{ color: "var(--dark-border)" }}>cover image</span>
+                    </div>
+                    <div className="absolute inset-0">
+                      <div className="absolute inset-0" style={{ background: "linear-gradient(to top, rgba(0,0,0,0.72) 0%, rgba(0,0,0,0.18) 50%, transparent 100%)" }} />
+                      <div className="absolute inset-0" style={{ backgroundColor: "rgba(0,0,0,0.18)" }} />
+                    </div>
+                    <div className="absolute inset-x-0 bottom-0 p-5 flex flex-col gap-3">
+                      <div className="flex flex-wrap gap-2">
+                        <Badge variant="outline" className="border-white/20 text-white/80 bg-white/10 backdrop-blur-sm">Fintech</Badge>
+                        <Badge variant="outline" className="border-white/20 text-white/80 bg-white/10 backdrop-blur-sm">Product Design</Badge>
+                      </div>
+                      <div className="flex items-end justify-between gap-4">
+                        <h3 className="font-semibold text-[18px] leading-snug" style={{ color: "#ffffff", letterSpacing: "-0.02em" }}>AmFi — Tokenized Credit</h3>
+                        <span className="font-mono text-[14px] shrink-0 pb-0.5" style={{ color: "rgba(255,255,255,0.4)" }}>2024</span>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>

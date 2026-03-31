@@ -26,24 +26,21 @@ export default function ProjectCard({ project }: { project: Project }) {
           </div>
         )}
 
-        {/* Base scrim — always present at bottom */}
-        <div
-          className="absolute inset-0"
-          style={{
-            background: "linear-gradient(to top, rgba(0,0,0,0.72) 0%, rgba(0,0,0,0.18) 50%, transparent 100%)",
-          }}
-        />
+        {/* Scrim + info — visible only on hover */}
+        <div className="absolute inset-0 transition-opacity duration-300 opacity-0 group-hover:opacity-100">
+          <div
+            className="absolute inset-0"
+            style={{
+              background: "linear-gradient(to top, rgba(0,0,0,0.72) 0%, rgba(0,0,0,0.18) 50%, transparent 100%)",
+            }}
+          />
+          <div className="absolute inset-0" style={{ backgroundColor: "rgba(0,0,0,0.18)" }} />
+        </div>
 
-        {/* Extra overlay on hover */}
-        <div
-          className="absolute inset-0 transition-opacity duration-300 opacity-0 group-hover:opacity-100"
-          style={{ backgroundColor: "rgba(0,0,0,0.38)" }}
-        />
-
-        {/* Info overlay at bottom */}
-        <div className="absolute inset-x-0 bottom-0 p-5 flex flex-col gap-3">
-          {/* Badges — slide up on hover */}
-          <div className="flex flex-wrap gap-2 transition-all duration-300 translate-y-2 opacity-0 group-hover:translate-y-0 group-hover:opacity-100">
+        {/* Info overlay at bottom — hover only */}
+        <div className="absolute inset-x-0 bottom-0 p-5 flex flex-col gap-3 transition-all duration-300 translate-y-2 opacity-0 group-hover:translate-y-0 group-hover:opacity-100">
+          {/* Badges */}
+          <div className="flex flex-wrap gap-2">
             {project.tags.map((tag) => (
               <Badge
                 key={tag}
