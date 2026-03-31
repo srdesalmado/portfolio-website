@@ -26,7 +26,7 @@ export default function ProjectCard({ project }: { project: Project }) {
           </div>
         )}
 
-        {/* Scrim + info — visible only on hover */}
+        {/* Scrim — hover only */}
         <div className="absolute inset-0 transition-opacity duration-300 opacity-0 group-hover:opacity-100">
           <div
             className="absolute inset-0"
@@ -37,25 +37,25 @@ export default function ProjectCard({ project }: { project: Project }) {
           <div className="absolute inset-0" style={{ backgroundColor: "rgba(0,0,0,0.18)" }} />
         </div>
 
-        {/* Year — top right, always visible */}
-        <div className="absolute top-4 right-4">
-          <span className="text-[14px]" style={{ color: "rgba(255,255,255,0.5)" }}>{project.year}</span>
+        {/* Top row: badges left, year right — hover only */}
+        <div className="absolute inset-x-0 top-0 p-4 flex items-start justify-between gap-2 transition-all duration-300 -translate-y-1 opacity-0 group-hover:translate-y-0 group-hover:opacity-100">
+          <div className="flex flex-wrap gap-2">
+            {project.tags.map((tag) => (
+              <Badge
+                key={tag}
+                variant="outline"
+                className="border-white/20 text-white/80 bg-white/10 backdrop-blur-sm"
+              >
+                {tag}
+              </Badge>
+            ))}
+          </div>
+          <span className="text-[14px] shrink-0" style={{ color: "rgba(255,255,255,0.5)" }}>
+            {project.year}
+          </span>
         </div>
 
-        {/* Badges — top left, hover only */}
-        <div className="absolute inset-x-0 top-0 p-4 flex flex-wrap gap-2 transition-all duration-300 -translate-y-1 opacity-0 group-hover:translate-y-0 group-hover:opacity-100">
-          {project.tags.map((tag) => (
-            <Badge
-              key={tag}
-              variant="outline"
-              className="border-white/20 text-white/80 bg-white/10 backdrop-blur-sm"
-            >
-              {tag}
-            </Badge>
-          ))}
-        </div>
-
-        {/* Info overlay at bottom — hover only */}
+        {/* Bottom: title + description — hover only */}
         <div className="absolute inset-x-0 bottom-0 p-5 flex flex-col gap-2 transition-all duration-300 translate-y-2 opacity-0 group-hover:translate-y-0 group-hover:opacity-100">
           <h3
             className="font-semibold text-[18px] leading-snug"
@@ -63,7 +63,6 @@ export default function ProjectCard({ project }: { project: Project }) {
           >
             {project.title}
           </h3>
-          {/* Description */}
           <p
             className="text-[13px] leading-snug line-clamp-2"
             style={{ color: "rgba(255,255,255,0.6)" }}
