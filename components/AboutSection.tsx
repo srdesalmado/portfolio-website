@@ -45,7 +45,7 @@ export default function AboutSection() {
                 {t.label}
               </span>
               <h2
-                className="text-3xl md:text-[2.5rem] font-semibold leading-[1.1] whitespace-pre-line"
+                className="text-[36px] md:text-[56px] font-semibold leading-[1.1] whitespace-pre-line"
                 style={{ color: "#f0f0f0", letterSpacing: "-0.025em" }}
               >
                 {t.heading}

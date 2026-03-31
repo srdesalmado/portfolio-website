@@ -23,7 +23,7 @@ export default function FeaturedWork() {
           style={{ borderColor: "var(--border-color)" }}
         >
           <h2
-            className="text-3xl md:text-[2.5rem] font-semibold"
+            className="text-[36px] md:text-[56px] font-semibold"
             style={{ color: "var(--text-primary)", letterSpacing: "-0.025em" }}
           >
             {t.heading}

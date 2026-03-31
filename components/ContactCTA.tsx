@@ -27,7 +27,7 @@ export default function ContactCTA() {
               {t.label}
             </span>
             <h2
-              className="text-[clamp(2rem,5vw,4rem)] font-semibold leading-[1.05]"
+              className="text-[36px] md:text-[56px] font-semibold leading-[1.05]"
               style={{ color: "#f0f0f0", letterSpacing: "-0.03em" }}
             >
               {t.heading}
