@@ -18,7 +18,7 @@ export default function ProcessSection() {
           transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
           className="flex flex-col gap-2 mb-20"
         >
-          <span className="text-[11px] uppercase tracking-[0.18em] font-medium" style={{ color: "rgba(168,85,247,0.7)" }}>
+          <span className="text-[14px] uppercase tracking-[0.18em] font-medium" style={{ color: "rgba(168,85,247,0.7)" }}>
             {t.label}
           </span>
           <h2
@@ -40,14 +40,14 @@ export default function ProcessSection() {
               className="flex flex-col gap-6"
             >
               <div className="flex items-center gap-4">
-                <span className="font-mono text-[11px] tracking-widest" style={{ color: "rgba(168,85,247,0.5)" }}>
+                <span className="font-mono text-[14px] tracking-widest" style={{ color: "rgba(168,85,247,0.5)" }}>
                   {step.number}
                 </span>
                 <div className="h-px flex-1" style={{ backgroundColor: "var(--border-color)" }} />
               </div>
               <div className="flex flex-col gap-3">
                 <h3 className="font-semibold text-base" style={{ color: "var(--text-primary)" }}>{step.title}</h3>
-                <p className="text-sm leading-[1.7]" style={{ color: "var(--text-muted)" }}>
+                <p className="text-[14px] leading-[1.7]" style={{ color: "var(--text-muted)" }}>
                   {step.description}
                 </p>
               </div>

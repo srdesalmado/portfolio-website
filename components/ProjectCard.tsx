@@ -13,7 +13,7 @@ export default function ProjectCard({ project }: { project: Project }) {
           style={{ aspectRatio: "4/3", backgroundColor: "var(--surface)" }}
         >
           <div className="absolute inset-0 flex items-center justify-center">
-            <span className="font-mono text-xs tracking-widest" style={{ color: "var(--border-color)" }}>
+            <span className="font-mono text-[14px] tracking-widest" style={{ color: "var(--border-color)" }}>
               {project.coverLabel}
             </span>
           </div>
@@ -39,14 +39,14 @@ export default function ProjectCard({ project }: { project: Project }) {
               {project.tags.map((tag) => (
                 <span
                   key={tag}
-                  className="text-[10px] tracking-wider uppercase"
+                  className="text-[14px] tracking-wider uppercase"
                   style={{ color: "var(--text-muted)" }}
                 >
                   {tag}
                 </span>
               ))}
             </div>
-            <span className="font-mono text-[10px]" style={{ color: "var(--text-muted)" }}>
+            <span className="font-mono text-[14px]" style={{ color: "var(--text-muted)" }}>
               {project.year}
             </span>
           </div>
@@ -61,7 +61,7 @@ export default function ProjectCard({ project }: { project: Project }) {
 
           {/* Description */}
           <p
-            className="text-[13px] leading-relaxed line-clamp-2"
+            className="text-[14px] leading-relaxed line-clamp-2"
             style={{ color: "var(--text-muted)" }}
           >
             {project.description}

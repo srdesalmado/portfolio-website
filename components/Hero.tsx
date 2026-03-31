@@ -51,15 +51,15 @@ export default function Hero() {
         />
       </div>
 
-      {/* Content — centered */}
-      <div className="absolute inset-0 z-[3] flex items-center justify-center">
-        <div className="max-w-[1100px] w-full mx-auto px-8 flex flex-col items-center text-center gap-8">
+      {/* Content — left-aligned, vertically centered */}
+      <div className="absolute inset-0 z-[3] flex items-center">
+        <div className="max-w-[1100px] w-full mx-auto px-8 flex flex-col gap-8">
           <motion.p
             custom={0}
             initial="hidden"
             animate="visible"
             variants={fadeUp}
-            className="text-[11px] tracking-[0.2em] uppercase font-medium"
+            className="text-[14px] tracking-[0.2em] uppercase font-medium"
             style={{ color: "rgba(255,255,255,0.35)" }}
           >
             {t.greeting}
@@ -70,22 +70,12 @@ export default function Hero() {
             initial="hidden"
             animate="visible"
             variants={fadeUp}
-            className="text-[clamp(3rem,7vw,6rem)] font-semibold leading-[1.04]"
+            className="text-[clamp(2.5rem,6vw,5.5rem)] font-semibold leading-[1.08] max-w-4xl"
             style={{ color: "#f0f0f0", letterSpacing: "-0.03em" }}
           >
-            {lang === "en" ? (
-              <>
-                I&apos;m Carlos Henrique,<br />
-                a Multidisciplinary<br />
-                Product Designer.
-              </>
-            ) : (
-              <>
-                Sou Carlos Henrique,<br />
-                Designer de Produto<br />
-                Multidisciplinar.
-              </>
-            )}
+            {lang === "en"
+              ? "Hi, I'm Carlos Henrique, a Multidisciplinary Product Designer."
+              : "Oi, sou Carlos Henrique, Designer de Produto Multidisciplinar."}
           </motion.h1>
 
           <motion.div
@@ -93,10 +83,10 @@ export default function Hero() {
             initial="hidden"
             animate="visible"
             variants={fadeUp}
-            className="flex flex-col gap-5 items-center"
+            className="flex flex-col gap-5 max-w-sm"
           >
             <p
-              className="text-[15px] leading-[1.7] max-w-md"
+              className="text-[14px] leading-[1.7]"
               style={{ color: "rgba(255,255,255,0.5)", letterSpacing: "-0.005em" }}
             >
               {t.description}
@@ -105,14 +95,14 @@ export default function Hero() {
             <div className="flex gap-6 items-center">
               <a
                 href="#work"
-                className="text-sm font-medium border-b pb-px transition-colors duration-200 hover:text-purple-400 hover:border-purple-400"
+                className="text-[14px] font-medium border-b pb-px transition-colors duration-200 hover:text-purple-400 hover:border-purple-400"
                 style={{ color: "#f0f0f0", borderColor: "rgba(255,255,255,0.3)" }}
               >
                 {t.cta_work}
               </a>
               <a
                 href="#about"
-                className="text-sm transition-colors duration-200 hover:text-purple-400"
+                className="text-[14px] transition-colors duration-200 hover:text-purple-400"
                 style={{ color: "rgba(255,255,255,0.35)" }}
               >
                 {t.cta_about} →

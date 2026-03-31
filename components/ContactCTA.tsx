@@ -23,7 +23,7 @@ export default function ContactCTA() {
         >
           {/* Big heading */}
           <div className="flex flex-col gap-3 max-w-2xl">
-            <span className="text-[11px] uppercase tracking-[0.18em] font-medium" style={{ color: "rgba(168,85,247,0.7)" }}>
+            <span className="text-[14px] uppercase tracking-[0.18em] font-medium" style={{ color: "rgba(168,85,247,0.7)" }}>
               {t.label}
             </span>
             <h2
@@ -36,14 +36,14 @@ export default function ContactCTA() {
 
           {/* Bottom row */}
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 pt-8 border-t" style={{ borderColor: "#1f1f1f" }}>
-            <p className="text-[15px] leading-relaxed max-w-sm" style={{ color: "#666666" }}>
+            <p className="text-[14px] leading-relaxed max-w-sm" style={{ color: "#666666" }}>
               {t.subheading}
             </p>
 
             <div className="flex flex-col gap-3 items-start md:items-end">
               <a
                 href="mailto:carlos@studiohorizon.com.br"
-                className="text-sm font-medium transition-colors duration-200 border-b pb-px hover:text-purple-400 hover:border-purple-400"
+                className="text-[14px] font-medium transition-colors duration-200 border-b pb-px hover:text-purple-400 hover:border-purple-400"
                 style={{ color: "#f0f0f0", borderColor: "#333333" }}
               >
                 {t.cta}
@@ -51,7 +51,7 @@ export default function ContactCTA() {
               <div className="flex items-center gap-4">
                 <a
                   href="tel:+5548936186883"
-                  className="text-xs transition-colors duration-200"
+                  className="text-[14px] transition-colors duration-200"
                   style={{ color: "#444444" }}
                   onMouseEnter={(e) => (e.currentTarget.style.color = "#888888")}
                   onMouseLeave={(e) => (e.currentTarget.style.color = "#444444")}
@@ -61,7 +61,7 @@ export default function ContactCTA() {
                 <span style={{ color: "#2a2a2a" }}>·</span>
                 <a
                   href="mailto:carlos@studiohorizon.com.br"
-                  className="text-xs transition-colors duration-200"
+                  className="text-[14px] transition-colors duration-200"
                   style={{ color: "#444444" }}
                   onMouseEnter={(e) => (e.currentTarget.style.color = "#888888")}
                   onMouseLeave={(e) => (e.currentTarget.style.color = "#444444")}

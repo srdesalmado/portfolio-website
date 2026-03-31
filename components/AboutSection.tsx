@@ -28,7 +28,7 @@ export default function AboutSection() {
               className="aspect-[4/5] w-full max-w-xs rounded-2xl overflow-hidden flex items-center justify-center"
               style={{ backgroundColor: "#1a1a1a" }}
             >
-              <span className="font-mono text-xs" style={{ color: "#333333" }}>photo</span>
+              <span className="font-mono text-[14px]" style={{ color: "#333333" }}>photo</span>
             </div>
           </motion.div>
 
@@ -41,7 +41,7 @@ export default function AboutSection() {
             className="flex flex-col gap-6 md:pt-4"
           >
             <div className="flex flex-col gap-3">
-              <span className="text-[11px] uppercase tracking-[0.18em] font-medium" style={{ color: "rgba(147,51,234,0.8)" }}>
+              <span className="text-[14px] uppercase tracking-[0.18em] font-medium" style={{ color: "rgba(147,51,234,0.8)" }}>
                 {t.label}
               </span>
               <h2
@@ -53,7 +53,7 @@ export default function AboutSection() {
             </div>
 
             <div
-              className="flex flex-col gap-4 text-[15px] leading-[1.7]"
+              className="flex flex-col gap-4 text-[14px] leading-[1.7]"
               style={{ color: "#888888", letterSpacing: "-0.005em" }}
             >
               <p>{t.p1}</p>
