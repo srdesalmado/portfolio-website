@@ -1,6 +1,7 @@
 "use client"
 
 import Link from "next/link"
+import { Badge } from "@/components/ui/badge"
 import type { Project } from "@/lib/projects"
 
 export default function ProjectCard({ project }: { project: Project }) {
@@ -17,39 +18,32 @@ export default function ProjectCard({ project }: { project: Project }) {
           </span>
         </div>
 
-        {/* Dark scrim — always slightly present, deepens on hover */}
+        {/* Base scrim — always present at bottom */}
         <div
-          className="absolute inset-0 transition-opacity duration-400"
+          className="absolute inset-0"
           style={{
             background: "linear-gradient(to top, rgba(0,0,0,0.72) 0%, rgba(0,0,0,0.18) 50%, transparent 100%)",
-            opacity: 0.6,
           }}
         />
+
+        {/* Extra overlay on hover */}
         <div
-          className="absolute inset-0 transition-opacity duration-400 opacity-0 group-hover:opacity-100"
+          className="absolute inset-0 transition-opacity duration-300 opacity-0 group-hover:opacity-100"
           style={{ backgroundColor: "rgba(0,0,0,0.38)" }}
         />
 
-        {/* Info — slides up on hover */}
-        <div className="absolute inset-x-0 bottom-0 p-6 flex flex-col gap-3">
-          {/* Tags */}
-          <div
-            className="flex flex-wrap gap-2 transition-all duration-400 translate-y-2 opacity-0 group-hover:translate-y-0 group-hover:opacity-100"
-          >
+        {/* Info overlay at bottom */}
+        <div className="absolute inset-x-0 bottom-0 p-5 flex flex-col gap-3">
+          {/* Badges — slide up on hover */}
+          <div className="flex flex-wrap gap-2 transition-all duration-300 translate-y-2 opacity-0 group-hover:translate-y-0 group-hover:opacity-100">
             {project.tags.map((tag) => (
-              <span
+              <Badge
                 key={tag}
-                className="text-[14px] font-medium px-3 py-1"
-                style={{
-                  color: "rgba(255,255,255,0.9)",
-                  backgroundColor: "rgba(255,255,255,0.12)",
-                  borderRadius: 500,
-                  backdropFilter: "blur(8px)",
-                  border: "1px solid rgba(255,255,255,0.14)",
-                }}
+                variant="outline"
+                className="border-white/20 text-white/80 bg-white/10 backdrop-blur-sm hover:bg-white/20"
               >
                 {tag}
-              </span>
+              </Badge>
             ))}
           </div>
 
@@ -62,8 +56,8 @@ export default function ProjectCard({ project }: { project: Project }) {
               {project.title}
             </h3>
             <span
-              className="font-mono text-[14px] shrink-0"
-              style={{ color: "rgba(255,255,255,0.5)" }}
+              className="font-mono text-[14px] shrink-0 pb-0.5"
+              style={{ color: "rgba(255,255,255,0.4)" }}
             >
               {project.year}
             </span>
