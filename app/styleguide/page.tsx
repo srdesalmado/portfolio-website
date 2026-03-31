@@ -249,7 +249,7 @@ export default function StyleguidePage() {
               sample: "carlos.psd / EN · PT",
               size: "14px",
               lh: "1",
-              weight: "400",
+              weight: "500",
               tracking: "0",
               cls: "font-mono text-[14px]",
               ls: "0",

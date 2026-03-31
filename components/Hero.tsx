@@ -74,8 +74,8 @@ export default function Hero() {
             style={{ color: "var(--dark-text-primary)", letterSpacing: "-0.03em" }}
           >
             {lang === "en"
-              ? "I'm Carlos Henrique, a Multidisciplinary Product Designer."
-              : "Sou Carlos Henrique, Designer de Produto Multidisciplinar."}
+              ? "I'm Carlos, a Multidisciplinary Product Designer."
+              : "Sou Carlos, Designer de Produto Multidisciplinar."}
           </motion.h1>
 
           <motion.div
