@@ -8,11 +8,16 @@ import { translations } from "@/lib/translations"
 
 export default function Navbar() {
   const [active, setActive] = useState("")
+  const [scrolled, setScrolled] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
   const pathname = usePathname()
+  const isHome = pathname === "/"
   const { lang, setLang } = useLang()
   const t = translations[lang].nav
   const tContact = translations[lang].contact
+
+  // isScrolled: transparent only on homepage before scrolling
+  const isScrolled = !isHome || scrolled
 
   const navLinks = [
     { label: t.work, href: "/#work", id: "work" },
@@ -21,8 +26,9 @@ export default function Navbar() {
   ]
 
   useEffect(() => {
-    if (pathname !== "/") return
     const handleScroll = () => {
+      setScrolled(window.scrollY > 20)
+      if (pathname !== "/") return
       const sections = ["work", "about", "contact"]
       for (const id of sections) {
         const el = document.getElementById(id)
@@ -59,9 +65,9 @@ export default function Navbar() {
       <nav
         className="fixed top-0 left-0 right-0 z-50 transition-all duration-300"
         style={{
-          backgroundColor: "rgba(250,250,250,0.95)",
-          borderBottom: "1px solid var(--border-color)",
-          backdropFilter: "blur(12px)",
+          backgroundColor: isScrolled ? "rgba(250,250,250,0.95)" : "transparent",
+          borderBottom: isScrolled ? "1px solid var(--border-color)" : "1px solid transparent",
+          backdropFilter: isScrolled ? "blur(12px)" : "none",
         }}
       >
         <div className="max-w-[1100px] mx-auto px-6 md:px-8 h-14 flex items-center justify-between">
@@ -69,7 +75,9 @@ export default function Navbar() {
           {/* Logo */}
           <Link
             href="/"
-            className="font-mono text-[14px] font-medium text-[color:var(--text-primary)] transition-colors duration-200 hover:text-purple-600"
+            className={`font-mono text-[14px] font-medium transition-colors duration-300 hover:text-purple-500 ${
+              isScrolled ? "text-[color:var(--text-primary)]" : "text-white/90"
+            }`}
           >
             carlos.psd
           </Link>
@@ -78,6 +86,22 @@ export default function Navbar() {
           <div className="hidden md:flex items-center gap-1">
             {navLinks.map((link) => {
               const isActive = active === link.id
+              if (isScrolled) {
+                return (
+                  <a
+                    key={link.id}
+                    href={link.href}
+                    onClick={(e) => handleNavClick(e, link.href)}
+                    className={`text-[14px] px-3 py-1.5 rounded-full transition-all duration-200 ${
+                      isActive
+                        ? "bg-black/[0.06] text-[color:var(--text-primary)]"
+                        : "text-[color:var(--text-muted)] hover:text-[color:var(--text-secondary)] hover:bg-black/[0.04]"
+                    }`}
+                  >
+                    {link.label}
+                  </a>
+                )
+              }
               return (
                 <a
                   key={link.id}
@@ -85,8 +109,8 @@ export default function Navbar() {
                   onClick={(e) => handleNavClick(e, link.href)}
                   className={`text-[14px] px-3 py-1.5 rounded-full transition-all duration-200 ${
                     isActive
-                      ? "bg-black/[0.06] text-[color:var(--text-primary)]"
-                      : "text-[color:var(--text-muted)] hover:text-[color:var(--text-secondary)] hover:bg-black/[0.04]"
+                      ? "bg-white/10 text-white/95"
+                      : "text-white/50 hover:text-white/80 hover:bg-white/5"
                   }`}
                 >
                   {link.label}
@@ -100,21 +124,21 @@ export default function Navbar() {
             <div className="flex items-center gap-0 text-[13px] font-mono">
               <button
                 onClick={() => setLang("en")}
-                className={`px-2 py-1 rounded-full transition-colors duration-200 ${
-                  lang === "en"
-                    ? "text-[color:var(--text-primary)]"
-                    : "text-[color:var(--text-muted)] hover:text-[color:var(--text-secondary)]"
+                className={`px-2 py-1 rounded-full transition-colors duration-300 ${
+                  isScrolled
+                    ? lang === "en" ? "text-[color:var(--text-primary)]" : "text-[color:var(--text-muted)] hover:text-[color:var(--text-secondary)]"
+                    : lang === "en" ? "text-white/90" : "text-white/40 hover:text-white/70"
                 }`}
               >
                 EN
               </button>
-              <span className="text-[color:var(--border-color)]">·</span>
+              <span className={isScrolled ? "text-[color:var(--border-color)]" : "text-white/20"}>·</span>
               <button
                 onClick={() => setLang("pt")}
-                className={`px-2 py-1 rounded-full transition-colors duration-200 ${
-                  lang === "pt"
-                    ? "text-[color:var(--text-primary)]"
-                    : "text-[color:var(--text-muted)] hover:text-[color:var(--text-secondary)]"
+                className={`px-2 py-1 rounded-full transition-colors duration-300 ${
+                  isScrolled
+                    ? lang === "pt" ? "text-[color:var(--text-primary)]" : "text-[color:var(--text-muted)] hover:text-[color:var(--text-secondary)]"
+                    : lang === "pt" ? "text-white/90" : "text-white/40 hover:text-white/70"
                 }`}
               >
                 PT
@@ -124,8 +148,11 @@ export default function Navbar() {
             <a
               href="/#contact"
               onClick={(e) => handleNavClick(e, "/#contact")}
-              className="text-[13px] font-medium px-4 py-1.5 rounded-full transition-opacity duration-200 hover:opacity-80"
-              style={{ backgroundColor: "var(--text-primary)", color: "var(--bg)" }}
+              className="text-[13px] font-medium px-4 py-1.5 rounded-full transition-all duration-300 hover:opacity-80"
+              style={{
+                backgroundColor: isScrolled ? "var(--text-primary)" : "rgba(255,255,255,0.95)",
+                color: isScrolled ? "var(--bg)" : "#0a0a0a",
+              }}
             >
               {tContact.cta}
             </a>
@@ -137,18 +164,20 @@ export default function Navbar() {
             onClick={() => setMenuOpen((v) => !v)}
             aria-label="Toggle menu"
           >
-            <span
-              className="block w-5 h-[1.5px] rounded bg-[color:var(--text-primary)] transition-all duration-300 origin-center"
-              style={{ transform: menuOpen ? "translateY(6.5px) rotate(45deg)" : "none" }}
-            />
-            <span
-              className="block w-5 h-[1.5px] rounded bg-[color:var(--text-primary)] transition-all duration-300"
-              style={{ opacity: menuOpen ? 0 : 1 }}
-            />
-            <span
-              className="block w-5 h-[1.5px] rounded bg-[color:var(--text-primary)] transition-all duration-300 origin-center"
-              style={{ transform: menuOpen ? "translateY(-6.5px) rotate(-45deg)" : "none" }}
-            />
+            {[
+              { transform: menuOpen ? "translateY(6.5px) rotate(45deg)" : "none" },
+              { opacity: menuOpen ? 0 : 1 },
+              { transform: menuOpen ? "translateY(-6.5px) rotate(-45deg)" : "none" },
+            ].map((s, i) => (
+              <span
+                key={i}
+                className="block w-5 h-[1.5px] rounded transition-all duration-300 origin-center"
+                style={{
+                  backgroundColor: isScrolled ? "var(--text-primary)" : "rgba(255,255,255,0.9)",
+                  ...s,
+                }}
+              />
+            ))}
           </button>
         </div>
       </nav>
@@ -157,7 +186,10 @@ export default function Navbar() {
       {menuOpen && (
         <div
           className="fixed inset-0 z-40 flex flex-col pt-14 md:hidden"
-          style={{ backgroundColor: "rgba(250,250,250,0.97)", backdropFilter: "blur(16px)" }}
+          style={{
+            backgroundColor: isScrolled ? "rgba(250,250,250,0.97)" : "rgba(8,8,8,0.97)",
+            backdropFilter: "blur(16px)",
+          }}
         >
           <div className="flex flex-col px-6 py-10 gap-8">
             {navLinks.map((link) => (
@@ -165,7 +197,9 @@ export default function Navbar() {
                 key={link.id}
                 href={link.href}
                 onClick={(e) => handleNavClick(e, link.href)}
-                className="text-[24px] font-semibold text-[color:var(--text-primary)] transition-colors duration-200 hover:text-purple-600"
+                className={`text-[24px] font-semibold transition-colors duration-200 hover:text-purple-500 ${
+                  isScrolled ? "text-[color:var(--text-primary)]" : "text-white/90"
+                }`}
                 style={{ letterSpacing: "-0.02em" }}
               >
                 {link.label}
@@ -176,32 +210,35 @@ export default function Navbar() {
               href="/#contact"
               onClick={(e) => handleNavClick(e, "/#contact")}
               className="self-start text-[15px] font-medium px-6 py-3 rounded-full transition-opacity duration-200 hover:opacity-80"
-              style={{ backgroundColor: "var(--text-primary)", color: "var(--bg)" }}
+              style={{
+                backgroundColor: isScrolled ? "var(--text-primary)" : "rgba(255,255,255,0.95)",
+                color: isScrolled ? "var(--bg)" : "#0a0a0a",
+              }}
             >
               {tContact.cta}
             </a>
 
             <div
               className="flex items-center gap-3 pt-4 border-t"
-              style={{ borderColor: "var(--border-color)" }}
+              style={{ borderColor: isScrolled ? "var(--border-color)" : "rgba(255,255,255,0.1)" }}
             >
               <button
                 onClick={() => setLang("en")}
                 className={`text-[14px] font-mono transition-colors ${
-                  lang === "en" ? "text-[color:var(--text-primary)]" : "text-[color:var(--text-muted)]"
+                  isScrolled
+                    ? lang === "en" ? "text-[color:var(--text-primary)]" : "text-[color:var(--text-muted)]"
+                    : lang === "en" ? "text-white/90" : "text-white/35"
                 }`}
-              >
-                EN
-              </button>
-              <span className="text-[color:var(--border-color)]">·</span>
+              >EN</button>
+              <span style={{ color: isScrolled ? "var(--border-color)" : "rgba(255,255,255,0.2)" }}>·</span>
               <button
                 onClick={() => setLang("pt")}
                 className={`text-[14px] font-mono transition-colors ${
-                  lang === "pt" ? "text-[color:var(--text-primary)]" : "text-[color:var(--text-muted)]"
+                  isScrolled
+                    ? lang === "pt" ? "text-[color:var(--text-primary)]" : "text-[color:var(--text-muted)]"
+                    : lang === "pt" ? "text-white/90" : "text-white/35"
                 }`}
-              >
-                PT
-              </button>
+              >PT</button>
             </div>
           </div>
         </div>
