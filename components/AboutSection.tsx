@@ -1,10 +1,19 @@
 "use client"
 
 import { motion } from "framer-motion"
+import { useLang } from "@/context/LanguageContext"
+import { translations } from "@/lib/translations"
 
 export default function AboutSection() {
+  const { lang } = useLang()
+  const t = translations[lang].about
+
   return (
-    <section id="about" className="py-32 md:py-40" style={{ borderTop: "1px solid var(--border-color)" }}>
+    <section
+      id="about"
+      className="py-24 md:py-32"
+      style={{ backgroundColor: "var(--bg)", borderTop: "1px solid var(--border-color)" }}
+    >
       <div className="max-w-[1100px] mx-auto px-8">
         <div className="grid grid-cols-1 md:grid-cols-[1fr_1.4fr] gap-16 items-start">
 
@@ -19,7 +28,7 @@ export default function AboutSection() {
               className="aspect-[4/5] w-full max-w-xs rounded-2xl overflow-hidden flex items-center justify-center"
               style={{ backgroundColor: "var(--surface)" }}
             >
-              <span className="font-mono text-sm" style={{ color: "var(--text-muted)" }}>photo</span>
+              <span className="font-mono text-xs" style={{ color: "var(--text-muted)" }}>photo</span>
             </div>
           </motion.div>
 
@@ -32,35 +41,30 @@ export default function AboutSection() {
             className="flex flex-col gap-6 md:pt-4"
           >
             <div className="flex flex-col gap-3">
-              <span className="text-xs uppercase tracking-widest font-medium" style={{ color: "rgba(168,85,247,0.8)" }}>
-                About
+              <span className="text-[11px] uppercase tracking-[0.18em] font-medium" style={{ color: "rgba(147,51,234,0.8)" }}>
+                {t.label}
               </span>
               <h2
-                className="text-3xl md:text-4xl font-semibold leading-tight"
-                style={{ color: "var(--text-primary)", letterSpacing: "-0.02em" }}
+                className="text-3xl md:text-[2.5rem] font-semibold leading-[1.1] whitespace-pre-line"
+                style={{ color: "var(--text-primary)", letterSpacing: "-0.025em" }}
               >
-                Design and code,<br />from concept to product.
+                {t.heading}
               </h2>
             </div>
 
-            <div className="flex flex-col gap-4 leading-relaxed" style={{ color: "var(--text-secondary)" }}>
+            <div
+              className="flex flex-col gap-4 text-[15px] leading-[1.7]"
+              style={{ color: "var(--text-secondary)", letterSpacing: "-0.005em" }}
+            >
+              <p>{t.p1}</p>
               <p>
-                I&apos;m a multidisciplinary designer living in Florianópolis,
-                Brazil. With previous experience in Branding, today my focus is
-                digital products — mainly UI.
-              </p>
-              <p>
-                I have been working with design for 4 years and during this
-                period I have carried out projects for brands such as{" "}
+                {t.p2}{" "}
                 <span style={{ color: "var(--text-primary)" }}>QuintoAndar</span>,{" "}
-                <span style={{ color: "var(--text-primary)" }}>Magazine Luiza</span> and{" "}
+                <span style={{ color: "var(--text-primary)" }}>Magazine Luiza</span>{" "}
+                {lang === "en" ? "and" : "e"}{" "}
                 <span style={{ color: "var(--text-primary)" }}>SPC Brasil</span>.
               </p>
-              <p>
-                Since I was a child, I have always been curious, organized and
-                self-taught. In my free time, I enjoy playing video games,
-                hiking, taking photographs, reading and listening to rock music.
-              </p>
+              <p>{t.p3}</p>
             </div>
           </motion.div>
 

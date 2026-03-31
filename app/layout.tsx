@@ -2,6 +2,7 @@ import type { Metadata } from "next"
 import { Geist, Geist_Mono, Montserrat } from "next/font/google"
 import "./globals.css"
 import Navbar from "@/components/Navbar"
+import { LanguageProvider } from "@/context/LanguageContext"
 import { cn } from "@/lib/utils";
 
 const montserrat = Montserrat({subsets:['latin'],variable:'--font-sans'});
@@ -32,9 +33,11 @@ export default function RootLayout({
       lang="en"
       className={cn("h-full", "antialiased", geistSans.variable, geistMono.variable, "font-sans", montserrat.variable)}
     >
-      <body className="min-h-full bg-[#09090b] text-zinc-50">
-        <Navbar />
-        {children}
+      <body className="min-h-full">
+        <LanguageProvider>
+          <Navbar />
+          {children}
+        </LanguageProvider>
       </body>
     </html>
   )

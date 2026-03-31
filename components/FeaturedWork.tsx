@@ -3,30 +3,35 @@
 import { motion } from "framer-motion"
 import ProjectCard from "@/components/ProjectCard"
 import { projects } from "@/lib/projects"
+import { useLang } from "@/context/LanguageContext"
+import { translations } from "@/lib/translations"
 
 export default function FeaturedWork() {
+  const { lang } = useLang()
+  const t = translations[lang].work
+
   return (
-    <section id="work" className="py-32 md:py-40" style={{ borderTop: "1px solid var(--border-color)" }}>
-      <div className="max-w-[1100px] mx-auto px-8">
+    <section id="work" style={{ backgroundColor: "var(--bg)", borderTop: "1px solid var(--border-color)" }}>
+      <div className="max-w-[1100px] mx-auto px-8 py-24 md:py-32">
+        {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 12 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-60px" }}
           transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-          className="flex flex-col gap-2 mb-20"
+          className="flex items-end justify-between mb-14 border-b pb-8"
+          style={{ borderColor: "var(--border-color)" }}
         >
           <h2
-            className="text-3xl md:text-4xl font-semibold"
-            style={{ color: "var(--text-primary)", letterSpacing: "-0.02em" }}
+            className="text-3xl md:text-[2.5rem] font-semibold"
+            style={{ color: "var(--text-primary)", letterSpacing: "-0.025em" }}
           >
-            Selected Work
+            {t.heading}
           </h2>
-          <p className="text-lg" style={{ color: "var(--text-secondary)" }}>
-            A few projects worth looking at.
-          </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+        {/* 2-col image-focused grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-12">
           {projects.map((project, i) => (
             <motion.div
               key={project.slug}

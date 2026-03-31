@@ -6,6 +6,7 @@ export type Project = {
   tags: string[]
   metrics: { value: string; label: string }[]
   coverLabel: string
+  year: string
 }
 
 export const projects: Project[] = [
@@ -22,6 +23,7 @@ export const projects: Project[] = [
       { value: "92%", label: "User satisfaction" },
     ],
     coverLabel: "AmFi",
+    year: "2024",
   },
   {
     slug: "design-system-b2b-saas",
@@ -36,6 +38,7 @@ export const projects: Project[] = [
       { value: "4", label: "Product teams" },
     ],
     coverLabel: "Design System",
+    year: "2024",
   },
   {
     slug: "dashboard-data-platform",
@@ -50,5 +53,6 @@ export const projects: Project[] = [
       { value: "98%", label: "Retention" },
     ],
     coverLabel: "Data Platform",
+    year: "2023",
   },
 ]

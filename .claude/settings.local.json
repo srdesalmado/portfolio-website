@@ -18,7 +18,10 @@
       "Bash(printf \"yes\\\\nno\\\\n\")",
       "Bash(echo \"EXIT:$?\")",
       "Bash(printf \"yes\\\\nyes\\\\n\")",
-      "Bash(echo \"DONE:$?\")"
+      "Bash(echo \"DONE:$?\")",
+      "WebFetch(domain:berrielbrands.com)",
+      "Bash(npx shadcn@latest add @react-bits/ColorBends-JS-CSS)",
+      "Bash(npx shadcn@latest add @react-bits/ColorBends-JS-CSS --overwrite)"
     ]
   }
 }

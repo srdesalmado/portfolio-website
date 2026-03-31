@@ -1,73 +1,75 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { Button } from "@/components/ui/button"
+import { useLang } from "@/context/LanguageContext"
+import { translations } from "@/lib/translations"
 
 export default function ContactCTA() {
+  const { lang } = useLang()
+  const t = translations[lang].contact
+
   return (
     <section
       id="contact"
-      className="py-32 md:py-40 relative overflow-hidden"
-      style={{ borderTop: "1px solid var(--border-color)" }}
+      style={{ backgroundColor: "#0f0f0f", borderTop: "1px solid #1a1a1a" }}
     >
-      {/* Subtle radial glow */}
-      <div
-        className="absolute inset-0 pointer-events-none"
-        style={{
-          background:
-            "radial-gradient(ellipse 70% 60% at 50% 100%, rgba(168,85,247,0.06) 0%, transparent 100%)",
-        }}
-      />
-
-      <div className="max-w-[1100px] mx-auto px-8 relative">
+      <div className="max-w-[1100px] mx-auto px-8 py-12 md:py-16">
         <motion.div
           initial={{ opacity: 0, y: 12 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-60px" }}
           transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-          className="flex flex-col items-center text-center gap-8 max-w-lg mx-auto"
+          className="flex flex-col gap-12"
         >
-          <div className="flex flex-col gap-4">
-            <span className="text-xs uppercase tracking-widest font-medium" style={{ color: "rgba(168,85,247,0.7)" }}>
-              Contact
+          {/* Big heading */}
+          <div className="flex flex-col gap-3 max-w-2xl">
+            <span className="text-[11px] uppercase tracking-[0.18em] font-medium" style={{ color: "rgba(168,85,247,0.7)" }}>
+              {t.label}
             </span>
             <h2
-              className="text-3xl md:text-4xl font-semibold"
-              style={{ color: "var(--text-primary)", letterSpacing: "-0.02em" }}
+              className="text-[clamp(2rem,5vw,4rem)] font-semibold leading-[1.05]"
+              style={{ color: "#f0f0f0", letterSpacing: "-0.03em" }}
             >
-              Let&apos;s build something together.
+              {t.heading}
             </h2>
-            <p style={{ color: "var(--text-secondary)" }}>
-              Open to freelance projects and senior positions.
-            </p>
           </div>
 
-          <a href="mailto:carlos@studiohorizon.com.br">
-            <Button className="bg-purple-600 hover:bg-purple-700 text-white rounded-lg px-8 h-11 text-sm font-medium transition-all duration-300 hover:shadow-[0_0_40px_rgba(147,51,234,0.25)]">
-              Get in touch
-            </Button>
-          </a>
+          {/* Bottom row */}
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 pt-8 border-t" style={{ borderColor: "#1f1f1f" }}>
+            <p className="text-[15px] leading-relaxed max-w-sm" style={{ color: "#666666" }}>
+              {t.subheading}
+            </p>
 
-          <div className="flex items-center gap-6">
-            <a
-              href="tel:+5548936186883"
-              className="text-sm transition-colors duration-200"
-              style={{ color: "var(--text-muted)" }}
-              onMouseEnter={(e) => (e.currentTarget.style.color = "var(--text-secondary)")}
-              onMouseLeave={(e) => (e.currentTarget.style.color = "var(--text-muted)")}
-            >
-              +55 (48) 9 3618-6883
-            </a>
-            <span style={{ color: "var(--border-color)" }}>·</span>
-            <a
-              href="mailto:carlos@studiohorizon.com.br"
-              className="text-sm transition-colors duration-200"
-              style={{ color: "var(--text-muted)" }}
-              onMouseEnter={(e) => (e.currentTarget.style.color = "var(--text-secondary)")}
-              onMouseLeave={(e) => (e.currentTarget.style.color = "var(--text-muted)")}
-            >
-              carlos@studiohorizon.com.br
-            </a>
+            <div className="flex flex-col gap-3 items-start md:items-end">
+              <a
+                href="mailto:carlos@studiohorizon.com.br"
+                className="text-sm font-medium transition-colors duration-200 border-b pb-px hover:text-purple-400 hover:border-purple-400"
+                style={{ color: "#f0f0f0", borderColor: "#333333" }}
+              >
+                {t.cta}
+              </a>
+              <div className="flex items-center gap-4">
+                <a
+                  href="tel:+5548936186883"
+                  className="text-xs transition-colors duration-200"
+                  style={{ color: "#444444" }}
+                  onMouseEnter={(e) => (e.currentTarget.style.color = "#888888")}
+                  onMouseLeave={(e) => (e.currentTarget.style.color = "#444444")}
+                >
+                  +55 (48) 9 3618-6883
+                </a>
+                <span style={{ color: "#2a2a2a" }}>·</span>
+                <a
+                  href="mailto:carlos@studiohorizon.com.br"
+                  className="text-xs transition-colors duration-200"
+                  style={{ color: "#444444" }}
+                  onMouseEnter={(e) => (e.currentTarget.style.color = "#888888")}
+                  onMouseLeave={(e) => (e.currentTarget.style.color = "#444444")}
+                >
+                  carlos@studiohorizon.com.br
+                </a>
+              </div>
+            </div>
           </div>
         </motion.div>
       </div>
