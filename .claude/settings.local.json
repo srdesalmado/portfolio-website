@@ -24,7 +24,8 @@
       "Bash(npx shadcn@latest add @react-bits/ColorBends-JS-CSS --overwrite)",
       "Bash(gh auth:*)",
       "Bash(ssh -T git@github.com)",
-      "WebFetch(domain:work.co)"
+      "WebFetch(domain:work.co)",
+      "Bash(npx plugins:*)"
     ]
   }
 }

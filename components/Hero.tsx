@@ -59,7 +59,7 @@ export default function Hero() {
             initial="hidden"
             animate="visible"
             variants={fadeUp}
-            className="text-[14px] tracking-[0.2em] uppercase font-medium"
+            className="text-[14px] tracking-[0.18em] uppercase font-medium"
             style={{ color: "rgba(255,255,255,0.35)" }}
           >
             {t.greeting}
@@ -87,7 +87,7 @@ export default function Hero() {
           >
             <p
               className="text-[16px] leading-[1.7]"
-              style={{ color: "rgba(255,255,255,0.5)", letterSpacing: "-0.005em" }}
+              style={{ color: "rgba(255,255,255,0.5)" }}
             >
               {t.description}
             </p>

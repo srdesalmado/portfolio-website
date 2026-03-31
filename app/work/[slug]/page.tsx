@@ -60,12 +60,12 @@ export default async function CaseStudyPage({
         <div className="max-w-[1200px] mx-auto px-8 h-11 flex items-center justify-between">
           <Link
             href="/"
-            className="text-xs uppercase tracking-widest transition-colors duration-200 hover:text-purple-600"
+            className="text-[14px] uppercase tracking-[0.18em] transition-colors duration-200 hover:text-purple-600"
             style={{ color: "var(--text-muted)" }}
           >
             ← Work
           </Link>
-          <span className="text-xs uppercase tracking-widest" style={{ color: "var(--text-muted)" }}>
+          <span className="text-[14px] uppercase tracking-[0.18em]" style={{ color: "var(--text-muted)" }}>
             {project.year}
           </span>
         </div>
@@ -79,7 +79,7 @@ export default async function CaseStudyPage({
           <div className="flex flex-col justify-between gap-8">
             <div className="flex gap-3 flex-wrap">
               {project.tags.map((tag) => (
-                <span key={tag} className="text-xs uppercase tracking-widest" style={{ color: "var(--text-muted)" }}>
+                <span key={tag} className="text-[14px] uppercase tracking-[0.18em]" style={{ color: "var(--text-muted)" }}>
                   {tag}
                 </span>
               ))}
@@ -108,7 +108,7 @@ export default async function CaseStudyPage({
                 { label: "Timeline", value: "Q1–Q2 2024" },
               ].map((item) => (
                 <div key={item.label} className="flex flex-col gap-1">
-                  <span className="text-xs uppercase tracking-widest" style={{ color: "var(--text-muted)", fontSize: 12 }}>
+                  <span className="text-[14px] uppercase tracking-[0.18em]" style={{ color: "var(--text-muted)" }}>
                     {item.label}
                   </span>
                   <span className="text-sm" style={{ color: "var(--text-secondary)", fontSize: 14 }}>
@@ -126,7 +126,7 @@ export default async function CaseStudyPage({
             className="w-full rounded-2xl overflow-hidden flex items-center justify-center"
             style={{ aspectRatio: "16/9", backgroundColor: "var(--surface)" }}
           >
-            <span className="text-sm font-mono" style={{ color: "var(--border-color)", fontSize: 13 }}>
+            <span className="text-sm font-mono" style={{ color: "var(--border-color)", fontSize: 14 }}>
               {project.coverLabel}
             </span>
           </div>
@@ -195,11 +195,11 @@ export default async function CaseStudyPage({
                   className="w-full rounded-xl overflow-hidden flex items-center justify-center"
                   style={{ aspectRatio: "16/9", backgroundColor: "var(--surface)" }}
                 >
-                  <span className="font-mono" style={{ color: "var(--border-color)", fontSize: 13 }}>
+                  <span className="font-mono" style={{ color: "var(--border-color)", fontSize: 14 }}>
                     {section.images[0].label}
                   </span>
                 </div>
-                <p className="text-center" style={{ color: "var(--text-muted)", fontSize: 13 }}>
+                <p className="text-center" style={{ color: "var(--text-muted)", fontSize: 14 }}>
                   {section.images[0].caption}
                 </p>
               </div>
@@ -211,11 +211,11 @@ export default async function CaseStudyPage({
                       className="w-full rounded-xl overflow-hidden flex items-center justify-center"
                       style={{ aspectRatio: "4/3", backgroundColor: "var(--surface)" }}
                     >
-                      <span className="font-mono" style={{ color: "var(--border-color)", fontSize: 13 }}>
+                      <span className="font-mono" style={{ color: "var(--border-color)", fontSize: 14 }}>
                         {img.label}
                       </span>
                     </div>
-                    <p style={{ color: "var(--text-muted)", fontSize: 13 }}>{img.caption}</p>
+                    <p style={{ color: "var(--text-muted)", fontSize: 14 }}>{img.caption}</p>
                   </div>
                 ))}
               </div>
@@ -235,12 +235,12 @@ export default async function CaseStudyPage({
                 className="py-10 flex flex-col gap-2 group"
                 style={{ borderRight: "1px solid var(--border-color)" }}
               >
-                <span className="uppercase tracking-widest" style={{ color: "var(--text-muted)", fontSize: 12 }}>
+                <span className="text-[14px] uppercase tracking-[0.18em]" style={{ color: "var(--text-muted)" }}>
                   ← Previous
                 </span>
                 <span
                   className="font-medium transition-colors duration-200 group-hover:text-purple-600"
-                  style={{ color: "var(--text-primary)", fontSize: 15 }}
+                  style={{ color: "var(--text-primary)", fontSize: 16 }}
                 >
                   {prev.title}
                 </span>
@@ -252,12 +252,12 @@ export default async function CaseStudyPage({
                 href={`/work/${next.slug}`}
                 className="py-10 flex flex-col gap-2 items-end group pl-8"
               >
-                <span className="uppercase tracking-widest" style={{ color: "var(--text-muted)", fontSize: 12 }}>
+                <span className="text-[14px] uppercase tracking-[0.18em]" style={{ color: "var(--text-muted)" }}>
                   Next →
                 </span>
                 <span
                   className="font-medium transition-colors duration-200 group-hover:text-purple-600 text-right"
-                  style={{ color: "var(--text-primary)", fontSize: 15 }}
+                  style={{ color: "var(--text-primary)", fontSize: 16 }}
                 >
                   {next.title}
                 </span>

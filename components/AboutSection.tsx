@@ -12,7 +12,7 @@ export default function AboutSection() {
     <section
       id="about"
       className="py-24 md:py-32"
-      style={{ backgroundColor: "#0f0f0f", borderTop: "1px solid #1a1a1a" }}
+      style={{ backgroundColor: "#0f0f0f", borderTop: "1px solid #2a2a2a" }}
     >
       <div className="max-w-[1100px] mx-auto px-8">
         <div className="grid grid-cols-1 md:grid-cols-[1fr_1.4fr] gap-16 items-start">
@@ -28,7 +28,7 @@ export default function AboutSection() {
               className="aspect-[4/5] w-full max-w-xs rounded-2xl overflow-hidden flex items-center justify-center"
               style={{ backgroundColor: "#1a1a1a" }}
             >
-              <span className="font-mono text-[14px]" style={{ color: "#333333" }}>photo</span>
+              <span className="font-mono text-[14px]" style={{ color: "#444444" }}>photo</span>
             </div>
           </motion.div>
 
@@ -54,7 +54,7 @@ export default function AboutSection() {
 
             <div
               className="flex flex-col gap-4 text-[16px] leading-[1.7]"
-              style={{ color: "#888888", letterSpacing: "-0.005em" }}
+              style={{ color: "#666666" }}
             >
               <p>{t.p1}</p>
               <p>

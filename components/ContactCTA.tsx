@@ -11,7 +11,7 @@ export default function ContactCTA() {
   return (
     <section
       id="contact"
-      style={{ backgroundColor: "#0f0f0f", borderTop: "1px solid #1a1a1a" }}
+      style={{ backgroundColor: "#0f0f0f", borderTop: "1px solid #2a2a2a" }}
     >
       <div className="max-w-[1100px] mx-auto px-8 py-12 md:py-16">
         <motion.div
@@ -35,7 +35,7 @@ export default function ContactCTA() {
           </div>
 
           {/* Bottom row */}
-          <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 pt-8 border-t" style={{ borderColor: "#1f1f1f" }}>
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 pt-8 border-t" style={{ borderColor: "#2a2a2a" }}>
             <p className="text-[16px] leading-relaxed max-w-sm" style={{ color: "#666666" }}>
               {t.subheading}
             </p>
@@ -44,7 +44,7 @@ export default function ContactCTA() {
               <a
                 href="mailto:carlos@studiohorizon.com.br"
                 className="text-[14px] font-medium transition-colors duration-200 border-b pb-px hover:text-purple-400 hover:border-purple-400"
-                style={{ color: "#f0f0f0", borderColor: "#333333" }}
+                style={{ color: "#f0f0f0", borderColor: "#2a2a2a" }}
               >
                 {t.cta}
               </a>
@@ -73,11 +73,11 @@ export default function ContactCTA() {
       <div
         className="max-w-[1100px] mx-auto px-8 pb-8 flex items-center justify-between"
       >
-        <span className="text-[14px] font-mono" style={{ color: "#222" }}>© {new Date().getFullYear()} carlos.psd</span>
+        <span className="text-[14px] font-mono" style={{ color: "#444444" }}>© {new Date().getFullYear()} carlos.psd</span>
         <a
           href="/styleguide"
           className="text-[14px] font-mono transition-colors duration-200 hover:text-purple-600"
-          style={{ color: "#222" }}
+          style={{ color: "#444444" }}
         >
           design system
         </a>
