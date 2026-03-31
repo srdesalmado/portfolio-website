@@ -5,7 +5,8 @@ import dynamic from "next/dynamic"
 import { useLang } from "@/context/LanguageContext"
 import { translations } from "@/lib/translations"
 
-const ColorBends = dynamic(() => import("@/components/ColorBends"), { ssr: false })
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const ColorBends = dynamic(() => import("@/components/ColorBends"), { ssr: false }) as any
 
 const fadeUp: Variants = {
   hidden: { opacity: 0, y: 20 },
