@@ -73,6 +73,19 @@ export default function ContactCTA() {
           </div>
         </motion.div>
       </div>
+      {/* Bottom bar */}
+      <div
+        className="max-w-[1100px] mx-auto px-8 pb-8 flex items-center justify-between"
+      >
+        <span className="text-[14px] font-mono" style={{ color: "#222" }}>© {new Date().getFullYear()} carlos.psd</span>
+        <a
+          href="/styleguide"
+          className="text-[14px] font-mono transition-colors duration-200 hover:text-purple-600"
+          style={{ color: "#222" }}
+        >
+          design system
+        </a>
+      </div>
     </section>
   )
 }
