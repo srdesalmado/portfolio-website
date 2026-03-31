@@ -11,12 +11,20 @@ export default function ProjectCard({ project }: { project: Project }) {
         className="relative w-full overflow-hidden"
         style={{ aspectRatio: "4/3", borderRadius: 12, backgroundColor: "var(--dark-surface)" }}
       >
-        {/* Placeholder — swap for <Image> when real photos are available */}
-        <div className="absolute inset-0 flex items-center justify-center">
-          <span className="font-mono text-[14px]" style={{ color: "var(--dark-border)" }}>
-            {project.coverLabel}
-          </span>
-        </div>
+        {/* Cover image or placeholder */}
+        {project.coverImage ? (
+          <img
+            src={project.coverImage}
+            alt={project.title}
+            className="absolute inset-0 w-full h-full object-cover"
+          />
+        ) : (
+          <div className="absolute inset-0 flex items-center justify-center">
+            <span className="font-mono text-[14px]" style={{ color: "var(--dark-border)" }}>
+              {project.coverLabel}
+            </span>
+          </div>
+        )}
 
         {/* Base scrim — always present at bottom */}
         <div

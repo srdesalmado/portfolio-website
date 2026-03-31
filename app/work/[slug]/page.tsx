@@ -137,9 +137,17 @@ export default async function CaseStudyPage({
             className="w-full rounded-2xl overflow-hidden flex items-center justify-center"
             style={{ aspectRatio: "16/9", backgroundColor: "var(--surface)" }}
           >
-            <span className="font-mono" style={{ color: "var(--border-color)", fontSize: 14 }}>
-              {project.coverLabel}
-            </span>
+            {project.coverImage ? (
+              <img
+                src={project.coverImage}
+                alt={project.title}
+                className="w-full h-full object-cover"
+              />
+            ) : (
+              <span className="font-mono" style={{ color: "var(--border-color)", fontSize: 14 }}>
+                {project.coverLabel}
+              </span>
+            )}
           </div>
         </div>
 
@@ -200,13 +208,19 @@ export default async function CaseStudyPage({
                   className="w-full rounded-xl overflow-hidden flex items-center justify-center"
                   style={{ aspectRatio: "16/9", backgroundColor: "var(--surface)" }}
                 >
-                  <span className="font-mono" style={{ color: "var(--border-color)", fontSize: 14 }}>
-                    {section.images[0].label}
-                  </span>
+                  {section.images[0].src ? (
+                    <img src={section.images[0].src} alt={section.images[0].label} className="w-full h-full object-cover" />
+                  ) : (
+                    <span className="font-mono" style={{ color: "var(--border-color)", fontSize: 14 }}>
+                      {section.images[0].label}
+                    </span>
+                  )}
                 </div>
-                <p className="text-center" style={{ color: "var(--text-muted)", fontSize: 14 }}>
-                  {section.images[0].caption}
-                </p>
+                {section.images[0].caption && (
+                  <p className="text-center" style={{ color: "var(--text-muted)", fontSize: 14 }}>
+                    {section.images[0].caption}
+                  </p>
+                )}
               </div>
             ) : (
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -216,11 +230,17 @@ export default async function CaseStudyPage({
                       className="w-full rounded-xl overflow-hidden flex items-center justify-center"
                       style={{ aspectRatio: "4/3", backgroundColor: "var(--surface)" }}
                     >
-                      <span className="font-mono" style={{ color: "var(--border-color)", fontSize: 14 }}>
-                        {img.label}
-                      </span>
+                      {img.src ? (
+                        <img src={img.src} alt={img.label} className="w-full h-full object-cover" />
+                      ) : (
+                        <span className="font-mono" style={{ color: "var(--border-color)", fontSize: 14 }}>
+                          {img.label}
+                        </span>
+                      )}
                     </div>
-                    <p style={{ color: "var(--text-muted)", fontSize: 14 }}>{img.caption}</p>
+                    {img.caption && (
+                      <p style={{ color: "var(--text-muted)", fontSize: 14 }}>{img.caption}</p>
+                    )}
                   </div>
                 ))}
               </div>
