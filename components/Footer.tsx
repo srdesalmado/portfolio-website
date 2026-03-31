@@ -1,9 +1,16 @@
 export default function Footer() {
   return (
-    <footer className="border-t border-zinc-800 py-6">
-      <div className="max-w-[1100px] mx-auto px-6 flex items-center justify-between">
-        <span className="text-zinc-600 text-sm">© 2025 carlos.psd</span>
-        <span className="text-zinc-600 text-sm">Made with intention</span>
+    <footer
+      className="py-6"
+      style={{ borderTop: "1px solid var(--dark-border)", backgroundColor: "var(--dark-section-bg)" }}
+    >
+      <div className="max-w-[1100px] mx-auto px-8 flex items-center justify-between">
+        <span className="text-[14px] font-mono" style={{ color: "var(--dark-text-muted)" }}>
+          © {new Date().getFullYear()} carlos.psd
+        </span>
+        <span className="text-[14px] font-mono" style={{ color: "var(--dark-text-muted)" }}>
+          Made with intention
+        </span>
       </div>
     </footer>
   )

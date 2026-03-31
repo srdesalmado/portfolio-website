@@ -91,6 +91,19 @@
   --text-primary: #0f0f0f;
   --text-secondary: #3d3d3d;
   --text-muted: #666666;
+
+  /* Dark section palette — intentional dark sections within the light design */
+  --dark-bg: #080808;
+  --dark-section-bg: #0f0f0f;
+  --dark-surface: #1a1a1a;
+  --dark-border: #2a2a2a;
+  --dark-text-primary: #f0f0f0;
+  --dark-text-secondary: #c4c4c4;
+  --dark-text-muted: #999999;
+
+  /* Accent */
+  --accent: #9333ea;        /* purple-600 — primary accent, light context */
+  --accent-on-dark: #a855f7; /* purple-500 — accent on dark context */
 }
 
 @layer base {

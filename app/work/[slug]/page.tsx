@@ -55,7 +55,7 @@ export default async function CaseStudyPage({
       {/* ─── Sub-nav ─── */}
       <div
         className="sticky top-14 z-40"
-        style={{ borderBottom: "1px solid var(--border-color)", backgroundColor: "rgba(250,250,250,0.94)", backdropFilter: "blur(12px)" }}
+        style={{ borderBottom: "1px solid var(--border-color)", backgroundColor: "rgba(250,250,250,0.92)", backdropFilter: "blur(12px)" }}
       >
         <div className="max-w-[1200px] mx-auto px-8 h-11 flex items-center justify-between">
           <Link
@@ -146,7 +146,7 @@ export default async function CaseStudyPage({
             >
               <span
                 className="font-semibold leading-none"
-                style={{ color: "rgb(147,51,234)", fontSize: "clamp(2rem,4vw,3rem)", letterSpacing: "-0.03em" }}
+                style={{ color: "var(--accent)", fontSize: "clamp(2rem,4vw,3rem)", letterSpacing: "-0.03em" }}
               >
                 {m.value}
               </span>
@@ -161,7 +161,7 @@ export default async function CaseStudyPage({
         <div className="py-14" style={{ borderBottom: "1px solid var(--border-color)" }}>
           <blockquote
             className="pl-6"
-            style={{ borderLeft: "2px solid rgb(147,51,234)" }}
+            style={{ borderLeft: "2px solid var(--accent)" }}
           >
             <p
               className="leading-relaxed italic"

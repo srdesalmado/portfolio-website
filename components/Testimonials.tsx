@@ -25,19 +25,28 @@ const testimonials = [
 
 export default function Testimonials() {
   return (
-    <section className="py-24 md:py-32 border-t border-zinc-800/60">
-      <div className="max-w-[1100px] mx-auto px-6">
+    <section
+      className="py-24 md:py-32"
+      style={{ backgroundColor: "var(--dark-section-bg)", borderTop: "1px solid var(--dark-border)" }}
+    >
+      <div className="max-w-[1100px] mx-auto px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.4, ease: "easeOut" }}
+          transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
           className="flex flex-col gap-2 mb-16"
         >
-          <span className="text-xs uppercase tracking-widest text-purple-500 font-medium">
+          <span
+            className="text-[14px] uppercase tracking-[0.18em] font-medium"
+            style={{ color: "rgba(168,85,247,0.7)" }}
+          >
             What people say
           </span>
-          <h2 className="text-3xl md:text-4xl font-semibold tracking-tight text-zinc-50">
+          <h2
+            className="text-[28px] md:text-[40px] font-semibold"
+            style={{ color: "var(--dark-text-primary)", letterSpacing: "-0.025em" }}
+          >
             From collaborators.
           </h2>
         </motion.div>
@@ -49,17 +58,29 @@ export default function Testimonials() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.4, delay: i * 0.1, ease: "easeOut" }}
-              className="bg-zinc-900/60 backdrop-blur-sm border border-zinc-800 rounded-2xl p-6 flex flex-col gap-4"
+              transition={{ duration: 0.7, delay: i * 0.08, ease: [0.16, 1, 0.3, 1] }}
+              className="flex flex-col gap-4 rounded-2xl p-6"
+              style={{
+                backgroundColor: "var(--dark-surface)",
+                border: "1px solid var(--dark-border)",
+              }}
             >
-              <p className="text-zinc-300 text-sm leading-relaxed italic flex-1">
+              <p
+                className="text-[14px] leading-relaxed italic flex-1"
+                style={{ color: "var(--dark-text-secondary)" }}
+              >
                 &ldquo;{t.quote}&rdquo;
               </p>
-              <div className="flex flex-col gap-0.5 pt-4 border-t border-zinc-800/60">
-                <span className="text-zinc-50 text-sm font-medium">
+              <div
+                className="flex flex-col gap-0.5 pt-4 border-t"
+                style={{ borderColor: "var(--dark-border)" }}
+              >
+                <span className="text-[14px] font-medium" style={{ color: "var(--dark-text-primary)" }}>
                   {t.name}
                 </span>
-                <span className="text-zinc-500 text-xs">{t.role}</span>
+                <span className="text-[14px] font-mono" style={{ color: "var(--dark-text-muted)" }}>
+                  {t.role}
+                </span>
               </div>
             </motion.div>
           ))}

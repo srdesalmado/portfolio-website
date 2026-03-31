@@ -48,7 +48,7 @@ export default function Navbar() {
 
   // On non-home pages, always treat as scrolled
   const isScrolled = !isHome || scrolled
-  const menuBg = isScrolled ? "rgba(250,250,250,0.97)" : "rgba(8,8,8,0.97)"
+  const menuBg = isScrolled ? "rgba(250,250,250,0.97)" : "rgba(8,8,8,0.97)" // derived from --bg / --dark-bg
 
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     setMenuOpen(false)
@@ -69,7 +69,7 @@ export default function Navbar() {
         className="fixed top-0 left-0 right-0 z-50 transition-all duration-300"
         style={{
           backgroundColor: isScrolled ? "rgba(250,250,250,0.92)" : "transparent",
-          borderBottom: isScrolled ? "1px solid #e5e5e5" : "1px solid transparent",
+          borderBottom: isScrolled ? "1px solid var(--border-color)" : "1px solid transparent",
           backdropFilter: isScrolled ? "blur(12px)" : "none",
         }}
       >

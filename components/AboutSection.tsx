@@ -12,7 +12,7 @@ export default function AboutSection() {
     <section
       id="about"
       className="py-24 md:py-32"
-      style={{ backgroundColor: "#0f0f0f", borderTop: "1px solid #2a2a2a" }}
+      style={{ backgroundColor: "var(--dark-section-bg)", borderTop: "1px solid var(--dark-border)" }}
     >
       <div className="max-w-[1100px] mx-auto px-8">
         <div className="grid grid-cols-1 md:grid-cols-[1fr_1.4fr] gap-16 items-start">
@@ -26,9 +26,9 @@ export default function AboutSection() {
           >
             <div
               className="aspect-[4/5] w-full max-w-xs rounded-2xl overflow-hidden flex items-center justify-center"
-              style={{ backgroundColor: "#1a1a1a" }}
+              style={{ backgroundColor: "var(--dark-surface)" }}
             >
-              <span className="font-mono text-[14px]" style={{ color: "#444444" }}>photo</span>
+              <span className="font-mono text-[14px]" style={{ color: "var(--dark-border)" }}>photo</span>
             </div>
           </motion.div>
 
@@ -41,12 +41,12 @@ export default function AboutSection() {
             className="flex flex-col gap-6 md:pt-4"
           >
             <div className="flex flex-col gap-3">
-              <span className="text-[14px] uppercase tracking-[0.18em] font-medium" style={{ color: "rgba(147,51,234,0.8)" }}>
+              <span className="text-[14px] uppercase tracking-[0.18em] font-medium" style={{ color: "rgba(168,85,247,0.8)" }}>
                 {t.label}
               </span>
               <h2
                 className="text-[28px] md:text-[40px] font-semibold leading-[1.1] whitespace-pre-line"
-                style={{ color: "#f0f0f0", letterSpacing: "-0.025em" }}
+                style={{ color: "var(--dark-text-primary)", letterSpacing: "-0.025em" }}
               >
                 {t.heading}
               </h2>
@@ -54,15 +54,15 @@ export default function AboutSection() {
 
             <div
               className="flex flex-col gap-4 text-[16px] leading-[1.7]"
-              style={{ color: "#999999" }}
+              style={{ color: "var(--dark-text-secondary)" }}
             >
               <p>{t.p1}</p>
               <p>
                 {t.p2}{" "}
-                <span style={{ color: "#f0f0f0" }}>QuintoAndar</span>,{" "}
-                <span style={{ color: "#f0f0f0" }}>Magazine Luiza</span>{" "}
+                <span style={{ color: "var(--dark-text-primary)" }}>QuintoAndar</span>,{" "}
+                <span style={{ color: "var(--dark-text-primary)" }}>Magazine Luiza</span>{" "}
                 {lang === "en" ? "and" : "e"}{" "}
-                <span style={{ color: "#f0f0f0" }}>SPC Brasil</span>.
+                <span style={{ color: "var(--dark-text-primary)" }}>SPC Brasil</span>.
               </p>
               <p>{t.p3}</p>
             </div>
