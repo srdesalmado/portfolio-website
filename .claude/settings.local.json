@@ -21,7 +21,9 @@
       "Bash(echo \"DONE:$?\")",
       "WebFetch(domain:berrielbrands.com)",
       "Bash(npx shadcn@latest add @react-bits/ColorBends-JS-CSS)",
-      "Bash(npx shadcn@latest add @react-bits/ColorBends-JS-CSS --overwrite)"
+      "Bash(npx shadcn@latest add @react-bits/ColorBends-JS-CSS --overwrite)",
+      "Bash(gh auth:*)",
+      "Bash(ssh -T git@github.com)"
     ]
   }
 }

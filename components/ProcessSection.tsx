@@ -9,7 +9,7 @@ export default function ProcessSection() {
   const t = translations[lang].process
 
   return (
-    <section style={{ backgroundColor: "#141414", borderTop: "1px solid #1f1f1f" }}>
+    <section style={{ backgroundColor: "var(--bg)", borderTop: "1px solid var(--border-color)" }}>
       <div className="max-w-[1100px] mx-auto px-8 py-24 md:py-32">
         <motion.div
           initial={{ opacity: 0, y: 12 }}
@@ -23,7 +23,7 @@ export default function ProcessSection() {
           </span>
           <h2
             className="text-3xl md:text-[2.5rem] font-semibold"
-            style={{ color: "#f0f0f0", letterSpacing: "-0.025em" }}
+            style={{ color: "var(--text-primary)", letterSpacing: "-0.025em" }}
           >
             {t.heading}
           </h2>
@@ -43,11 +43,11 @@ export default function ProcessSection() {
                 <span className="font-mono text-[11px] tracking-widest" style={{ color: "rgba(168,85,247,0.5)" }}>
                   {step.number}
                 </span>
-                <div className="h-px flex-1" style={{ backgroundColor: "#232323" }} />
+                <div className="h-px flex-1" style={{ backgroundColor: "var(--border-color)" }} />
               </div>
               <div className="flex flex-col gap-3">
-                <h3 className="font-semibold text-base" style={{ color: "#c8c8c8" }}>{step.title}</h3>
-                <p className="text-sm leading-[1.7]" style={{ color: "#666666" }}>
+                <h3 className="font-semibold text-base" style={{ color: "var(--text-primary)" }}>{step.title}</h3>
+                <p className="text-sm leading-[1.7]" style={{ color: "var(--text-muted)" }}>
                   {step.description}
                 </p>
               </div>

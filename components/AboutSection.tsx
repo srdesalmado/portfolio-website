@@ -12,7 +12,7 @@ export default function AboutSection() {
     <section
       id="about"
       className="py-24 md:py-32"
-      style={{ backgroundColor: "var(--bg)", borderTop: "1px solid var(--border-color)" }}
+      style={{ backgroundColor: "#0f0f0f", borderTop: "1px solid #1a1a1a" }}
     >
       <div className="max-w-[1100px] mx-auto px-8">
         <div className="grid grid-cols-1 md:grid-cols-[1fr_1.4fr] gap-16 items-start">
@@ -26,9 +26,9 @@ export default function AboutSection() {
           >
             <div
               className="aspect-[4/5] w-full max-w-xs rounded-2xl overflow-hidden flex items-center justify-center"
-              style={{ backgroundColor: "var(--surface)" }}
+              style={{ backgroundColor: "#1a1a1a" }}
             >
-              <span className="font-mono text-xs" style={{ color: "var(--text-muted)" }}>photo</span>
+              <span className="font-mono text-xs" style={{ color: "#333333" }}>photo</span>
             </div>
           </motion.div>
 
@@ -46,7 +46,7 @@ export default function AboutSection() {
               </span>
               <h2
                 className="text-3xl md:text-[2.5rem] font-semibold leading-[1.1] whitespace-pre-line"
-                style={{ color: "var(--text-primary)", letterSpacing: "-0.025em" }}
+                style={{ color: "#f0f0f0", letterSpacing: "-0.025em" }}
               >
                 {t.heading}
               </h2>
@@ -54,15 +54,15 @@ export default function AboutSection() {
 
             <div
               className="flex flex-col gap-4 text-[15px] leading-[1.7]"
-              style={{ color: "var(--text-secondary)", letterSpacing: "-0.005em" }}
+              style={{ color: "#888888", letterSpacing: "-0.005em" }}
             >
               <p>{t.p1}</p>
               <p>
                 {t.p2}{" "}
-                <span style={{ color: "var(--text-primary)" }}>QuintoAndar</span>,{" "}
-                <span style={{ color: "var(--text-primary)" }}>Magazine Luiza</span>{" "}
+                <span style={{ color: "#f0f0f0" }}>QuintoAndar</span>,{" "}
+                <span style={{ color: "#f0f0f0" }}>Magazine Luiza</span>{" "}
                 {lang === "en" ? "and" : "e"}{" "}
-                <span style={{ color: "var(--text-primary)" }}>SPC Brasil</span>.
+                <span style={{ color: "#f0f0f0" }}>SPC Brasil</span>.
               </p>
               <p>{t.p3}</p>
             </div>
