@@ -80,11 +80,12 @@ function ColorChip({
 
 /* ─── radius chip ─────────────────────────────────────── */
 function RadiusChip({ label, px }: { label: string; px: number }) {
+  const isFull = px >= 500
   return (
     <div className="flex flex-col gap-3 items-start">
       <div
         style={{
-          width: 64,
+          width: isFull ? 96 : 64,
           height: 64,
           borderRadius: px,
           backgroundColor: "var(--surface)",
@@ -93,7 +94,9 @@ function RadiusChip({ label, px }: { label: string; px: number }) {
       />
       <div className="flex flex-col gap-0.5">
         <span className="text-[14px]" style={{ color: "var(--text-primary)" }}>{label}</span>
-        <span className="text-[14px] font-mono" style={{ color: "var(--text-muted)" }}>{px}px</span>
+        <span className="text-[14px] font-mono" style={{ color: "var(--text-muted)" }}>
+          {isFull ? "500px" : `${px}px`}
+        </span>
       </div>
     </div>
   )
@@ -333,15 +336,11 @@ export default function StyleguidePage() {
         <section className="py-16">
           <SectionTitle>03 — Border Radius</SectionTitle>
           <div className="flex flex-wrap gap-10">
-            <RadiusChip label="none" px={0} />
-            <RadiusChip label="xs" px={4} />
-            <RadiusChip label="sm" px={6} />
+            <RadiusChip label="sm" px={4} />
             <RadiusChip label="md" px={8} />
-            <RadiusChip label="lg" px={10} />
-            <RadiusChip label="xl" px={12} />
-            <RadiusChip label="2xl" px={16} />
-            <RadiusChip label="3xl" px={20} />
-            <RadiusChip label="4xl" px={24} />
+            <RadiusChip label="lg" px={12} />
+            <RadiusChip label="xl" px={16} />
+            <RadiusChip label="full" px={500} />
           </div>
         </section>
 
