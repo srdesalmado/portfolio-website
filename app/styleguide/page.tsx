@@ -2,6 +2,7 @@
 
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
+import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from "@/components/ui/card"
 
 /* ─── helpers ─────────────────────────────────────────── */
 function Divider() {
@@ -248,7 +249,7 @@ export default function StyleguidePage() {
               sample: "carlos.psd / EN · PT",
               size: "14px",
               lh: "1",
-              weight: "400",
+              weight: "500",
               tracking: "0",
               cls: "font-mono text-[14px]",
               ls: "0",
@@ -378,20 +379,13 @@ export default function StyleguidePage() {
           {/* Buttons */}
           <div className="mb-14">
             <SubLabel>Button — variants</SubLabel>
-            <div className="flex flex-wrap gap-4 items-center mb-4">
+            <div className="flex flex-wrap gap-4 items-center">
               <Button variant="default">Default</Button>
               <Button variant="outline">Outline</Button>
               <Button variant="secondary">Secondary</Button>
               <Button variant="ghost">Ghost</Button>
               <Button variant="destructive">Destructive</Button>
               <Button variant="link">Link</Button>
-            </div>
-            <SubLabel>Button — sizes</SubLabel>
-            <div className="flex flex-wrap gap-4 items-center">
-              <Button size="xs">XS</Button>
-              <Button size="sm">Small</Button>
-              <Button size="default">Default</Button>
-              <Button size="lg">Large</Button>
             </div>
           </div>
 
@@ -409,69 +403,63 @@ export default function StyleguidePage() {
 
           {/* Navbar */}
           <div className="mb-14">
-            <SubLabel>Navbar — scrolled (light) state</SubLabel>
+            <SubLabel>Navbar</SubLabel>
             <div
-              className="flex items-center justify-between px-6 h-14 rounded-lg mb-4"
+              className="flex items-center justify-between px-6 md:px-8 h-14 rounded-lg overflow-hidden"
               style={{
-                backgroundColor: "rgba(250,250,250,0.92)",
+                backgroundColor: "rgba(250,250,250,0.95)",
                 border: "1px solid var(--border-color)",
                 backdropFilter: "blur(12px)",
               }}
             >
-              <span className="font-mono text-[14px] font-medium" style={{ color: "var(--text-primary)" }}>
+              {/* Logo */}
+              <span className="font-mono text-[14px] font-medium text-[color:var(--text-primary)]">
                 carlos.psd
               </span>
-              <div className="flex items-center gap-8">
-                {["Work", "About", "Contact"].map((l) => (
-                  <span key={l} className="text-[14px]" style={{ color: "var(--text-muted)" }}>{l}</span>
-                ))}
-                <span className="text-[14px] font-mono" style={{ color: "var(--text-muted)" }}>EN · PT</span>
-              </div>
-            </div>
 
-            <SubLabel>Navbar — transparent (dark / on-hero) state</SubLabel>
-            <div
-              className="flex items-center justify-between px-6 h-14 rounded-lg"
-              style={{ backgroundColor: "var(--dark-bg)", border: "1px solid var(--dark-border)" }}
-            >
-              <span className="font-mono text-[14px] font-medium" style={{ color: "rgba(255,255,255,0.9)" }}>
-                carlos.psd
-              </span>
-              <div className="flex items-center gap-8">
-                {["Work", "About", "Contact"].map((l) => (
-                  <span key={l} className="text-[14px]" style={{ color: "rgba(255,255,255,0.5)" }}>{l}</span>
-                ))}
-                <span className="text-[14px] font-mono" style={{ color: "rgba(255,255,255,0.4)" }}>EN · PT</span>
+              {/* Nav links with active pill */}
+              <div className="flex items-center gap-1">
+                <span className="text-[14px] px-3 py-1.5 rounded-full text-[color:var(--text-muted)]">Work</span>
+                <span className="text-[14px] px-3 py-1.5 rounded-full bg-black/[0.06] text-[color:var(--text-primary)]">About</span>
+                <span className="text-[14px] px-3 py-1.5 rounded-full text-[color:var(--text-muted)]">Contact</span>
+              </div>
+
+              {/* Right */}
+              <div className="flex items-center gap-3">
+                <div className="flex items-center gap-0 text-[13px] font-mono">
+                  <span className="px-2 py-1 text-[color:var(--text-primary)]">EN</span>
+                  <span className="text-[color:var(--border-color)]">·</span>
+                  <span className="px-2 py-1 text-[color:var(--text-muted)]">PT</span>
+                </div>
+                <span
+                  className="text-[13px] font-medium px-4 py-1.5 rounded-full"
+                  style={{ backgroundColor: "var(--text-primary)", color: "var(--bg)" }}
+                >
+                  Get in touch
+                </span>
               </div>
             </div>
           </div>
 
-          {/* Testimonial card */}
+          {/* Card */}
           <div className="mb-14">
-            <SubLabel>Testimonial Card</SubLabel>
+            <SubLabel>Card</SubLabel>
             <div className="max-w-sm">
-              <div
-                className="rounded-2xl p-6 flex flex-col gap-4"
-                style={{
-                  backgroundColor: "var(--dark-surface)",
-                  border: "1px solid var(--dark-border)",
-                }}
-              >
-                <p className="text-[14px] leading-relaxed italic flex-1" style={{ color: "var(--dark-text-secondary)" }}>
-                  &ldquo;Carlos has a rare ability to simplify complex systems without losing depth.&rdquo;
-                </p>
-                <div
-                  className="flex flex-col gap-0.5 pt-4 border-t"
-                  style={{ borderColor: "var(--dark-border)" }}
-                >
-                  <span className="text-[14px] font-medium" style={{ color: "var(--dark-text-primary)" }}>
-                    Ricardo M.
-                  </span>
-                  <span className="text-[14px] font-mono" style={{ color: "var(--dark-text-muted)" }}>
-                    CPO at AmFi
-                  </span>
-                </div>
-              </div>
+              <Card>
+                <CardHeader>
+                  <CardTitle>Card title</CardTitle>
+                  <CardDescription>Supporting description text goes here.</CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-sm" style={{ color: "var(--text-secondary)" }}>
+                    This is the card body content area. Use it for any supporting information.
+                  </p>
+                </CardContent>
+                <CardFooter className="gap-3">
+                  <Button variant="default">Confirm</Button>
+                  <Button variant="ghost">Cancel</Button>
+                </CardFooter>
+              </Card>
             </div>
           </div>
 
@@ -479,24 +467,24 @@ export default function StyleguidePage() {
           <div className="mb-14">
             <SubLabel>Text links — light context</SubLabel>
             <div className="flex flex-wrap gap-8 items-center mb-8">
+              {/* Primary: underline style — matches ContactCTA "Get in touch" */}
               <a
                 href="#"
-                className="text-[14px] font-medium border-b pb-px transition-colors duration-200 hover:text-purple-600 hover:border-purple-600"
-                style={{ color: "var(--text-primary)", borderColor: "var(--border-color)" }}
+                className="text-[14px] font-medium text-[color:var(--text-primary)] border-b border-[color:var(--border-color)] pb-px transition-colors duration-200 hover:text-purple-600 hover:border-purple-600"
               >
                 Get in touch →
               </a>
+              {/* Secondary: no underline — matches nav/section secondary links */}
               <a
                 href="#"
-                className="text-[14px] transition-colors duration-200 hover:text-purple-600"
-                style={{ color: "var(--text-muted)" }}
+                className="text-[14px] text-[color:var(--text-muted)] transition-colors duration-200 hover:text-purple-600"
               >
                 View all work →
               </a>
+              {/* Tertiary */}
               <a
                 href="#"
-                className="text-[14px] font-medium transition-colors duration-200 hover:text-purple-600"
-                style={{ color: "var(--text-secondary)" }}
+                className="text-[14px] font-medium text-[color:var(--text-secondary)] transition-colors duration-200 hover:text-purple-600"
               >
                 About me →
               </a>
@@ -505,19 +493,19 @@ export default function StyleguidePage() {
             <SubLabel>Text links — dark context</SubLabel>
             <div
               className="flex flex-wrap gap-8 items-center p-8"
-              style={{ backgroundColor: "#080808", borderRadius: 12, border: "1px solid #2a2a2a" }}
+              style={{ backgroundColor: "var(--dark-bg)", borderRadius: 12, border: "1px solid var(--dark-border)" }}
             >
+              {/* Primary dark — matches Hero "View Work" */}
               <a
                 href="#"
-                className="text-[14px] font-medium border-b pb-px transition-colors duration-200 hover:text-purple-400 hover:border-purple-400"
-                style={{ color: "#f0f0f0", borderColor: "#2a2a2a" }}
+                className="text-[14px] font-medium text-white/90 border-b border-white/30 pb-px transition-colors duration-200 hover:text-purple-400 hover:border-purple-400"
               >
                 Get in touch →
               </a>
+              {/* Secondary dark — matches Hero "About me" */}
               <a
                 href="#"
-                className="text-[14px] transition-colors duration-200 hover:text-purple-400"
-                style={{ color: "#999999" }}
+                className="text-[14px] text-[color:var(--dark-text-secondary)] transition-colors duration-200 hover:text-purple-400"
               >
                 View all work →
               </a>

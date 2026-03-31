@@ -14,6 +14,10 @@ export default function Navbar() {
   const isHome = pathname === "/"
   const { lang, setLang } = useLang()
   const t = translations[lang].nav
+  const tContact = translations[lang].contact
+
+  // isScrolled: transparent only on homepage before scrolling
+  const isScrolled = !isHome || scrolled
 
   const navLinks = [
     { label: t.work, href: "/#work", id: "work" },
@@ -43,12 +47,7 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll)
   }, [pathname])
 
-  // Close menu on route change
   useEffect(() => { setMenuOpen(false) }, [pathname])
-
-  // On non-home pages, always treat as scrolled
-  const isScrolled = !isHome || scrolled
-  const menuBg = isScrolled ? "rgba(250,250,250,0.97)" : "rgba(8,8,8,0.97)" // derived from --bg / --dark-bg
 
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     setMenuOpen(false)
@@ -61,67 +60,102 @@ export default function Navbar() {
     }
   }
 
-  const iconColor = isScrolled ? "var(--text-primary)" : "rgba(255,255,255,0.9)"
-
   return (
     <>
       <nav
         className="fixed top-0 left-0 right-0 z-50 transition-all duration-300"
         style={{
-          backgroundColor: isScrolled ? "rgba(250,250,250,0.92)" : "transparent",
+          backgroundColor: isScrolled ? "rgba(250,250,250,0.95)" : "transparent",
           borderBottom: isScrolled ? "1px solid var(--border-color)" : "1px solid transparent",
           backdropFilter: isScrolled ? "blur(12px)" : "none",
         }}
       >
         <div className="max-w-[1100px] mx-auto px-6 md:px-8 h-14 flex items-center justify-between">
+
+          {/* Logo */}
           <Link
             href="/"
-            className="font-mono text-[14px] font-medium transition-colors duration-300 hover:text-purple-500"
-            style={{ color: isScrolled ? "var(--text-primary)" : "rgba(255,255,255,0.9)" }}
+            className={`font-mono text-[14px] font-medium transition-colors duration-300 hover:text-purple-500 ${
+              isScrolled ? "text-[color:var(--text-primary)]" : "text-white/90"
+            }`}
           >
             carlos.psd
           </Link>
 
           {/* Desktop nav */}
-          <div className="hidden md:flex items-center gap-8">
+          <div className="hidden md:flex items-center gap-1">
             {navLinks.map((link) => {
               const isActive = active === link.id
-              const baseColor = isScrolled
-                ? (isActive ? "var(--text-primary)" : "var(--text-muted)")
-                : (isActive ? "rgba(255,255,255,0.95)" : "rgba(255,255,255,0.5)")
+              if (isScrolled) {
+                return (
+                  <a
+                    key={link.id}
+                    href={link.href}
+                    onClick={(e) => handleNavClick(e, link.href)}
+                    className={`text-[14px] px-3 py-1.5 rounded-full transition-all duration-200 ${
+                      isActive
+                        ? "bg-black/[0.06] text-[color:var(--text-primary)]"
+                        : "text-[color:var(--text-muted)] hover:text-[color:var(--text-secondary)] hover:bg-black/[0.04]"
+                    }`}
+                  >
+                    {link.label}
+                  </a>
+                )
+              }
               return (
                 <a
                   key={link.id}
                   href={link.href}
                   onClick={(e) => handleNavClick(e, link.href)}
-                  className="text-[14px] transition-colors duration-300 relative hover:text-purple-500"
-                  style={{ color: baseColor }}
+                  className={`text-[14px] px-3 py-1.5 rounded-full transition-all duration-200 ${
+                    isActive
+                      ? "bg-white/10 text-white/95"
+                      : "text-white/50 hover:text-white/80 hover:bg-white/5"
+                  }`}
                 >
                   {link.label}
-                  {isActive && (
-                    <span className="absolute -bottom-[1px] left-0 right-0 h-[1.5px] bg-purple-500 rounded-full" />
-                  )}
                 </a>
               )
             })}
+          </div>
 
-            <div className="flex items-center gap-1 text-[14px] font-mono">
+          {/* Right: lang + CTA */}
+          <div className="hidden md:flex items-center gap-3">
+            <div className="flex items-center gap-0 text-[13px] font-mono">
               <button
                 onClick={() => setLang("en")}
-                className="transition-colors duration-300 px-1 py-0.5 hover:text-purple-500"
-                style={{ color: isScrolled ? (lang === "en" ? "var(--text-primary)" : "var(--text-muted)") : (lang === "en" ? "rgba(255,255,255,0.95)" : "rgba(255,255,255,0.4)") }}
+                className={`px-2 py-1 rounded-full transition-colors duration-300 ${
+                  isScrolled
+                    ? lang === "en" ? "text-[color:var(--text-primary)]" : "text-[color:var(--text-muted)] hover:text-[color:var(--text-secondary)]"
+                    : lang === "en" ? "text-white/90" : "text-white/40 hover:text-white/70"
+                }`}
               >
                 EN
               </button>
-              <span style={{ color: isScrolled ? "var(--border-color)" : "rgba(255,255,255,0.2)" }}>·</span>
+              <span className={isScrolled ? "text-[color:var(--border-color)]" : "text-white/20"}>·</span>
               <button
                 onClick={() => setLang("pt")}
-                className="transition-colors duration-300 px-1 py-0.5 hover:text-purple-500"
-                style={{ color: isScrolled ? (lang === "pt" ? "var(--text-primary)" : "var(--text-muted)") : (lang === "pt" ? "rgba(255,255,255,0.95)" : "rgba(255,255,255,0.4)") }}
+                className={`px-2 py-1 rounded-full transition-colors duration-300 ${
+                  isScrolled
+                    ? lang === "pt" ? "text-[color:var(--text-primary)]" : "text-[color:var(--text-muted)] hover:text-[color:var(--text-secondary)]"
+                    : lang === "pt" ? "text-white/90" : "text-white/40 hover:text-white/70"
+                }`}
               >
                 PT
               </button>
             </div>
+
+            <a
+              href="/#contact"
+              onClick={(e) => handleNavClick(e, "/#contact")}
+              className="text-[13px] font-medium px-4 py-1.5 rounded-full transition-all duration-300 hover:opacity-80"
+              style={{
+                backgroundColor: isScrolled ? "var(--text-primary)" : "rgba(255,255,255,0.95)",
+                color: isScrolled ? "var(--bg)" : "#0a0a0a",
+              }}
+            >
+              {tContact.cta}
+            </a>
           </div>
 
           {/* Mobile hamburger */}
@@ -130,36 +164,32 @@ export default function Navbar() {
             onClick={() => setMenuOpen((v) => !v)}
             aria-label="Toggle menu"
           >
-            <span
-              className="block w-5 h-[1.5px] rounded transition-all duration-300 origin-center"
-              style={{
-                backgroundColor: iconColor,
-                transform: menuOpen ? "translateY(6.5px) rotate(45deg)" : "none",
-              }}
-            />
-            <span
-              className="block w-5 h-[1.5px] rounded transition-all duration-300"
-              style={{
-                backgroundColor: iconColor,
-                opacity: menuOpen ? 0 : 1,
-              }}
-            />
-            <span
-              className="block w-5 h-[1.5px] rounded transition-all duration-300 origin-center"
-              style={{
-                backgroundColor: iconColor,
-                transform: menuOpen ? "translateY(-6.5px) rotate(-45deg)" : "none",
-              }}
-            />
+            {[
+              { transform: menuOpen ? "translateY(6.5px) rotate(45deg)" : "none" },
+              { opacity: menuOpen ? 0 : 1 },
+              { transform: menuOpen ? "translateY(-6.5px) rotate(-45deg)" : "none" },
+            ].map((s, i) => (
+              <span
+                key={i}
+                className="block w-5 h-[1.5px] rounded transition-all duration-300 origin-center"
+                style={{
+                  backgroundColor: isScrolled ? "var(--text-primary)" : "rgba(255,255,255,0.9)",
+                  ...s,
+                }}
+              />
+            ))}
           </button>
         </div>
       </nav>
 
-      {/* Mobile menu overlay */}
+      {/* Mobile menu */}
       {menuOpen && (
         <div
           className="fixed inset-0 z-40 flex flex-col pt-14 md:hidden"
-          style={{ backgroundColor: menuBg, backdropFilter: "blur(16px)" }}
+          style={{
+            backgroundColor: isScrolled ? "rgba(250,250,250,0.97)" : "rgba(8,8,8,0.97)",
+            backdropFilter: "blur(16px)",
+          }}
         >
           <div className="flex flex-col px-6 py-10 gap-8">
             {navLinks.map((link) => (
@@ -167,32 +197,48 @@ export default function Navbar() {
                 key={link.id}
                 href={link.href}
                 onClick={(e) => handleNavClick(e, link.href)}
-                className="text-[24px] font-semibold transition-colors duration-200 hover:text-purple-500"
-                style={{
-                  color: isScrolled ? "var(--text-primary)" : "rgba(255,255,255,0.9)",
-                  letterSpacing: "-0.02em",
-                }}
+                className={`text-[24px] font-semibold transition-colors duration-200 hover:text-purple-500 ${
+                  isScrolled ? "text-[color:var(--text-primary)]" : "text-white/90"
+                }`}
+                style={{ letterSpacing: "-0.02em" }}
               >
                 {link.label}
               </a>
             ))}
 
-            <div className="flex items-center gap-3 pt-4 border-t" style={{ borderColor: isScrolled ? "var(--border-color)" : "rgba(255,255,255,0.1)" }}>
+            <a
+              href="/#contact"
+              onClick={(e) => handleNavClick(e, "/#contact")}
+              className="self-start text-[15px] font-medium px-6 py-3 rounded-full transition-opacity duration-200 hover:opacity-80"
+              style={{
+                backgroundColor: isScrolled ? "var(--text-primary)" : "rgba(255,255,255,0.95)",
+                color: isScrolled ? "var(--bg)" : "#0a0a0a",
+              }}
+            >
+              {tContact.cta}
+            </a>
+
+            <div
+              className="flex items-center gap-3 pt-4 border-t"
+              style={{ borderColor: isScrolled ? "var(--border-color)" : "rgba(255,255,255,0.1)" }}
+            >
               <button
                 onClick={() => setLang("en")}
-                className="text-[14px] font-mono transition-colors hover:text-purple-500"
-                style={{ color: isScrolled ? (lang === "en" ? "var(--text-primary)" : "var(--text-muted)") : (lang === "en" ? "rgba(255,255,255,0.9)" : "rgba(255,255,255,0.4)") }}
-              >
-                EN
-              </button>
+                className={`text-[14px] font-mono transition-colors ${
+                  isScrolled
+                    ? lang === "en" ? "text-[color:var(--text-primary)]" : "text-[color:var(--text-muted)]"
+                    : lang === "en" ? "text-white/90" : "text-white/35"
+                }`}
+              >EN</button>
               <span style={{ color: isScrolled ? "var(--border-color)" : "rgba(255,255,255,0.2)" }}>·</span>
               <button
                 onClick={() => setLang("pt")}
-                className="text-[14px] font-mono transition-colors hover:text-purple-500"
-                style={{ color: isScrolled ? (lang === "pt" ? "var(--text-primary)" : "var(--text-muted)") : (lang === "pt" ? "rgba(255,255,255,0.9)" : "rgba(255,255,255,0.4)") }}
-              >
-                PT
-              </button>
+                className={`text-[14px] font-mono transition-colors ${
+                  isScrolled
+                    ? lang === "pt" ? "text-[color:var(--text-primary)]" : "text-[color:var(--text-muted)]"
+                    : lang === "pt" ? "text-white/90" : "text-white/35"
+                }`}
+              >PT</button>
             </div>
           </div>
         </div>

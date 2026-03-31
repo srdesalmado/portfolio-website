@@ -122,6 +122,9 @@
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
   }
+  .font-mono {
+    font-weight: 500;
+  }
 }
 
 /* Marquee animation */
