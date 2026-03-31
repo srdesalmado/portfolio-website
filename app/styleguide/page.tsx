@@ -229,9 +229,9 @@ export default function StyleguidePage() {
               size: "16px",
               lh: "1.7",
               weight: "400",
-              tracking: "−0.005em",
+              tracking: "0.005em",
               cls: "text-[16px] leading-[1.7]",
-              ls: "-0.005em",
+              ls: "0.005em",
             },
             {
               role: "Caption",

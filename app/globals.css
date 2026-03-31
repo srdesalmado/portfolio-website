@@ -104,7 +104,7 @@
   html {
     @apply font-sans;
     scroll-behavior: smooth;
-    letter-spacing: -0.015em;
+    letter-spacing: 0.005em;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
