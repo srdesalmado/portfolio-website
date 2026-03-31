@@ -46,24 +46,21 @@ export default function ContactCTA() {
             <div className="flex flex-col gap-3 items-start md:items-end">
               <a
                 href="mailto:carlos@studiohorizon.com.br"
-                className="text-[14px] font-medium transition-colors duration-200 border-b pb-px hover:text-purple-400 hover:border-purple-400"
-                style={{ color: "var(--dark-text-primary)", borderColor: "var(--dark-border)" }}
+                className="text-[14px] font-medium text-[color:var(--dark-text-primary)] border-b border-[color:var(--dark-border)] pb-px transition-colors duration-200 hover:text-purple-400 hover:border-purple-400"
               >
                 {t.cta}
               </a>
               <div className="flex items-center gap-4">
                 <a
                   href="tel:+5548936186883"
-                  className="text-[14px] transition-colors duration-200 hover:text-purple-400"
-                  style={{ color: "var(--dark-text-muted)" }}
+                  className="text-[14px] text-[color:var(--dark-text-muted)] transition-colors duration-200 hover:text-purple-400"
                 >
                   +55 (48) 9 3618-6883
                 </a>
-                <span style={{ color: "var(--dark-border)" }}>·</span>
+                <span className="text-[color:var(--dark-border)]">·</span>
                 <a
                   href="mailto:carlos@studiohorizon.com.br"
-                  className="text-[14px] transition-colors duration-200 hover:text-purple-400"
-                  style={{ color: "var(--dark-text-muted)" }}
+                  className="text-[14px] text-[color:var(--dark-text-muted)] transition-colors duration-200 hover:text-purple-400"
                 >
                   carlos@studiohorizon.com.br
                 </a>
