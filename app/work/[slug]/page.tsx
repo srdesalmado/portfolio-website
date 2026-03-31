@@ -20,7 +20,7 @@ export default async function CaseStudyPage({
   const prev = projects[projectIndex - 1] ?? null
   const next = projects[projectIndex + 1] ?? null
 
-  const fallbackSections = [
+  const fallbackSections: import("@/lib/projects").ProjectSection[] = [
     {
       title: "The Challenge",
       body: "The existing product had accumulated years of technical and design debt. Users were struggling to complete core tasks, and the onboarding funnel had significant drop-off at every step. Stakeholders needed clarity, and the engineering team needed a system they could build on.",
