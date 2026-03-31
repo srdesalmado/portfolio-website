@@ -86,7 +86,7 @@ export default function Hero() {
             className="flex flex-col gap-5 max-w-sm"
           >
             <p
-              className="text-[14px] leading-[1.7]"
+              className="text-[16px] leading-[1.7]"
               style={{ color: "rgba(255,255,255,0.5)", letterSpacing: "-0.005em" }}
             >
               {t.description}

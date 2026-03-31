@@ -61,7 +61,7 @@ export default function ProjectCard({ project }: { project: Project }) {
 
           {/* Description */}
           <p
-            className="text-[14px] leading-relaxed line-clamp-2"
+            className="text-[16px] leading-relaxed line-clamp-2"
             style={{ color: "var(--text-muted)" }}
           >
             {project.description}

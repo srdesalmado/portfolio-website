@@ -27,7 +27,7 @@ export default function ContactCTA() {
               {t.label}
             </span>
             <h2
-              className="text-[36px] md:text-[56px] font-semibold leading-[1.05]"
+              className="text-[28px] md:text-[40px] font-semibold leading-[1.05]"
               style={{ color: "#f0f0f0", letterSpacing: "-0.03em" }}
             >
               {t.heading}
@@ -36,7 +36,7 @@ export default function ContactCTA() {
 
           {/* Bottom row */}
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 pt-8 border-t" style={{ borderColor: "#1f1f1f" }}>
-            <p className="text-[14px] leading-relaxed max-w-sm" style={{ color: "#666666" }}>
+            <p className="text-[16px] leading-relaxed max-w-sm" style={{ color: "#666666" }}>
               {t.subheading}
             </p>
 

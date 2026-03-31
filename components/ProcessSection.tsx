@@ -22,7 +22,7 @@ export default function ProcessSection() {
             {t.label}
           </span>
           <h2
-            className="text-[36px] md:text-[56px] font-semibold"
+            className="text-[28px] md:text-[40px] font-semibold"
             style={{ color: "var(--text-primary)", letterSpacing: "-0.025em" }}
           >
             {t.heading}
@@ -47,7 +47,7 @@ export default function ProcessSection() {
               </div>
               <div className="flex flex-col gap-3">
                 <h3 className="font-semibold text-base" style={{ color: "var(--text-primary)" }}>{step.title}</h3>
-                <p className="text-[14px] leading-[1.7]" style={{ color: "var(--text-muted)" }}>
+                <p className="text-[16px] leading-[1.7]" style={{ color: "var(--text-muted)" }}>
                   {step.description}
                 </p>
               </div>

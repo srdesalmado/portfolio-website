@@ -196,11 +196,11 @@ export default function StyleguidePage() {
             {
               role: "Heading",
               sample: "Let's work together.",
-              size: "56px",
+              size: "40px",
               lh: "1.05",
               weight: "600",
               tracking: "−0.025em",
-              cls: "text-[56px] font-semibold leading-[1.05]",
+              cls: "text-[40px] font-semibold leading-[1.05]",
               ls: "-0.025em",
             },
             {
@@ -226,11 +226,11 @@ export default function StyleguidePage() {
             {
               role: "Body",
               sample: "Currently freelancing — helping startups craft intuitive digital products.",
-              size: "14px",
+              size: "16px",
               lh: "1.7",
               weight: "400",
               tracking: "−0.005em",
-              cls: "text-[14px] leading-[1.7]",
+              cls: "text-[16px] leading-[1.7]",
               ls: "-0.005em",
             },
             {

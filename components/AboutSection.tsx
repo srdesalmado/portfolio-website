@@ -45,7 +45,7 @@ export default function AboutSection() {
                 {t.label}
               </span>
               <h2
-                className="text-[36px] md:text-[56px] font-semibold leading-[1.1] whitespace-pre-line"
+                className="text-[28px] md:text-[40px] font-semibold leading-[1.1] whitespace-pre-line"
                 style={{ color: "#f0f0f0", letterSpacing: "-0.025em" }}
               >
                 {t.heading}
@@ -53,7 +53,7 @@ export default function AboutSection() {
             </div>
 
             <div
-              className="flex flex-col gap-4 text-[14px] leading-[1.7]"
+              className="flex flex-col gap-4 text-[16px] leading-[1.7]"
               style={{ color: "#888888", letterSpacing: "-0.005em" }}
             >
               <p>{t.p1}</p>
