@@ -11,7 +11,14 @@
       "mcp__Claude_Preview__preview_start",
       "Bash(npx shadcn@latest init --preset bInVsaO --template next)",
       "Bash(printf \"y\\\\ny\\\\n\")",
-      "Bash(yes)"
+      "Bash(yes)",
+      "Bash(npx shadcn@latest add @react-bits/ColorBends-JS-CSS --yes)",
+      "WebFetch(domain:amfi-prototype.lovable.app)",
+      "Bash(npx shadcn@latest init --preset b4NJ4tPXu --template next)",
+      "Bash(printf \"yes\\\\nno\\\\n\")",
+      "Bash(echo \"EXIT:$?\")",
+      "Bash(printf \"yes\\\\nyes\\\\n\")",
+      "Bash(echo \"DONE:$?\")"
     ]
   }
 }

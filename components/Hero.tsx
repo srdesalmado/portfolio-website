@@ -2,128 +2,109 @@
 
 import { motion, type Variants } from "framer-motion"
 import { Button } from "@/components/ui/button"
+// eslint-disable-next-line @typescript-eslint/no-require-imports
+const ColorBends = require("@/components/ColorBends").default
 
 const fadeUp: Variants = {
-  hidden: { opacity: 0, y: 20 },
+  hidden: { opacity: 0, y: 18 },
   visible: (i: number) => ({
     opacity: 1,
     y: 0,
-    transition: { duration: 0.4, delay: i * 0.1, ease: [0.25, 0.46, 0.45, 0.94] },
+    transition: { duration: 0.9, delay: i * 0.15, ease: [0.16, 1, 0.3, 1] },
   }),
 }
 
-const tools = [
-  "Figma",
-  "AmFi",
-  "Notion",
-  "Framer",
-  "React",
-  "TypeScript",
-  "Vercel",
-  "Linear",
-  "Tailwind CSS",
-  "Storybook",
-]
-
 export default function Hero() {
-  const marqueeItems = [...tools, ...tools]
-
   return (
-    <section className="min-h-screen flex flex-col justify-center pt-14">
-      <div className="max-w-[1100px] mx-auto px-6 w-full">
-        <div className="grid grid-cols-1 md:grid-cols-[3fr_2fr] gap-16 items-center py-32">
-          {/* Left: Text */}
-          <div className="flex flex-col gap-6">
-            <motion.span
-              custom={0}
-              initial="hidden"
-              animate="visible"
-              variants={fadeUp}
-              className="text-xs uppercase tracking-widest text-purple-500 font-medium"
-            >
-              Senior Product Designer
-            </motion.span>
+    <section className="relative min-h-screen flex flex-col justify-center pt-14 overflow-hidden">
+      {/* ColorBends background — warm dark purples */}
+      <div className="absolute inset-0 z-0">
+        <ColorBends
+          colors={["#161412", "#1c1018", "#2d0a4e", "#3b1278", "#161412", "#120e10"]}
+          speed={0.1}
+          rotation={25}
+          scale={1.3}
+          frequency={0.75}
+          warpStrength={0.5}
+          mouseInfluence={0.25}
+          parallax={0.2}
+          noise={0.03}
+          transparent={false}
+          style={{ width: "100%", height: "100%" }}
+        />
+        {/* Gradient overlays for readability */}
+        <div
+          className="absolute inset-0"
+          style={{ background: "linear-gradient(to bottom, rgba(22,20,18,0.6) 0%, rgba(22,20,18,0.35) 50%, rgba(22,20,18,0.75) 100%)" }}
+        />
+      </div>
 
-            <motion.h1
-              custom={1}
-              initial="hidden"
-              animate="visible"
-              variants={fadeUp}
-              className="text-5xl md:text-6xl font-semibold tracking-tight text-zinc-50 leading-[1.1]"
-            >
-              Designing fintech products
-              <br />
-              that feel inevitable.
-            </motion.h1>
+      {/* Content */}
+      <div className="relative z-10 max-w-[1100px] mx-auto px-8 w-full flex flex-col items-start gap-8">
 
-            <motion.p
-              custom={2}
-              initial="hidden"
-              animate="visible"
-              variants={fadeUp}
-              className="text-zinc-400 text-lg leading-relaxed max-w-lg"
-            >
-              I help companies turn complex financial systems into intuitive,
-              elegant digital products. Based in Florianópolis, BR.
-            </motion.p>
+        <motion.p
+          custom={0}
+          initial="hidden"
+          animate="visible"
+          variants={fadeUp}
+          className="text-sm tracking-widest uppercase font-medium"
+          style={{ color: "var(--text-muted)" }}
+        >
+          Hi there
+        </motion.p>
 
-            <motion.div
-              custom={3}
-              initial="hidden"
-              animate="visible"
-              variants={fadeUp}
-              className="flex gap-3 flex-wrap"
-            >
-              <a href="#work">
-                <Button
-                  className="bg-purple-500 hover:bg-purple-600 text-white rounded-lg px-6 h-11 text-sm font-medium transition-all duration-300 hover:shadow-[0_0_40px_rgba(168,85,247,0.15)]"
-                >
-                  View Work
-                </Button>
-              </a>
-              <a href="#about">
-                <Button
-                  variant="outline"
-                  className="border-zinc-700 bg-transparent text-zinc-300 hover:bg-zinc-800 hover:text-zinc-50 rounded-lg px-6 h-11 text-sm font-medium"
-                >
-                  About me
-                </Button>
-              </a>
-            </motion.div>
-          </div>
-
-          {/* Right: Avatar placeholder */}
-          <motion.div
-            custom={4}
-            initial="hidden"
-            animate="visible"
-            variants={fadeUp}
-            className="flex justify-center md:justify-end"
+        <motion.div
+          custom={1}
+          initial="hidden"
+          animate="visible"
+          variants={fadeUp}
+          className="flex flex-col gap-4 max-w-2xl"
+        >
+          <h1
+            className="text-4xl md:text-5xl lg:text-[3.25rem] font-semibold leading-[1.12]"
+            style={{ color: "var(--text-primary)", letterSpacing: "-0.025em" }}
           >
-            <div className="relative">
-              <div className="w-64 h-64 md:w-72 md:h-72 rounded-full bg-zinc-800 flex items-center justify-center ring-2 ring-purple-500/30 shadow-[0_0_60px_rgba(168,85,247,0.1)]">
-                <span className="font-mono text-zinc-500 text-sm">photo</span>
-              </div>
-              {/* Subtle glow behind avatar */}
-              <div className="absolute inset-0 rounded-full bg-purple-500/5 blur-2xl -z-10 scale-110" />
-            </div>
-          </motion.div>
-        </div>
+            I&apos;m Carlos Henrique,<br />
+            a Multidisciplinary<br />
+            Product Designer.
+          </h1>
+          <p
+            className="text-base md:text-lg leading-relaxed max-w-md"
+            style={{ color: "var(--text-secondary)" }}
+          >
+            Currently freelancing — helping startups and scale-ups craft intuitive digital products, from early concepts to polished interfaces.
+          </p>
+        </motion.div>
+
+        <motion.div
+          custom={2}
+          initial="hidden"
+          animate="visible"
+          variants={fadeUp}
+          className="flex gap-3 flex-wrap"
+        >
+          <a href="#work">
+            <Button className="bg-purple-600 hover:bg-purple-700 text-white rounded-lg px-7 h-11 text-sm font-medium transition-all duration-300 hover:shadow-[0_0_32px_rgba(147,51,234,0.3)]">
+              View Work
+            </Button>
+          </a>
+          <a href="#about">
+            <Button
+              variant="ghost"
+              className="rounded-lg px-7 h-11 text-sm font-medium transition-colors duration-200"
+              style={{ color: "var(--text-secondary)" }}
+            >
+              About me
+            </Button>
+          </a>
+        </motion.div>
       </div>
 
-      {/* Marquee strip */}
-      <div className="border-t border-zinc-800/50 py-5 overflow-hidden">
-        <div className="flex animate-marquee whitespace-nowrap">
-          {marqueeItems.map((item, i) => (
-            <span
-              key={i}
-              className="text-zinc-600 text-sm font-mono mx-8 shrink-0"
-            >
-              {item}
-            </span>
-          ))}
-        </div>
-      </div>
+      {/* Bottom fade into page */}
+      <div
+        className="absolute bottom-0 left-0 right-0 h-32 z-10"
+        style={{ background: "linear-gradient(to bottom, transparent, var(--bg))" }}
+      />
     </section>
   )
 }

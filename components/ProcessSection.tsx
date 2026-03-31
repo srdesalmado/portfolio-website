@@ -5,62 +5,68 @@ import { Search, Layers, Zap } from "lucide-react"
 
 const steps = [
   {
+    number: "01",
     icon: Search,
-    title: "Discovery & Research",
+    title: "Immersion",
     description:
-      "I start by understanding the problem space through user interviews, data analysis, and stakeholder alignment.",
+      "I dive deep into the project context, analyze the current landscape, identify opportunities and collect references to define ideal interaction flows.",
   },
   {
+    number: "02",
     icon: Layers,
-    title: "System Thinking",
+    title: "Visual Ideation",
     description:
-      "Every design decision considers the full system — patterns, edge cases, and how components evolve over time.",
+      "I explore solutions visually through wireframes and navigable prototypes that demonstrate the essential flows in an intuitive and efficient way.",
   },
   {
+    number: "03",
     icon: Zap,
-    title: "Ship & Iterate",
+    title: "Build & Ship",
     description:
-      "I work closely with engineers to ship real products, then refine based on data and user feedback.",
+      "I produce the final high-fidelity visual and technical documentation, preparing the product for launch and continuous evolution.",
   },
 ]
 
 export default function ProcessSection() {
   return (
-    <section className="py-24 md:py-32 border-t border-zinc-800/60">
-      <div className="max-w-[1100px] mx-auto px-6">
+    <section className="py-32 md:py-40" style={{ backgroundColor: "#f5f2ee" }}>
+      <div className="max-w-[1100px] mx-auto px-8">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 12 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.4, ease: "easeOut" }}
-          className="flex flex-col gap-2 mb-16"
+          viewport={{ once: true, margin: "-60px" }}
+          transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+          className="flex flex-col gap-2 mb-20"
         >
-          <span className="text-xs uppercase tracking-widest text-purple-500 font-medium">
+          <span className="text-xs uppercase tracking-widest font-medium" style={{ color: "rgba(168,85,247,0.7)" }}>
             Approach
           </span>
-          <h2 className="text-3xl md:text-4xl font-semibold tracking-tight text-zinc-50">
+          <h2 className="text-3xl md:text-4xl font-semibold tracking-tight" style={{ color: "#1a1714", letterSpacing: "-0.02em" }}>
             How I work.
           </h2>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-16">
           {steps.map((step, i) => {
             const Icon = step.icon
             return (
               <motion.div
                 key={step.title}
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 12 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: i * 0.1, ease: "easeOut" }}
-                className="flex flex-col gap-4"
+                viewport={{ once: true, margin: "-40px" }}
+                transition={{ duration: 0.7, delay: i * 0.1, ease: [0.16, 1, 0.3, 1] }}
+                className="flex flex-col gap-6"
               >
-                <div className="w-10 h-10 rounded-lg bg-zinc-800/60 flex items-center justify-center">
-                  <Icon className="w-5 h-5 text-purple-400 stroke-[1.5]" />
+                <div className="flex items-center gap-4">
+                  <span className="font-mono text-xs tracking-widest" style={{ color: "rgba(168,85,247,0.6)" }}>
+                    {step.number}
+                  </span>
+                  <div className="h-px flex-1" style={{ backgroundColor: "#ddd9d4" }} />
                 </div>
-                <div className="flex flex-col gap-2">
-                  <h3 className="font-semibold text-zinc-50">{step.title}</h3>
-                  <p className="text-zinc-400 text-sm leading-relaxed">
+                <div className="flex flex-col gap-3">
+                  <h3 className="font-semibold text-lg" style={{ color: "#1a1714" }}>{step.title}</h3>
+                  <p className="text-sm leading-relaxed" style={{ color: "#6b6560" }}>
                     {step.description}
                   </p>
                 </div>
