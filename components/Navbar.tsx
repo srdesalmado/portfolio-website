@@ -10,6 +10,7 @@ export default function Navbar() {
   const [active, setActive] = useState("")
   const [scrolled, setScrolled] = useState(false)
   const pathname = usePathname()
+  const isHome = pathname === "/"
   const { lang, setLang } = useLang()
   const t = translations[lang].nav
 
@@ -41,6 +42,9 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll)
   }, [pathname])
 
+  // On non-home pages, always treat as scrolled
+  const isScrolled = !isHome || scrolled
+
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     const hash = href.split("#")[1]
     if (!hash) return
@@ -55,16 +59,16 @@ export default function Navbar() {
     <nav
       className="fixed top-0 left-0 right-0 z-50 transition-all duration-300"
       style={{
-        backgroundColor: scrolled ? "rgba(250,250,250,0.92)" : "transparent",
-        borderBottom: scrolled ? "1px solid #e5e5e5" : "1px solid transparent",
-        backdropFilter: scrolled ? "blur(12px)" : "none",
+        backgroundColor: isScrolled ? "rgba(250,250,250,0.92)" : "transparent",
+        borderBottom: isScrolled ? "1px solid #e5e5e5" : "1px solid transparent",
+        backdropFilter: isScrolled ? "blur(12px)" : "none",
       }}
     >
       <div className="max-w-[1100px] mx-auto px-8 h-14 flex items-center justify-between">
         <Link
           href="/"
           className="font-mono text-sm font-medium transition-colors duration-300"
-          style={{ color: scrolled ? "var(--text-primary)" : "rgba(255,255,255,0.9)" }}
+          style={{ color: isScrolled ? "var(--text-primary)" : "rgba(255,255,255,0.9)" }}
         >
           carlos.psd
         </Link>
@@ -72,7 +76,7 @@ export default function Navbar() {
         <div className="flex items-center gap-8">
           {navLinks.map((link) => {
             const isActive = active === link.id
-            const baseColor = scrolled
+            const baseColor = isScrolled
               ? (isActive ? "var(--text-primary)" : "var(--text-muted)")
               : (isActive ? "rgba(255,255,255,0.95)" : "rgba(255,255,255,0.5)")
             return (
@@ -95,15 +99,15 @@ export default function Navbar() {
             <button
               onClick={() => setLang("en")}
               className="transition-colors duration-300 px-1 py-0.5"
-              style={{ color: scrolled ? (lang === "en" ? "var(--text-primary)" : "var(--text-muted)") : (lang === "en" ? "rgba(255,255,255,0.95)" : "rgba(255,255,255,0.4)") }}
+              style={{ color: isScrolled ? (lang === "en" ? "var(--text-primary)" : "var(--text-muted)") : (lang === "en" ? "rgba(255,255,255,0.95)" : "rgba(255,255,255,0.4)") }}
             >
               EN
             </button>
-            <span style={{ color: scrolled ? "var(--border-color)" : "rgba(255,255,255,0.2)" }}>·</span>
+            <span style={{ color: isScrolled ? "var(--border-color)" : "rgba(255,255,255,0.2)" }}>·</span>
             <button
               onClick={() => setLang("pt")}
               className="transition-colors duration-300 px-1 py-0.5"
-              style={{ color: scrolled ? (lang === "pt" ? "var(--text-primary)" : "var(--text-muted)") : (lang === "pt" ? "rgba(255,255,255,0.95)" : "rgba(255,255,255,0.4)") }}
+              style={{ color: isScrolled ? (lang === "pt" ? "var(--text-primary)" : "var(--text-muted)") : (lang === "pt" ? "rgba(255,255,255,0.95)" : "rgba(255,255,255,0.4)") }}
             >
               PT
             </button>
