@@ -60,7 +60,7 @@ export default function Hero() {
             animate="visible"
             variants={fadeUp}
             className="text-[14px] tracking-[0.18em] uppercase font-medium"
-            style={{ color: "rgba(255,255,255,0.35)" }}
+            style={{ color: "var(--dark-text-muted)" }}
           >
             {t.greeting}
           </motion.p>
@@ -87,7 +87,7 @@ export default function Hero() {
           >
             <p
               className="text-[16px] leading-[1.7]"
-              style={{ color: "rgba(255,255,255,0.5)" }}
+              style={{ color: "var(--dark-text-secondary)" }}
             >
               {t.description}
             </p>
@@ -103,7 +103,7 @@ export default function Hero() {
               <a
                 href="#about"
                 className="text-[14px] transition-colors duration-200 hover:text-purple-400"
-                style={{ color: "rgba(255,255,255,0.35)" }}
+                style={{ color: "var(--dark-text-muted)" }}
               >
                 {t.cta_about} →
               </a>

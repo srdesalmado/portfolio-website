@@ -98,8 +98,8 @@
   --dark-surface: #1a1a1a;
   --dark-border: #2a2a2a;
   --dark-text-primary: #f0f0f0;
-  --dark-text-secondary: #999999;
-  --dark-text-muted: #666666;
+  --dark-text-secondary: #c4c4c4;
+  --dark-text-muted: #999999;
 
   /* Accent */
   --accent: #9333ea;        /* purple-600 — primary accent, light context */

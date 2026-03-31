@@ -299,8 +299,8 @@ export default function StyleguidePage() {
             <ColorChip hex="#1a1a1a" name="--dark-surface" usage="Surface" dark />
             <ColorChip hex="#2a2a2a" name="--dark-border" usage="Border" dark />
             <ColorChip hex="#f0f0f0" name="--dark-text-primary" usage="Heading" dark />
-            <ColorChip hex="#999999" name="--dark-text-secondary" usage="Body" dark />
-            <ColorChip hex="#666666" name="--dark-text-muted" usage="Caption" dark />
+            <ColorChip hex="#c4c4c4" name="--dark-text-secondary" usage="Body" dark />
+            <ColorChip hex="#999999" name="--dark-text-muted" usage="Caption" dark />
           </div>
 
           {/* Highlight */}
