@@ -159,7 +159,7 @@ export default function StyleguidePage() {
             className="text-[clamp(2rem,5vw,3.5rem)] font-semibold leading-[1.06] mb-4"
             style={{ color: "var(--text-primary)", letterSpacing: "-0.03em" }}
           >
-            Design System
+            Styleguide
           </h1>
           <p className="text-[14px]" style={{ color: "var(--text-muted)" }}>
             Tokens, type scale, components and visual patterns for carlos.psd
@@ -288,26 +288,27 @@ export default function StyleguidePage() {
             <ColorChip hex="#666666" name="--text-muted" usage="Caption" />
           </div>
 
-          {/* Neutral — Dark */}
-          <SubLabel>Neutral — Dark context</SubLabel>
+          {/* Dark sections */}
+          <SubLabel>Dark sections — palette</SubLabel>
           <div
             className="flex flex-wrap gap-8 p-8 mb-14"
             style={{ backgroundColor: "#080808", borderRadius: 12, border: "1px solid #1a1a1a" }}
           >
-            <ColorChip hex="#080808" name="--bg" usage="Page background" dark />
-            <ColorChip hex="#1a1a1a" name="--surface" usage="Surface" dark />
-            <ColorChip hex="#2a2a2a" name="--border-color" usage="Border" dark />
-            <ColorChip hex="#f0f0f0" name="--text-primary" usage="Heading" dark />
-            <ColorChip hex="#999999" name="--text-secondary" usage="Body" dark />
-            <ColorChip hex="#666666" name="--text-muted" usage="Caption" dark />
+            <ColorChip hex="#080808" name="--dark-bg" usage="Hero background" dark />
+            <ColorChip hex="#0f0f0f" name="--dark-section-bg" usage="Dark sections" dark />
+            <ColorChip hex="#1a1a1a" name="--dark-surface" usage="Surface" dark />
+            <ColorChip hex="#2a2a2a" name="--dark-border" usage="Border" dark />
+            <ColorChip hex="#f0f0f0" name="--dark-text-primary" usage="Heading" dark />
+            <ColorChip hex="#999999" name="--dark-text-secondary" usage="Body" dark />
+            <ColorChip hex="#666666" name="--dark-text-muted" usage="Caption" dark />
           </div>
 
           {/* Highlight */}
           <SubLabel>Highlight — Accent</SubLabel>
           <div className="flex flex-wrap gap-8 mb-14">
-            <ColorChip hex="#a855f7" name="purple-500" usage="Hover / Active" />
+            <ColorChip hex="#9333ea" name="--accent" usage="Primary accent (light)" />
+            <ColorChip hex="#a855f7" name="--accent-on-dark" usage="Accent on dark" />
             <ColorChip hex="#c084fc" name="purple-400" usage="Hover on dark" />
-            <ColorChip hex="#9333ea" name="purple-600" usage="Hover on light" />
           </div>
 
           {/* Brand animation */}
@@ -406,6 +407,74 @@ export default function StyleguidePage() {
             </div>
           </div>
 
+          {/* Navbar */}
+          <div className="mb-14">
+            <SubLabel>Navbar — scrolled (light) state</SubLabel>
+            <div
+              className="flex items-center justify-between px-6 h-14 rounded-lg mb-4"
+              style={{
+                backgroundColor: "rgba(250,250,250,0.92)",
+                border: "1px solid var(--border-color)",
+                backdropFilter: "blur(12px)",
+              }}
+            >
+              <span className="font-mono text-[14px] font-medium" style={{ color: "var(--text-primary)" }}>
+                carlos.psd
+              </span>
+              <div className="flex items-center gap-8">
+                {["Work", "About", "Contact"].map((l) => (
+                  <span key={l} className="text-[14px]" style={{ color: "var(--text-muted)" }}>{l}</span>
+                ))}
+                <span className="text-[14px] font-mono" style={{ color: "var(--text-muted)" }}>EN · PT</span>
+              </div>
+            </div>
+
+            <SubLabel>Navbar — transparent (dark / on-hero) state</SubLabel>
+            <div
+              className="flex items-center justify-between px-6 h-14 rounded-lg"
+              style={{ backgroundColor: "var(--dark-bg)", border: "1px solid var(--dark-border)" }}
+            >
+              <span className="font-mono text-[14px] font-medium" style={{ color: "rgba(255,255,255,0.9)" }}>
+                carlos.psd
+              </span>
+              <div className="flex items-center gap-8">
+                {["Work", "About", "Contact"].map((l) => (
+                  <span key={l} className="text-[14px]" style={{ color: "rgba(255,255,255,0.5)" }}>{l}</span>
+                ))}
+                <span className="text-[14px] font-mono" style={{ color: "rgba(255,255,255,0.4)" }}>EN · PT</span>
+              </div>
+            </div>
+          </div>
+
+          {/* Testimonial card */}
+          <div className="mb-14">
+            <SubLabel>Testimonial Card</SubLabel>
+            <div className="max-w-sm">
+              <div
+                className="rounded-2xl p-6 flex flex-col gap-4"
+                style={{
+                  backgroundColor: "var(--dark-surface)",
+                  border: "1px solid var(--dark-border)",
+                }}
+              >
+                <p className="text-[14px] leading-relaxed italic flex-1" style={{ color: "var(--dark-text-secondary)" }}>
+                  &ldquo;Carlos has a rare ability to simplify complex systems without losing depth.&rdquo;
+                </p>
+                <div
+                  className="flex flex-col gap-0.5 pt-4 border-t"
+                  style={{ borderColor: "var(--dark-border)" }}
+                >
+                  <span className="text-[14px] font-medium" style={{ color: "var(--dark-text-primary)" }}>
+                    Ricardo M.
+                  </span>
+                  <span className="text-[14px] font-mono" style={{ color: "var(--dark-text-muted)" }}>
+                    CPO at AmFi
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+
           {/* Text links */}
           <div className="mb-14">
             <SubLabel>Text links — light context</SubLabel>
@@ -457,51 +526,59 @@ export default function StyleguidePage() {
 
           {/* Project card specimen */}
           <div>
-            <SubLabel>Project Card</SubLabel>
+            <SubLabel>Project Card — hover state shown</SubLabel>
             <div className="max-w-sm">
-              <div className="flex flex-col gap-4">
-                <div
-                  className="relative w-full overflow-hidden"
-                  style={{ aspectRatio: "4/3", backgroundColor: "var(--surface)", borderRadius: 12 }}
-                >
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <span className="font-mono text-[14px]" style={{ color: "var(--border-color)" }}>
-                      cover image
-                    </span>
-                  </div>
-                  <div
-                    className="absolute inset-0 flex items-center justify-center"
-                    style={{ backgroundColor: "rgba(147,51,234,0.06)" }}
-                  >
-                    <span
-                      className="text-[14px] font-medium tracking-[0.18em] uppercase"
-                      style={{ color: "rgba(147,51,234,0.8)" }}
-                    >
-                      View →
-                    </span>
-                  </div>
+              <div
+                className="relative w-full overflow-hidden"
+                style={{ aspectRatio: "4/3", borderRadius: 12, backgroundColor: "var(--dark-surface)" }}
+              >
+                {/* Placeholder label */}
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <span className="font-mono text-[14px]" style={{ color: "var(--dark-border)" }}>
+                    cover image
+                  </span>
                 </div>
-                <div className="flex flex-col gap-2 px-1">
-                  <div className="flex items-center justify-between">
-                    <div className="flex gap-3">
-                      <span className="text-[14px] uppercase tracking-wider" style={{ color: "var(--text-muted)" }}>
-                        Fintech
-                      </span>
-                      <span className="text-[14px] uppercase tracking-wider" style={{ color: "var(--text-muted)" }}>
-                        Product Design
-                      </span>
-                    </div>
-                    <span className="font-mono text-[14px]" style={{ color: "var(--text-muted)" }}>2024</span>
+                {/* Base scrim */}
+                <div
+                  className="absolute inset-0"
+                  style={{
+                    background: "linear-gradient(to top, rgba(0,0,0,0.72) 0%, rgba(0,0,0,0.18) 50%, transparent 100%)",
+                  }}
+                />
+                {/* Extra hover overlay */}
+                <div className="absolute inset-0" style={{ backgroundColor: "rgba(0,0,0,0.38)" }} />
+                {/* Info overlay */}
+                <div className="absolute inset-x-0 bottom-0 p-5 flex flex-col gap-3">
+                  {/* Badges (hover-revealed) */}
+                  <div className="flex flex-wrap gap-2">
+                    <Badge
+                      variant="outline"
+                      className="border-white/20 text-white/80 bg-white/10 backdrop-blur-sm"
+                    >
+                      Fintech
+                    </Badge>
+                    <Badge
+                      variant="outline"
+                      className="border-white/20 text-white/80 bg-white/10 backdrop-blur-sm"
+                    >
+                      Product Design
+                    </Badge>
                   </div>
-                  <h3
-                    className="font-semibold text-[16px] leading-snug hover:text-purple-600 transition-colors"
-                    style={{ color: "var(--text-primary)", letterSpacing: "-0.02em" }}
-                  >
-                    AmFi — Tokenized Credit Platform
-                  </h3>
-                  <p className="text-[14px] leading-relaxed" style={{ color: "var(--text-muted)" }}>
-                    Redesigned the core investment flow for a Brazilian fintech tokenizing private credit assets.
-                  </p>
+                  {/* Title + year */}
+                  <div className="flex items-end justify-between gap-4">
+                    <h3
+                      className="font-semibold text-[18px] leading-snug"
+                      style={{ color: "#ffffff", letterSpacing: "-0.02em" }}
+                    >
+                      AmFi — Tokenized Credit Platform
+                    </h3>
+                    <span
+                      className="font-mono text-[14px] shrink-0 pb-0.5"
+                      style={{ color: "rgba(255,255,255,0.4)" }}
+                    >
+                      2024
+                    </span>
+                  </div>
                 </div>
               </div>
             </div>
@@ -559,7 +636,7 @@ export default function StyleguidePage() {
           style={{ borderColor: "var(--border-color)" }}
         >
           <span className="font-mono text-[14px]" style={{ color: "var(--text-muted)" }}>
-            carlos.psd / design system
+            carlos.psd / styleguide
           </span>
           <a
             href="/"

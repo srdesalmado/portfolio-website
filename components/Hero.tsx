@@ -24,7 +24,7 @@ export default function Hero() {
   return (
     <section
       className="relative flex flex-col justify-end overflow-hidden"
-      style={{ height: "90vh", minHeight: 600, backgroundColor: "#080808" }}
+      style={{ height: "90vh", minHeight: 600, backgroundColor: "var(--dark-bg)" }}
     >
       {/* ColorBends — full section background */}
       <div className="absolute inset-0 z-0">
@@ -47,7 +47,7 @@ export default function Hero() {
         {/* Bottom fade into next section */}
         <div
           className="absolute bottom-0 left-0 right-0 h-40 z-[2]"
-          style={{ background: "linear-gradient(to bottom, transparent, #080808)" }}
+          style={{ background: "linear-gradient(to bottom, transparent, var(--dark-bg))" }}
         />
       </div>
 
@@ -71,7 +71,7 @@ export default function Hero() {
             animate="visible"
             variants={fadeUp}
             className="text-[48px] md:text-[80px] font-semibold leading-[1.04] max-w-4xl"
-            style={{ color: "#f0f0f0", letterSpacing: "-0.03em" }}
+            style={{ color: "var(--dark-text-primary)", letterSpacing: "-0.03em" }}
           >
             {lang === "en"
               ? "Hi, I'm Carlos Henrique, a Multidisciplinary Product Designer."
@@ -96,7 +96,7 @@ export default function Hero() {
               <a
                 href="#work"
                 className="text-[14px] font-medium border-b pb-px transition-colors duration-200 hover:text-purple-400 hover:border-purple-400"
-                style={{ color: "#f0f0f0", borderColor: "rgba(255,255,255,0.3)" }}
+                style={{ color: "var(--dark-text-primary)", borderColor: "rgba(255,255,255,0.3)" }}
               >
                 {t.cta_work}
               </a>

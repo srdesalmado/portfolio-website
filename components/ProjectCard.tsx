@@ -9,11 +9,11 @@ export default function ProjectCard({ project }: { project: Project }) {
     <Link href={`/work/${project.slug}`} className="block group">
       <div
         className="relative w-full overflow-hidden"
-        style={{ aspectRatio: "4/3", borderRadius: 12, backgroundColor: "#1a1a1a" }}
+        style={{ aspectRatio: "4/3", borderRadius: 12, backgroundColor: "var(--dark-surface)" }}
       >
         {/* Placeholder — swap for <Image> when real photos are available */}
         <div className="absolute inset-0 flex items-center justify-center">
-          <span className="font-mono text-[14px]" style={{ color: "#2a2a2a" }}>
+          <span className="font-mono text-[14px]" style={{ color: "var(--dark-border)" }}>
             {project.coverLabel}
           </span>
         </div>

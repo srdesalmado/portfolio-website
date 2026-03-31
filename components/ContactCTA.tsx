@@ -11,7 +11,7 @@ export default function ContactCTA() {
   return (
     <section
       id="contact"
-      style={{ backgroundColor: "#0f0f0f", borderTop: "1px solid #2a2a2a" }}
+      style={{ backgroundColor: "var(--dark-section-bg)", borderTop: "1px solid var(--dark-border)" }}
     >
       <div className="max-w-[1100px] mx-auto px-8 py-12 md:py-16">
         <motion.div
@@ -28,15 +28,18 @@ export default function ContactCTA() {
             </span>
             <h2
               className="text-[28px] md:text-[40px] font-semibold leading-[1.05]"
-              style={{ color: "#f0f0f0", letterSpacing: "-0.03em" }}
+              style={{ color: "var(--dark-text-primary)", letterSpacing: "-0.03em" }}
             >
               {t.heading}
             </h2>
           </div>
 
           {/* Bottom row */}
-          <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 pt-8 border-t" style={{ borderColor: "#2a2a2a" }}>
-            <p className="text-[16px] leading-relaxed max-w-sm" style={{ color: "#999999" }}>
+          <div
+            className="flex flex-col md:flex-row md:items-end justify-between gap-8 pt-8 border-t"
+            style={{ borderColor: "var(--dark-border)" }}
+          >
+            <p className="text-[16px] leading-relaxed max-w-sm" style={{ color: "var(--dark-text-secondary)" }}>
               {t.subheading}
             </p>
 
@@ -44,7 +47,7 @@ export default function ContactCTA() {
               <a
                 href="mailto:carlos@studiohorizon.com.br"
                 className="text-[14px] font-medium transition-colors duration-200 border-b pb-px hover:text-purple-400 hover:border-purple-400"
-                style={{ color: "#f0f0f0", borderColor: "#2a2a2a" }}
+                style={{ color: "var(--dark-text-primary)", borderColor: "var(--dark-border)" }}
               >
                 {t.cta}
               </a>
@@ -52,15 +55,15 @@ export default function ContactCTA() {
                 <a
                   href="tel:+5548936186883"
                   className="text-[14px] transition-colors duration-200 hover:text-purple-400"
-                  style={{ color: "#666666" }}
+                  style={{ color: "var(--dark-text-muted)" }}
                 >
                   +55 (48) 9 3618-6883
                 </a>
-                <span style={{ color: "#2a2a2a" }}>·</span>
+                <span style={{ color: "var(--dark-border)" }}>·</span>
                 <a
                   href="mailto:carlos@studiohorizon.com.br"
                   className="text-[14px] transition-colors duration-200 hover:text-purple-400"
-                  style={{ color: "#666666" }}
+                  style={{ color: "var(--dark-text-muted)" }}
                 >
                   carlos@studiohorizon.com.br
                 </a>
@@ -70,16 +73,16 @@ export default function ContactCTA() {
         </motion.div>
       </div>
       {/* Bottom bar */}
-      <div
-        className="max-w-[1100px] mx-auto px-8 pb-8 flex items-center justify-between"
-      >
-        <span className="text-[14px] font-mono" style={{ color: "#666666" }}>© {new Date().getFullYear()} carlos.psd</span>
+      <div className="max-w-[1100px] mx-auto px-8 pb-8 flex items-center justify-between">
+        <span className="text-[14px] font-mono" style={{ color: "var(--dark-text-muted)" }}>
+          © {new Date().getFullYear()} carlos.psd
+        </span>
         <a
           href="/styleguide"
-          className="text-[14px] font-mono transition-colors duration-200 hover:text-purple-600"
-          style={{ color: "#666666" }}
+          className="text-[14px] font-mono transition-colors duration-200 hover:text-purple-400"
+          style={{ color: "var(--dark-text-muted)" }}
         >
-          design system
+          styleguide
         </a>
       </div>
     </section>
