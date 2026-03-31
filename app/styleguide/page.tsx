@@ -247,11 +247,11 @@ export default function StyleguidePage() {
             {
               role: "Nav link",
               sample: "Work  About  Contact",
-              size: "16px",
+              size: "14px",
               lh: "1",
               weight: "500",
               tracking: "0.01em",
-              cls: "text-[16px] font-medium",
+              cls: "text-[14px] font-medium",
               ls: "0.01em",
             },
             {

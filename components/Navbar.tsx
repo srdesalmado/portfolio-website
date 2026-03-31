@@ -92,7 +92,7 @@ export default function Navbar() {
                     key={link.id}
                     href={link.href}
                     onClick={(e) => handleNavClick(e, link.href)}
-                    className={`text-[16px] font-medium px-3 py-1.5 rounded-full transition-all duration-200 ${
+                    className={`text-[14px] font-medium px-3 py-1.5 rounded-full transition-all duration-200 ${
                       isActive
                         ? "bg-black/[0.06] text-[color:var(--text-primary)]"
                         : "text-[color:var(--text-muted)] hover:text-[color:var(--text-primary)] hover:bg-black/[0.04]"
@@ -107,7 +107,7 @@ export default function Navbar() {
                   key={link.id}
                   href={link.href}
                   onClick={(e) => handleNavClick(e, link.href)}
-                  className={`text-[16px] font-medium px-3 py-1.5 rounded-full transition-all duration-200 ${
+                  className={`text-[14px] font-medium px-3 py-1.5 rounded-full transition-all duration-200 ${
                     isActive
                       ? "bg-white/10 text-white/95"
                       : "text-white/50 hover:text-white/90 hover:bg-white/5"
@@ -121,7 +121,7 @@ export default function Navbar() {
 
           {/* Right: lang + CTA */}
           <div className="hidden md:flex items-center gap-3">
-            <div className="flex items-center gap-0 text-[13px] font-mono">
+            <div className="flex items-center gap-0 text-[14px] font-mono">
               <button
                 onClick={() => setLang("en")}
                 className={`px-2 py-1 rounded-full transition-colors duration-300 ${
@@ -148,7 +148,7 @@ export default function Navbar() {
             <a
               href="/#contact"
               onClick={(e) => handleNavClick(e, "/#contact")}
-              className="text-[13px] font-medium px-4 py-1.5 rounded-full transition-all duration-300 hover:opacity-80"
+              className="text-[14px] font-medium px-4 py-1.5 rounded-full transition-all duration-300 hover:opacity-80"
               style={{
                 backgroundColor: isScrolled ? "var(--text-primary)" : "rgba(255,255,255,0.95)",
                 color: isScrolled ? "var(--bg)" : "#0a0a0a",
