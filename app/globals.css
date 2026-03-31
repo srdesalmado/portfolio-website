@@ -122,6 +122,12 @@
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
   }
+  a {
+    transition: color 0.2s ease;
+  }
+  a:hover {
+    color: var(--accent);
+  }
   .font-mono {
     font-weight: 500;
   }
