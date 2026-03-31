@@ -67,7 +67,7 @@ export default function Navbar() {
       <div className="max-w-[1100px] mx-auto px-8 h-14 flex items-center justify-between">
         <Link
           href="/"
-          className="font-mono text-sm font-medium transition-colors duration-300"
+          className="font-mono text-sm font-medium transition-colors duration-300 hover:text-purple-500"
           style={{ color: isScrolled ? "var(--text-primary)" : "rgba(255,255,255,0.9)" }}
         >
           carlos.psd
@@ -84,7 +84,7 @@ export default function Navbar() {
                 key={link.id}
                 href={link.href}
                 onClick={(e) => handleNavClick(e, link.href)}
-                className="text-sm transition-colors duration-300 relative"
+                className="text-sm transition-colors duration-300 relative hover:text-purple-500"
                 style={{ color: baseColor }}
               >
                 {link.label}
@@ -98,7 +98,7 @@ export default function Navbar() {
           <div className="flex items-center gap-1 text-xs font-mono">
             <button
               onClick={() => setLang("en")}
-              className="transition-colors duration-300 px-1 py-0.5"
+              className="transition-colors duration-300 px-1 py-0.5 hover:text-purple-500"
               style={{ color: isScrolled ? (lang === "en" ? "var(--text-primary)" : "var(--text-muted)") : (lang === "en" ? "rgba(255,255,255,0.95)" : "rgba(255,255,255,0.4)") }}
             >
               EN
@@ -106,7 +106,7 @@ export default function Navbar() {
             <span style={{ color: isScrolled ? "var(--border-color)" : "rgba(255,255,255,0.2)" }}>·</span>
             <button
               onClick={() => setLang("pt")}
-              className="transition-colors duration-300 px-1 py-0.5"
+              className="transition-colors duration-300 px-1 py-0.5 hover:text-purple-500"
               style={{ color: isScrolled ? (lang === "pt" ? "var(--text-primary)" : "var(--text-muted)") : (lang === "pt" ? "rgba(255,255,255,0.95)" : "rgba(255,255,255,0.4)") }}
             >
               PT

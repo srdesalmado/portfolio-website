@@ -51,73 +51,75 @@ export default function Hero() {
         />
       </div>
 
-      {/* Content — pinned to bottom */}
-      <div className="relative z-[3] max-w-[1100px] mx-auto px-8 w-full pb-16 flex flex-col gap-8">
-        <motion.p
-          custom={0}
-          initial="hidden"
-          animate="visible"
-          variants={fadeUp}
-          className="text-[11px] tracking-[0.2em] uppercase font-medium"
-          style={{ color: "rgba(255,255,255,0.35)" }}
-        >
-          {t.greeting}
-        </motion.p>
-
-        <motion.h1
-          custom={1}
-          initial="hidden"
-          animate="visible"
-          variants={fadeUp}
-          className="text-[clamp(2.2rem,5vw,4rem)] font-semibold leading-[1.08]"
-          style={{ color: "#f0f0f0", letterSpacing: "-0.03em" }}
-        >
-          {lang === "en" ? (
-            <>
-              I&apos;m Carlos Henrique,<br />
-              a Multidisciplinary<br />
-              Product Designer.
-            </>
-          ) : (
-            <>
-              Sou Carlos Henrique,<br />
-              Designer de Produto<br />
-              Multidisciplinar.
-            </>
-          )}
-        </motion.h1>
-
-        <motion.div
-          custom={2}
-          initial="hidden"
-          animate="visible"
-          variants={fadeUp}
-          className="flex flex-col gap-5 max-w-sm"
-        >
-          <p
-            className="text-[15px] leading-[1.7]"
-            style={{ color: "rgba(255,255,255,0.5)", letterSpacing: "-0.005em" }}
+      {/* Content — centered */}
+      <div className="absolute inset-0 z-[3] flex items-center justify-center">
+        <div className="max-w-[1100px] w-full mx-auto px-8 flex flex-col items-center text-center gap-8">
+          <motion.p
+            custom={0}
+            initial="hidden"
+            animate="visible"
+            variants={fadeUp}
+            className="text-[11px] tracking-[0.2em] uppercase font-medium"
+            style={{ color: "rgba(255,255,255,0.35)" }}
           >
-            {t.description}
-          </p>
+            {t.greeting}
+          </motion.p>
 
-          <div className="flex gap-6 items-center">
-            <a
-              href="#work"
-              className="text-sm font-medium border-b pb-px transition-colors duration-200 hover:text-purple-400 hover:border-purple-400"
-              style={{ color: "#f0f0f0", borderColor: "rgba(255,255,255,0.3)" }}
+          <motion.h1
+            custom={1}
+            initial="hidden"
+            animate="visible"
+            variants={fadeUp}
+            className="text-[clamp(3rem,7vw,6rem)] font-semibold leading-[1.04]"
+            style={{ color: "#f0f0f0", letterSpacing: "-0.03em" }}
+          >
+            {lang === "en" ? (
+              <>
+                I&apos;m Carlos Henrique,<br />
+                a Multidisciplinary<br />
+                Product Designer.
+              </>
+            ) : (
+              <>
+                Sou Carlos Henrique,<br />
+                Designer de Produto<br />
+                Multidisciplinar.
+              </>
+            )}
+          </motion.h1>
+
+          <motion.div
+            custom={2}
+            initial="hidden"
+            animate="visible"
+            variants={fadeUp}
+            className="flex flex-col gap-5 items-center"
+          >
+            <p
+              className="text-[15px] leading-[1.7] max-w-md"
+              style={{ color: "rgba(255,255,255,0.5)", letterSpacing: "-0.005em" }}
             >
-              {t.cta_work}
-            </a>
-            <a
-              href="#about"
-              className="text-sm transition-colors duration-200 hover:text-purple-400"
-              style={{ color: "rgba(255,255,255,0.35)" }}
-            >
-              {t.cta_about} →
-            </a>
-          </div>
-        </motion.div>
+              {t.description}
+            </p>
+
+            <div className="flex gap-6 items-center">
+              <a
+                href="#work"
+                className="text-sm font-medium border-b pb-px transition-colors duration-200 hover:text-purple-400 hover:border-purple-400"
+                style={{ color: "#f0f0f0", borderColor: "rgba(255,255,255,0.3)" }}
+              >
+                {t.cta_work}
+              </a>
+              <a
+                href="#about"
+                className="text-sm transition-colors duration-200 hover:text-purple-400"
+                style={{ color: "rgba(255,255,255,0.35)" }}
+              >
+                {t.cta_about} →
+              </a>
+            </div>
+          </motion.div>
+        </div>
       </div>
     </section>
   )
