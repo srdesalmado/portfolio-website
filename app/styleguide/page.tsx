@@ -214,16 +214,6 @@ export default function StyleguidePage() {
               ls: "-0.02em",
             },
             {
-              role: "Heading 3",
-              sample: "Design System at Scale",
-              size: "16px",
-              lh: "1.4",
-              weight: "600",
-              tracking: "−0.02em",
-              cls: "text-[16px] font-semibold",
-              ls: "-0.02em",
-            },
-            {
               role: "Body",
               sample: "Currently freelancing — helping startups craft intuitive digital products.",
               size: "16px",
@@ -446,12 +436,12 @@ export default function StyleguidePage() {
             <SubLabel>Text links — dark context</SubLabel>
             <div
               className="flex flex-wrap gap-8 items-center p-8"
-              style={{ backgroundColor: "#0f0f0f", borderRadius: 12, border: "1px solid #1a1a1a" }}
+              style={{ backgroundColor: "#080808", borderRadius: 12, border: "1px solid #2a2a2a" }}
             >
               <a
                 href="#"
                 className="text-[14px] font-medium border-b pb-px transition-colors duration-200 hover:text-purple-400 hover:border-purple-400"
-                style={{ color: "#f0f0f0", borderColor: "#333" }}
+                style={{ color: "#f0f0f0", borderColor: "#2a2a2a" }}
               >
                 Get in touch →
               </a>
@@ -484,7 +474,7 @@ export default function StyleguidePage() {
                     style={{ backgroundColor: "rgba(147,51,234,0.06)" }}
                   >
                     <span
-                      className="text-[14px] font-medium tracking-widest uppercase"
+                      className="text-[14px] font-medium tracking-[0.18em] uppercase"
                       style={{ color: "rgba(147,51,234,0.8)" }}
                     >
                       View →
