@@ -92,10 +92,10 @@ export default function Navbar() {
                     key={link.id}
                     href={link.href}
                     onClick={(e) => handleNavClick(e, link.href)}
-                    className={`text-[14px] px-3 py-1.5 rounded-full transition-all duration-200 ${
+                    className={`text-[16px] font-medium px-3 py-1.5 rounded-full transition-all duration-200 ${
                       isActive
                         ? "bg-black/[0.06] text-[color:var(--text-primary)]"
-                        : "text-[color:var(--text-muted)] hover:text-[color:var(--text-secondary)] hover:bg-black/[0.04]"
+                        : "text-[color:var(--text-muted)] hover:text-[color:var(--text-primary)] hover:bg-black/[0.04]"
                     }`}
                   >
                     {link.label}
@@ -107,10 +107,10 @@ export default function Navbar() {
                   key={link.id}
                   href={link.href}
                   onClick={(e) => handleNavClick(e, link.href)}
-                  className={`text-[14px] px-3 py-1.5 rounded-full transition-all duration-200 ${
+                  className={`text-[16px] font-medium px-3 py-1.5 rounded-full transition-all duration-200 ${
                     isActive
                       ? "bg-white/10 text-white/95"
-                      : "text-white/50 hover:text-white/80 hover:bg-white/5"
+                      : "text-white/50 hover:text-white/90 hover:bg-white/5"
                   }`}
                 >
                   {link.label}

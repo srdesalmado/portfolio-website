@@ -245,6 +245,16 @@ export default function StyleguidePage() {
               ls: "0.18em",
             },
             {
+              role: "Nav link",
+              sample: "Work  About  Contact",
+              size: "16px",
+              lh: "1",
+              weight: "500",
+              tracking: "0.01em",
+              cls: "text-[16px] font-medium",
+              ls: "0.01em",
+            },
+            {
               role: "Mono",
               sample: "carlos.psd / EN · PT",
               size: "14px",
