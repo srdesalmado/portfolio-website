@@ -61,31 +61,20 @@ export default async function CaseStudyPage({
   return (
     <main style={{ backgroundColor: "var(--bg)", color: "var(--text-primary)" }} className="pt-14">
 
-      {/* ─── Sub-nav ─── */}
-      <div
-        className="sticky top-14 z-40"
-        style={{ borderBottom: "1px solid var(--border-color)", backgroundColor: "rgba(250,250,250,0.92)", backdropFilter: "blur(12px)" }}
-      >
-        <div className="max-w-[1200px] mx-auto px-8 h-11 flex items-center justify-between">
-          <Link
-            href="/"
-            className="text-[14px] uppercase tracking-[0.18em] transition-colors duration-200 hover:text-purple-600"
-            style={{ color: "var(--text-muted)" }}
-          >
-            ← Work
-          </Link>
-          <span className="text-[14px] uppercase tracking-[0.18em]" style={{ color: "var(--text-muted)" }}>
-            {project.year}
-          </span>
-        </div>
-      </div>
-
       <div className="max-w-[1200px] mx-auto px-8">
 
         {/* ─── Title + Meta ─── */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-24 pt-16 pb-14" style={{ borderBottom: "1px solid var(--border-color)" }}>
-          {/* Left: tags + title */}
-          <div className="flex flex-col justify-between gap-8">
+        <div className="flex flex-col gap-10 pt-16 pb-14" style={{ borderBottom: "1px solid var(--border-color)" }}>
+
+          {/* Back + tags */}
+          <div className="flex flex-col gap-4">
+            <Link
+              href="/"
+              className="text-[14px] uppercase tracking-[0.18em] transition-colors duration-200 hover:text-purple-600 w-fit"
+              style={{ color: "var(--text-muted)" }}
+            >
+              ← Work
+            </Link>
             <div className="flex gap-3 flex-wrap">
               {project.tags.map((tag) => (
                 <span key={tag} className="text-[14px] uppercase tracking-[0.18em]" style={{ color: "var(--text-muted)" }}>
@@ -93,20 +82,22 @@ export default async function CaseStudyPage({
                 </span>
               ))}
             </div>
-            <h1
-              className="text-[clamp(2.5rem,5.5vw,4.5rem)] font-semibold leading-[1.0]"
-              style={{ color: "var(--text-primary)", letterSpacing: "-0.03em" }}
-            >
-              {project.title}
-            </h1>
           </div>
 
-          {/* Right: description + meta */}
-          <div className="flex flex-col justify-end gap-6">
-            <p className="leading-[1.75]" style={{ color: "var(--text-secondary)", fontSize: 16 }}>
+          {/* Title */}
+          <h1
+            className="text-[clamp(2.5rem,5.5vw,4.5rem)] font-semibold leading-[1.0] max-w-3xl"
+            style={{ color: "var(--text-primary)", letterSpacing: "-0.03em" }}
+          >
+            {project.title}
+          </h1>
+
+          {/* Description + meta side by side on desktop */}
+          <div className="grid grid-cols-1 md:grid-cols-[1fr_auto] gap-10 md:gap-24 pt-4" style={{ borderTop: "1px solid var(--border-color)" }}>
+            <p className="leading-[1.75] max-w-xl" style={{ color: "var(--text-secondary)", fontSize: 16 }}>
               {project.description}
             </p>
-            <div className="grid grid-cols-2 gap-x-8 gap-y-4">
+            <div className="grid grid-cols-2 gap-x-12 gap-y-4 shrink-0">
               {metaRows.map((item) => (
                 <div key={item.label} className="flex flex-col gap-1">
                   <span className="text-[14px] uppercase tracking-[0.18em]" style={{ color: "var(--text-muted)" }}>
