@@ -67,10 +67,10 @@ function ColorChip({
         <span className="text-[14px] font-mono" style={{ color: dark ? "#f0f0f0" : "var(--text-primary)" }}>
           {name}
         </span>
-        <span className="text-[14px] font-mono" style={{ color: dark ? "#555" : "var(--text-muted)" }}>
+        <span className="text-[14px] font-mono" style={{ color: dark ? "#999999" : "var(--text-muted)" }}>
           {hex}
         </span>
-        <span className="text-[14px]" style={{ color: dark ? "#444" : "var(--text-muted)" }}>
+        <span className="text-[14px]" style={{ color: dark ? "#666666" : "var(--text-muted)" }}>
           {usage}
         </span>
       </div>
@@ -458,7 +458,7 @@ export default function StyleguidePage() {
               <a
                 href="#"
                 className="text-[14px] transition-colors duration-200 hover:text-purple-400"
-                style={{ color: "#666" }}
+                style={{ color: "#999999" }}
               >
                 View all work →
               </a>
