@@ -20,7 +20,7 @@ export default async function CaseStudyPage({
   const prev = projects[projectIndex - 1] ?? null
   const next = projects[projectIndex + 1] ?? null
 
-  const sections = [
+  const fallbackSections = [
     {
       title: "The Challenge",
       body: "The existing product had accumulated years of technical and design debt. Users were struggling to complete core tasks, and the onboarding funnel had significant drop-off at every step. Stakeholders needed clarity, and the engineering team needed a system they could build on.",
@@ -49,6 +49,15 @@ export default async function CaseStudyPage({
     },
   ]
 
+  const sections = project.sections ?? fallbackSections
+
+  const metaRows = [
+    { label: "Role", value: project.role ?? "Senior Product Designer" },
+    { label: "Year", value: project.year },
+    { label: "Services", value: project.tags.join(", ") },
+    { label: project.agency ? "Agency" : "Timeline", value: project.agency ?? (project.timeline ?? "Q1–Q2 2024") },
+  ]
+
   return (
     <main style={{ backgroundColor: "var(--bg)", color: "var(--text-primary)" }} className="pt-14">
 
@@ -73,9 +82,9 @@ export default async function CaseStudyPage({
 
       <div className="max-w-[1200px] mx-auto px-8">
 
-        {/* ─── Title + Description ─── */}
+        {/* ─── Title + Meta ─── */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-24 pt-16 pb-14" style={{ borderBottom: "1px solid var(--border-color)" }}>
-          {/* Left: title */}
+          {/* Left: tags + title */}
           <div className="flex flex-col justify-between gap-8">
             <div className="flex gap-3 flex-wrap">
               {project.tags.map((tag) => (
@@ -92,30 +101,32 @@ export default async function CaseStudyPage({
             </h1>
           </div>
 
-          {/* Right: description */}
+          {/* Right: description + meta */}
           <div className="flex flex-col justify-end gap-6">
-            <p
-              className="text-base leading-[1.75]"
-              style={{ color: "var(--text-secondary)", fontSize: 16 }}
-            >
+            <p className="leading-[1.75]" style={{ color: "var(--text-secondary)", fontSize: 16 }}>
               {project.description}
             </p>
             <div className="grid grid-cols-2 gap-x-8 gap-y-4">
-              {[
-                { label: "Role", value: "Senior Product Designer" },
-                { label: "Year", value: project.year },
-                { label: "Services", value: project.tags.join(", ") },
-                { label: "Timeline", value: "Q1–Q2 2024" },
-              ].map((item) => (
+              {metaRows.map((item) => (
                 <div key={item.label} className="flex flex-col gap-1">
                   <span className="text-[14px] uppercase tracking-[0.18em]" style={{ color: "var(--text-muted)" }}>
                     {item.label}
                   </span>
-                  <span className="text-sm" style={{ color: "var(--text-secondary)", fontSize: 14 }}>
+                  <span style={{ color: "var(--text-secondary)", fontSize: 14 }}>
                     {item.value}
                   </span>
                 </div>
               ))}
+              {project.team && (
+                <div className="col-span-2 flex flex-col gap-1 pt-2" style={{ borderTop: "1px solid var(--border-color)" }}>
+                  <span className="text-[14px] uppercase tracking-[0.18em]" style={{ color: "var(--text-muted)" }}>
+                    Team
+                  </span>
+                  <span style={{ color: "var(--text-secondary)", fontSize: 14 }}>
+                    {project.team}
+                  </span>
+                </div>
+              )}
             </div>
           </div>
         </div>
@@ -126,7 +137,7 @@ export default async function CaseStudyPage({
             className="w-full rounded-2xl overflow-hidden flex items-center justify-center"
             style={{ aspectRatio: "16/9", backgroundColor: "var(--surface)" }}
           >
-            <span className="text-sm font-mono" style={{ color: "var(--border-color)", fontSize: 14 }}>
+            <span className="font-mono" style={{ color: "var(--border-color)", fontSize: 14 }}>
               {project.coverLabel}
             </span>
           </div>
@@ -157,25 +168,20 @@ export default async function CaseStudyPage({
           ))}
         </div>
 
-        {/* ─── Key insight callout ─── */}
-        <div className="py-14" style={{ borderBottom: "1px solid var(--border-color)" }}>
-          <blockquote
-            className="pl-6"
-            style={{ borderLeft: "2px solid var(--accent)" }}
-          >
-            <p
-              className="leading-relaxed italic"
-              style={{ color: "var(--text-secondary)", fontSize: 16, maxWidth: "56rem" }}
-            >
-              The key insight was that users weren&apos;t confused by the complexity — they were confused by inconsistency. Fixing the patterns was more impactful than reducing features.
-            </p>
-          </blockquote>
-        </div>
+        {/* ─── Quote / Key insight ─── */}
+        {project.quote && (
+          <div className="py-14" style={{ borderBottom: "1px solid var(--border-color)" }}>
+            <blockquote className="pl-6" style={{ borderLeft: "2px solid var(--accent)" }}>
+              <p className="leading-relaxed italic" style={{ color: "var(--text-secondary)", fontSize: 16, maxWidth: "56rem" }}>
+                &ldquo;{project.quote}&rdquo;
+              </p>
+            </blockquote>
+          </div>
+        )}
 
-        {/* ─── Sections with images ─── */}
-        {sections.map((section, si) => (
+        {/* ─── Sections ─── */}
+        {sections.map((section) => (
           <div key={section.title} className="py-14" style={{ borderBottom: "1px solid var(--border-color)" }}>
-            {/* Title left / body right */}
             <div className="grid grid-cols-1 md:grid-cols-[1fr_1.8fr] gap-10 md:gap-20 mb-10">
               <h2
                 className="font-semibold"
@@ -188,7 +194,6 @@ export default async function CaseStudyPage({
               </p>
             </div>
 
-            {/* Images between sections */}
             {section.images.length === 1 ? (
               <div className="flex flex-col gap-3">
                 <div
