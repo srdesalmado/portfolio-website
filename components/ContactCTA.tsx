@@ -46,21 +46,21 @@ export default function ContactCTA() {
             <div className="flex flex-col gap-3 items-start md:items-end">
               <a
                 href="mailto:carlos@studiohorizon.com.br"
-                className="text-[14px] font-medium text-[color:var(--dark-text-primary)] border-b border-[color:var(--dark-border)] pb-px transition-colors duration-200 hover:text-purple-400 hover:border-purple-400"
+                className="text-[14px] font-medium text-[color:var(--dark-text-primary)] border-b border-[color:var(--dark-border)] pb-px transition-colors duration-200 hover:text-[color:var(--accent-on-dark)] hover:border-[color:var(--accent-on-dark)]"
               >
                 {t.cta}
               </a>
               <div className="flex flex-col md:flex-row md:items-center gap-1 md:gap-4">
                 <a
                   href="tel:+5548936186883"
-                  className="text-[14px] text-[color:var(--dark-text-muted)] transition-colors duration-200 hover:text-[color:var(--accent)]"
+                  className="text-[14px] text-[color:var(--dark-text-muted)] transition-colors duration-200 hover:text-[color:var(--accent-on-dark)]"
                 >
                   +55 (48) 9 3618-6883
                 </a>
                 <span className="hidden md:inline text-[color:var(--dark-border)]">·</span>
                 <a
                   href="mailto:carlos@studiohorizon.com.br"
-                  className="text-[14px] text-[color:var(--dark-text-muted)] transition-colors duration-200 hover:text-[color:var(--accent)]"
+                  className="text-[14px] text-[color:var(--dark-text-muted)] transition-colors duration-200 hover:text-[color:var(--accent-on-dark)]"
                 >
                   carlos@studiohorizon.com.br
                 </a>
@@ -76,7 +76,7 @@ export default function ContactCTA() {
         </span>
         <a
           href="/styleguide"
-          className="text-[14px] font-mono transition-colors duration-200 hover:text-purple-400"
+          className="text-[14px] font-mono transition-colors duration-200 hover:text-[color:var(--accent-on-dark)]"
           style={{ color: "var(--dark-text-muted)" }}
         >
           styleguide
