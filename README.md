@@ -1,36 +1,66 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# carlos.psd — Product Designer Portfolio
+
+A bilingual (EN/PT) portfolio website built to showcase product design work, case studies, and process. This is my first large low-code application — designed and shipped by a product designer using [Claude Code](https://claude.ai/code) as the primary development tool.
+
+## About
+
+Senior product designer with a background in brand, UX, and design systems. This portfolio reflects both the work I do and how I think about building products — with strong opinions on design tokens, component architecture, and visual consistency.
+
+## Tech Stack
+
+| Layer | Technology |
+|-------|-----------|
+| Framework | Next.js 16 (App Router) |
+| UI | React 19 + Tailwind CSS 4 |
+| Animation | Framer Motion 12 |
+| 3D Background | Three.js |
+| Icons | Phosphor Icons |
+| Fonts | Geist + Montserrat via `next/font` |
+| Components | shadcn/ui |
+| Language | TypeScript 5 (strict) |
+| Deployment | Vercel |
+
+## Architecture Highlights
+
+- **Token-based design system** — `app/globals.css` is the single source of truth for all visual properties. No hardcoded hex values, no arbitrary pixel values anywhere in the codebase.
+- **No CMS, no external data fetching** — all content lives in `lib/` as typed TypeScript constants, keeping the project simple and fast.
+- **Bilingual i18n** — full EN/PT support via a custom context + localStorage, with all copy centralized in `lib/translations.ts`.
+- **Server-first** — layout and page files are React Server Components by default; `"use client"` is only added where strictly necessary.
 
 ## Getting Started
 
-First, run the development server:
-
 ```bash
+# Clone the repository
+git clone https://github.com/srdesalmado/portfolio-site
+
+# Install dependencies
+npm install
+
+# Start the development server
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Project Structure
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```
+app/              # Next.js App Router (layout, pages, globals.css)
+components/       # React components (Hero, ProjectCard, AboutSection, etc.)
+lib/              # Data layer — projects.ts, translations.ts, utils.ts
+public/           # Static assets
+```
 
-## Learn More
+## A Note on How This Was Built
 
-To learn more about Next.js, take a look at the following resources:
+I'm a product designer, not a software engineer. This project was my first serious attempt at shipping a full web application — and I did it almost entirely through Claude Code, Anthropic's AI coding tool.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+The experience felt like pair programming with a very fast senior engineer: I described what I wanted, reviewed what was generated, pushed back on decisions that felt wrong, and made every visual and architectural call myself. Claude wrote the code; I directed it.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+What surprised me most wasn't how much code I could ship — it was how much I learned about engineering tradeoffs by being forced to articulate design decisions in technical terms.
 
-## Deploy on Vercel
+## Author
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+**Carlos Salmado** — Product Designer
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+[LinkedIn](https://www.linkedin.com/in/carlospsd/)
