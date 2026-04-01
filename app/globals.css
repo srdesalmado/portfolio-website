@@ -103,7 +103,18 @@
 
   /* Accent */
   --accent: #9333ea;        /* purple-600 — primary accent, light context */
-  --accent-on-dark: #a855f7; /* purple-500 — accent on dark context */
+  --accent-on-dark: #c084fc; /* purple-400 — accent on dark context, lighter for legibility */
+
+  /* Shadows */
+  --shadow-xs: 0 1px 2px rgba(0,0,0,0.08);
+  --shadow-accent-glow: 0 0 24px color-mix(in srgb, var(--accent) 20%, transparent);
+
+  /* Blur */
+  --blur-navbar: 12px;
+  --blur-lightbox: 6px;
+
+  /* Navbar */
+  --navbar-bg: rgba(250,250,250,0.95);
 }
 
 @layer base {
