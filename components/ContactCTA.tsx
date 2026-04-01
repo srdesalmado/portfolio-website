@@ -50,17 +50,17 @@ export default function ContactCTA() {
               >
                 {t.cta}
               </a>
-              <div className="flex items-center gap-4">
+              <div className="flex flex-col md:flex-row md:items-center gap-1 md:gap-4">
                 <a
                   href="tel:+5548936186883"
-                  className="text-[14px] text-[color:var(--dark-text-muted)] transition-colors duration-200 hover:text-purple-400"
+                  className="text-[14px] text-[color:var(--dark-text-muted)] transition-colors duration-200 hover:text-[color:var(--accent)]"
                 >
                   +55 (48) 9 3618-6883
                 </a>
-                <span className="text-[color:var(--dark-border)]">·</span>
+                <span className="hidden md:inline text-[color:var(--dark-border)]">·</span>
                 <a
                   href="mailto:carlos@studiohorizon.com.br"
-                  className="text-[14px] text-[color:var(--dark-text-muted)] transition-colors duration-200 hover:text-purple-400"
+                  className="text-[14px] text-[color:var(--dark-text-muted)] transition-colors duration-200 hover:text-[color:var(--accent)]"
                 >
                   carlos@studiohorizon.com.br
                 </a>

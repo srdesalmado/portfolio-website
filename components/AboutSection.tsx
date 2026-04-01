@@ -11,7 +11,7 @@ export default function AboutSection() {
   return (
     <section
       id="about"
-      className="py-24 md:py-32"
+      className="py-16 md:py-20"
       style={{ backgroundColor: "var(--dark-section-bg)", borderTop: "1px solid var(--dark-border)" }}
     >
       <div className="max-w-[1100px] mx-auto px-8">
@@ -59,10 +59,10 @@ export default function AboutSection() {
               <p>{t.p1}</p>
               <p>
                 {t.p2}{" "}
-                <span style={{ color: "var(--dark-text-primary)" }}>QuintoAndar</span>,{" "}
-                <span style={{ color: "var(--dark-text-primary)" }}>Magazine Luiza</span>{" "}
+                <span style={{ color: "var(--accent)" }}>QuintoAndar</span>,{" "}
+                <span style={{ color: "var(--accent)" }}>Magazine Luiza</span>{" "}
                 {lang === "en" ? "and" : "e"}{" "}
-                <span style={{ color: "var(--dark-text-primary)" }}>SPC Brasil</span>.
+                <span style={{ color: "var(--accent)" }}>SPC Brasil</span>.
               </p>
               <p>{t.p3}</p>
             </div>

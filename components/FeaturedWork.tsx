@@ -12,14 +12,14 @@ export default function FeaturedWork() {
 
   return (
     <section id="work" style={{ backgroundColor: "var(--bg)", borderTop: "1px solid var(--border-color)" }}>
-      <div className="max-w-[1100px] mx-auto px-8 py-24 md:py-32">
+      <div className="max-w-[1100px] mx-auto px-8 py-16 md:py-20">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 12 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-60px" }}
           transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-          className="flex items-end justify-between mb-14"
+          className="flex items-end justify-between mb-7"
           style={{}}
         >
           <h2
@@ -31,7 +31,7 @@ export default function FeaturedWork() {
         </motion.div>
 
         {/* 2-col image-focused grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
           {projects.map((project, i) => (
             <motion.div
               key={project.slug}

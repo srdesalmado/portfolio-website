@@ -2,6 +2,7 @@ import { notFound } from "next/navigation"
 import Link from "next/link"
 import { projects } from "@/lib/projects"
 import ContactCTA from "@/components/ContactCTA"
+import LightboxImage from "@/components/LightboxImage"
 
 export function generateStaticParams() {
   return projects.map((p) => ({ slug: p.slug }))
@@ -110,7 +111,7 @@ export default async function CaseStudyPage({
         {/* ─── Cover image ─── */}
         <div className="w-full rounded-2xl overflow-hidden flex items-center justify-center" style={{ aspectRatio: "16/9", backgroundColor: "var(--surface)" }}>
           {project.coverImage ? (
-            <img src={project.coverImage} alt={project.title} className="w-full h-full object-cover" />
+            <LightboxImage src={project.coverImage} alt={project.title} className="w-full h-full object-cover" />
           ) : (
             <span className="font-mono" style={{ color: "var(--border-color)", fontSize: 14 }}>{project.coverLabel}</span>
           )}
@@ -151,7 +152,7 @@ export default async function CaseStudyPage({
 
         {/* ─── Sections ─── */}
         {sections.map((section) => (
-          <div key={section.title} className="pt-14 pb-8" style={{ borderTop: "1px solid var(--border-color)" }}>
+          <div key={section.title} className="pt-14 pb-6" style={{ borderTop: "1px solid var(--border-color)" }}>
             <div className="grid grid-cols-1 md:grid-cols-[1fr_1.8fr] gap-4 md:gap-20 pb-10 mb-10" style={{ borderBottom: "1px solid var(--border-color)" }}>
               <h2 className="font-semibold" style={{ color: "var(--text-primary)", fontSize: 18, letterSpacing: "-0.02em" }}>
                 {section.title}
@@ -165,7 +166,7 @@ export default async function CaseStudyPage({
               <div className="flex flex-col gap-3">
                 <div className="w-full rounded-xl overflow-hidden flex items-center justify-center" style={{ aspectRatio: "16/9", backgroundColor: "var(--surface)" }}>
                   {section.images[0].src ? (
-                    <img src={section.images[0].src} alt={section.images[0].label} className="w-full h-full object-cover" />
+                    <LightboxImage src={section.images[0].src} alt={section.images[0].label} className="w-full h-full object-cover" />
                   ) : (
                     <span className="font-mono" style={{ color: "var(--border-color)", fontSize: 14 }}>{section.images[0].label}</span>
                   )}
@@ -180,7 +181,7 @@ export default async function CaseStudyPage({
                   <div key={img.label} className="flex flex-col gap-2">
                     <div className="w-full rounded-xl overflow-hidden flex items-center justify-center" style={{ aspectRatio: "4/3", backgroundColor: "var(--surface)" }}>
                       {img.src ? (
-                        <img src={img.src} alt={img.label} className="w-full h-full object-cover" />
+                        <LightboxImage src={img.src} alt={img.label} className="w-full h-full object-cover" />
                       ) : (
                         <span className="font-mono" style={{ color: "var(--border-color)", fontSize: 14 }}>{img.label}</span>
                       )}
@@ -195,10 +196,10 @@ export default async function CaseStudyPage({
 
         {/* ─── Gallery (stacked) ─── */}
         {project.gallery && project.gallery.length > 0 && (
-          <div className="pb-14 flex flex-col gap-1" style={{ paddingTop: "0.5rem" }}>
+          <div className="pb-14 flex flex-col gap-6" style={{ paddingTop: "0" }}>
             {project.gallery.map((src) => (
               <div key={src} className="w-full rounded-xl overflow-hidden" style={{ backgroundColor: "var(--surface)" }}>
-                <img src={src} alt="" className="w-full object-cover" />
+                <LightboxImage src={src} className="w-full object-cover" />
               </div>
             ))}
           </div>

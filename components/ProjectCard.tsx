@@ -38,7 +38,7 @@ export default function ProjectCard({ project }: { project: Project }) {
         </div>
 
         {/* Top row: badges left, year right — hover only */}
-        <div className="absolute inset-x-0 top-0 p-4 flex items-start justify-between gap-2 transition-all duration-300 -translate-y-1 opacity-0 group-hover:translate-y-0 group-hover:opacity-100">
+        <div className="absolute inset-x-0 top-0 p-5 flex items-start justify-between gap-2 transition-all duration-300 -translate-y-1 opacity-0 group-hover:translate-y-0 group-hover:opacity-100">
           <div className="flex flex-wrap gap-2">
             {project.tags.map((tag) => (
               <Badge
@@ -56,7 +56,7 @@ export default function ProjectCard({ project }: { project: Project }) {
         </div>
 
         {/* Bottom: title + description — hover only */}
-        <div className="absolute inset-x-0 bottom-0 p-5 flex flex-col gap-2 transition-all duration-300 translate-y-2 opacity-0 group-hover:translate-y-0 group-hover:opacity-100">
+        <div className="absolute inset-x-0 bottom-0 p-6 flex flex-col gap-2 transition-all duration-300 translate-y-2 opacity-0 group-hover:translate-y-0 group-hover:opacity-100">
           <h3
             className="font-semibold text-[18px] leading-snug"
             style={{ color: "#ffffff", letterSpacing: "-0.02em" }}

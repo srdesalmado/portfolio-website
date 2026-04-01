@@ -95,15 +95,13 @@ export default function Hero() {
             <div className="flex gap-6 items-center">
               <a
                 href="#work"
-                className="text-[14px] font-medium pb-px transition-colors duration-200 hover:text-purple-400 hover:border-purple-400"
-                style={{ color: "var(--dark-text-primary)", borderBottom: "1px solid var(--dark-border)" }}
+                className="text-[14px] font-medium pb-px transition-colors duration-200 text-[color:var(--dark-text-primary)] hover:text-[color:var(--accent)] border-b border-[color:var(--dark-border)] hover:border-[color:var(--accent)]"
               >
                 {t.cta_work}
               </a>
               <a
                 href="#about"
-                className="text-[14px] transition-colors duration-200 hover:text-purple-400"
-                style={{ color: "var(--dark-text-muted)" }}
+                className="text-[14px] transition-colors duration-200 text-[color:var(--dark-text-muted)] hover:text-[color:var(--accent)]"
               >
                 {t.cta_about} →
               </a>
