@@ -129,28 +129,35 @@ export default function StyleguidePage() {
         {/* ── TYPOGRAPHY ─────────────────────────────────────── */}
         {active === "Typography" && (
           <section className="py-16">
-            <div className="grid grid-cols-[160px_1fr_80px_60px_64px_120px] gap-4 pb-3 mb-1 border-b" style={{ borderColor: "var(--border-color)" }}>
-              {["Role", "Specimen", "Size", "Line-h", "Weight", "Tracking"].map((h) => (
-                <span key={h} className="text-[14px] font-mono" style={{ color: "var(--text-muted)" }}>{h}</span>
+            <div className="grid grid-cols-[200px_1fr_140px_60px_64px_160px] gap-4 pb-3 mb-1 border-b" style={{ borderColor: "var(--border-color)" }}>
+              {["Role · used in", "Specimen", "Size token", "Line-h", "Weight", "Tracking"].map((h) => (
+                <span key={h} className="text-badge font-mono" style={{ color: "var(--text-muted)" }}>{h}</span>
               ))}
             </div>
             {[
-              { role: "Display", sample: "Product Designer.", size: "80px", lh: "1.04", weight: "600", tracking: "−0.03em", cls: "text-[80px] font-semibold leading-[1.04]", ls: "-0.03em" },
-              { role: "Heading", sample: "Let's work together.", size: "40px", lh: "1.05", weight: "600", tracking: "−0.025em", cls: "text-[40px] font-semibold leading-[1.05]", ls: "-0.025em" },
-              { role: "Heading 3", sample: "Design System at Scale", size: "18px", lh: "1.4", weight: "600", tracking: "−0.02em", cls: "text-[18px] font-semibold", ls: "-0.02em" },
-              { role: "Body", sample: "Currently freelancing — helping startups craft intuitive digital products.", size: "16px", lh: "1.7", weight: "400", tracking: "0.005em", cls: "text-[16px] leading-[1.7]", ls: "0.005em" },
-              { role: "Caption", sample: "Available for projects · Florianópolis, BR", size: "14px", lh: "1.5", weight: "400", tracking: "0", cls: "text-[14px]", ls: "0" },
-              { role: "Label", sample: "AVAILABLE FOR WORK", size: "14px", lh: "1", weight: "500", tracking: "0.18em", cls: "text-[14px] uppercase tracking-[0.18em] font-medium", ls: "0.18em" },
-              { role: "Nav link", sample: "Work  About  Contact", size: "14px", lh: "1", weight: "500", tracking: "0.01em", cls: "text-[14px] font-medium", ls: "0.01em" },
-              { role: "Mono", sample: "carlos.psd / EN · PT", size: "14px", lh: "1", weight: "500", tracking: "0", cls: "font-mono text-[14px]", ls: "0" },
+              { role: "Hero LG",  used: "Hero section · title",               sample: "Product Designer.",                                                      cls: "text-hero-lg font-semibold leading-hero tracking-tight-3",    size: "text-hero-lg",    lh: "1.04",                weight: "600", tracking: "tracking-tight-3"   },
+              { role: "Hero SM",  used: "Hero title · mobile",                sample: "Product Designer.",                                                      cls: "text-hero-sm font-semibold leading-hero tracking-tight-3",    size: "text-hero-sm",    lh: "1.04",                weight: "600", tracking: "tracking-tight-3"   },
+              { role: "Display",  used: "CTA · large section headings",       sample: "Let's work together.",                                                   cls: "text-display font-semibold leading-display tracking-tight-3", size: "text-display",    lh: "1.06",                weight: "600", tracking: "tracking-tight-3"   },
+              { role: "H1",       used: "Section headings (About, Process)",  sample: "Let's work together.",                                                   cls: "text-h1 font-semibold leading-cta tracking-tight-25",         size: "text-h1",         lh: "1.05",                weight: "600", tracking: "tracking-tight-25"  },
+              { role: "H2",       used: "Sub-headings · Featured Work",       sample: "Design System at Scale",                                                 cls: "text-h2 font-semibold leading-heading tracking-tight-2",      size: "text-h2",         lh: "1.1",                 weight: "600", tracking: "tracking-tight-2"   },
+              { role: "Metric",   used: "Project card metrics",               sample: "40%",                                                                    cls: "text-metric font-semibold leading-hero tracking-tight-3",     size: "text-metric",     lh: "1.04",                weight: "600", tracking: "tracking-tight-3"   },
+              { role: "Body",     used: "About section · long paragraphs",    sample: "Currently freelancing — helping startups craft intuitive digital products.", cls: "text-base leading-body",     size: "text-base",  lh: "leading-body · 1.75",    weight: "400", tracking: "—"                  },
+              { role: "Body Alt", used: "Dark section copy",                  sample: "Currently freelancing — helping startups craft intuitive digital products.", cls: "text-base leading-body-alt", size: "text-base",  lh: "leading-body-alt · 1.7", weight: "400", tracking: "—"                  },
+              { role: "Badge",    used: "Tags · captions · counter text",     sample: "Available for projects · Florianópolis, BR",                             cls: "text-badge",                                                  size: "text-badge",      lh: "1.5",                 weight: "400", tracking: "—"                  },
+              { role: "Label",    used: "Section category labels",            sample: "AVAILABLE FOR WORK",                                                     cls: "text-badge uppercase tracking-label font-medium",             size: "text-badge",      lh: "1",                   weight: "500", tracking: "tracking-label"    },
+              { role: "Nav",      used: "Navbar · footer links",              sample: "Work  About  Contact",                                                   cls: "text-badge font-medium",                                      size: "text-badge",      lh: "1",                   weight: "500", tracking: "0.01em"             },
+              { role: "Mono",     used: "Logo mark · code references",        sample: "carlos.psd / EN · PT",                                                   cls: "font-mono text-badge",                                        size: "font-mono",       lh: "1",                   weight: "500", tracking: "—"                  },
             ].map((row) => (
-              <div key={row.role} className="grid grid-cols-[160px_1fr_80px_60px_64px_120px] gap-4 items-baseline py-5 border-b" style={{ borderColor: "var(--border-color)" }}>
-                <span className="text-[14px] font-mono" style={{ color: "var(--text-muted)" }}>{row.role}</span>
-                <span className={row.cls} style={{ color: "var(--text-primary)", letterSpacing: row.ls, lineHeight: row.lh }}>{row.sample}</span>
-                <span className="text-[14px] font-mono" style={{ color: "var(--text-secondary)" }}>{row.size}</span>
-                <span className="text-[14px] font-mono" style={{ color: "var(--text-secondary)" }}>{row.lh}</span>
-                <span className="text-[14px] font-mono" style={{ color: "var(--text-secondary)" }}>{row.weight}</span>
-                <span className="text-[14px] font-mono" style={{ color: "var(--text-secondary)" }}>{row.tracking}</span>
+              <div key={row.role} className="grid grid-cols-[200px_1fr_140px_60px_64px_160px] gap-4 items-start py-5 border-b" style={{ borderColor: "var(--border-color)" }}>
+                <div>
+                  <span className="text-badge font-mono block" style={{ color: "var(--text-muted)" }}>{row.role}</span>
+                  <span className="text-badge block mt-0.5 opacity-60" style={{ color: "var(--text-muted)" }}>{row.used}</span>
+                </div>
+                <span className={row.cls} style={{ color: "var(--text-primary)" }}>{row.sample}</span>
+                <span className="text-badge font-mono" style={{ color: "var(--text-secondary)" }}>{row.size}</span>
+                <span className="text-badge font-mono" style={{ color: "var(--text-secondary)" }}>{row.lh}</span>
+                <span className="text-badge font-mono" style={{ color: "var(--text-secondary)" }}>{row.weight}</span>
+                <span className="text-badge font-mono" style={{ color: "var(--text-secondary)" }}>{row.tracking}</span>
               </div>
             ))}
           </section>
@@ -202,10 +209,48 @@ export default function StyleguidePage() {
 
             <div className="pt-12">
               <SubLabel>Container</SubLabel>
-              <Row label="max-width"><span className="text-[14px] font-mono" style={{ color: "var(--text-primary)" }}>1100px</span></Row>
-              <Row label="px (desktop)"><span className="text-[14px] font-mono" style={{ color: "var(--text-primary)" }}>32px</span></Row>
-              <Row label="px (mobile)"><span className="text-[14px] font-mono" style={{ color: "var(--text-primary)" }}>24px</span></Row>
-              <Row label="Section py"><span className="text-[14px] font-mono" style={{ color: "var(--text-primary)" }}>64px mobile / 80px desktop</span></Row>
+              <Row label="max-width-page">
+                <span className="text-badge font-mono" style={{ color: "var(--text-primary)" }}>1100px</span>
+                <span className="text-badge ml-4 opacity-60" style={{ color: "var(--text-muted)" }}>All homepage sections</span>
+              </Row>
+              <Row label="max-width-case">
+                <span className="text-badge font-mono" style={{ color: "var(--text-primary)" }}>1200px</span>
+                <span className="text-badge ml-4 opacity-60" style={{ color: "var(--text-muted)" }}>Case study pages</span>
+              </Row>
+              <Row label="px (desktop)">
+                <span className="text-badge font-mono" style={{ color: "var(--text-primary)" }}>32px</span>
+                <span className="text-badge ml-4 opacity-60" style={{ color: "var(--text-muted)" }}>px-8 · all sections</span>
+              </Row>
+              <Row label="px (mobile)">
+                <span className="text-badge font-mono" style={{ color: "var(--text-primary)" }}>24px</span>
+                <span className="text-badge ml-4 opacity-60" style={{ color: "var(--text-muted)" }}>px-6 · responsive</span>
+              </Row>
+              <Row label="Section py">
+                <span className="text-badge font-mono" style={{ color: "var(--text-primary)" }}>64px mobile / 80px desktop</span>
+                <span className="text-badge ml-4 opacity-60" style={{ color: "var(--text-muted)" }}>All homepage sections</span>
+              </Row>
+            </div>
+
+            <div className="pt-12">
+              <SubLabel>Semantic tokens</SubLabel>
+              <Row label="--spacing-metrics">
+                <div className="flex items-center gap-4">
+                  <div style={{ width: 48, height: 20, backgroundColor: "var(--surface)", border: "1px solid var(--border-color)", borderRadius: 4 }} />
+                  <span className="text-badge font-mono" style={{ color: "var(--text-primary)" }}>3rem · 48px</span>
+                  <span className="text-badge opacity-60" style={{ color: "var(--text-muted)" }}>Metrics row spacing · project cards</span>
+                </div>
+              </Row>
+              <Row label="--height-hairline">
+                <div className="flex items-center gap-4">
+                  <div style={{ width: 80, height: "1.5px", backgroundColor: "var(--border-color)" }} />
+                  <span className="text-badge font-mono" style={{ color: "var(--text-primary)" }}>1.5px</span>
+                  <span className="text-badge opacity-60" style={{ color: "var(--text-muted)" }}>Section dividers</span>
+                </div>
+              </Row>
+              <Row label="--hero-min-height">
+                <span className="text-badge font-mono" style={{ color: "var(--text-primary)" }}>600px</span>
+                <span className="text-badge ml-4 opacity-60" style={{ color: "var(--text-muted)" }}>Hero component minimum height</span>
+              </Row>
             </div>
 
             <div className="pt-12">
@@ -313,13 +358,32 @@ export default function StyleguidePage() {
             </div>
 
             {/* Project card — real component */}
-            <div className="grid grid-cols-[200px_1fr] gap-12 py-10" style={{ borderColor: "var(--border-color)" }}>
+            <div className="grid grid-cols-[200px_1fr] gap-12 py-10 border-b" style={{ borderColor: "var(--border-color)" }}>
               <div>
-                <p className="text-[14px] font-medium mb-1" style={{ color: "var(--text-primary)" }}>Project Card</p>
-                <p className="text-[14px]" style={{ color: "var(--text-muted)" }}>hover state · 4:3 · scrim overlay</p>
+                <p className="text-badge font-medium mb-1" style={{ color: "var(--text-primary)" }}>Project Card</p>
+                <p className="text-badge" style={{ color: "var(--text-muted)" }}>hover state · aspect-card · gradient-card-overlay scrim · used in FeaturedWork</p>
               </div>
               <div className="w-56">
                 <ProjectCard project={projects[0]} />
+              </div>
+            </div>
+
+            {/* Lightbox */}
+            <div className="grid grid-cols-[200px_1fr] gap-12 py-10">
+              <div>
+                <p className="text-badge font-medium mb-1" style={{ color: "var(--text-primary)" }}>Lightbox</p>
+                <p className="text-badge" style={{ color: "var(--text-muted)" }}>modal · overlay-backdrop · blur-lightbox · used in case study galleries</p>
+              </div>
+              <div className="relative rounded-xl overflow-hidden h-56 flex items-center justify-center" style={{ backgroundColor: "var(--overlay-backdrop)" }}>
+                <div className="w-3/5 h-36 rounded-lg flex items-center justify-center" style={{ backgroundColor: "var(--dark-surface)", border: "1px solid var(--dark-border)" }}>
+                  <span className="text-badge font-mono text-center" style={{ color: "var(--dark-text-muted)" }}>image<br />max-w-lightbox · max-h-lightbox</span>
+                </div>
+                <button className="absolute top-3 right-3 w-8 h-8 rounded-full flex items-center justify-center text-badge" style={{ backgroundColor: "var(--dark-surface)", color: "var(--dark-text-primary)", border: "1px solid var(--dark-border)" }}>
+                  ✕
+                </button>
+                <div className="absolute bottom-2 left-3">
+                  <span className="text-badge font-mono" style={{ color: "var(--dark-border)" }}>--overlay-backdrop · rgba(0,0,0,0.85) · backdrop blur(--blur-lightbox)</span>
+                </div>
               </div>
             </div>
 

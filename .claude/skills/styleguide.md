@@ -45,7 +45,7 @@ bg-[var(--bg)]           // #fafafa — OK
 bg-[var(--dark-surface)] // #1a1a1a — OK
 ```
 
-### rgba colors → NEVER `bg-[var()]`, use `[background-color:var()]`
+### rgba colors → NEVER `bg-[var(--token)]`, use `[background-color:var(--token)]`
 ```tsx
 // WRONG — Tailwind 4 breaks rgba with bg-[]
 bg-[var(--overlay-hero)]
@@ -54,7 +54,7 @@ bg-[var(--overlay-hero)]
 [background-color:var(--overlay-hero)]
 ```
 
-### Gradients → NEVER `bg-[var()]`, use `[background-image:var()]`
+### Gradients → NEVER `bg-[var(--token)]`, use `[background-image:var(--token)]`
 ```tsx
 // WRONG — bg- sets background-color, not background-image
 bg-[var(--gradient-card-overlay)]
@@ -162,7 +162,7 @@ aspect-cover
 ```
 Hover states: `hover:text-purple-600` (light) / `hover:text-purple-400` (dark) — allowed exceptions.
 
-### Overlays (rgba — use `[background-color:var()]`)
+### Overlays (rgba — use `[background-color:var(--token)]`)
 ```
 --overlay-backdrop    rgba(0,0,0,0.85)   lightbox
 --overlay-hero        rgba(0,0,0,0.55)   hero dark overlay
@@ -172,13 +172,13 @@ Hover states: `hover:text-purple-600` (light) / `hover:text-purple-400` (dark) �
 --glass-medium        rgba(255,255,255,0.2)
 ```
 
-### Gradients (use `[background-image:var()]`)
+### Gradients (use `[background-image:var(--token)]`)
 ```
 --gradient-hero-fade      linear-gradient(to bottom, transparent, dark-bg)
 --gradient-card-overlay   linear-gradient(to top, card-bottom 0%, card-fade 50%, transparent)
 ```
 
-### Navbar (rgba — use `[background-color:var()]`)
+### Navbar (rgba — use `[background-color:var(--token)]`)
 ```
 --navbar-bg-dark          rgba(8,8,8,0.97)
 --navbar-bg-light         rgba(250,250,250,0.97)
