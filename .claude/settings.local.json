@@ -42,7 +42,10 @@
       "Bash(cp \"/Users/carlos/Documents/Site Porfolio/public/klavi/7 fonts.png\" \"/Users/carlos/Documents/Site Porfolio/.claude/worktrees/elastic-wing/public/\")",
       "Bash(cp \"/Users/carlos/Documents/Site Porfolio/public/klavi/741285141524267.634eb151527d8.png\" \"/Users/carlos/Documents/Site Porfolio/.claude/worktrees/elastic-wing/public/\")",
       "Bash(cp \"/Users/carlos/Documents/Site Porfolio/public/klavi/80a51d141524267.637d470dc314f.png\" \"/Users/carlos/Documents/Site Porfolio/.claude/worktrees/elastic-wing/public/\")",
-      "Bash(cp \"/Users/carlos/Documents/Site Porfolio/public/klavi/8596d6141524267.634ec0c868a56.png\" \"/Users/carlos/Documents/Site Porfolio/.claude/worktrees/elastic-wing/public/\")"
+      "Bash(cp \"/Users/carlos/Documents/Site Porfolio/public/klavi/8596d6141524267.634ec0c868a56.png\" \"/Users/carlos/Documents/Site Porfolio/.claude/worktrees/elastic-wing/public/\")",
+      "Read(//Users/carlos/Documents/Site Porfolio/.claude/skills/**)",
+      "Bash(xargs cat:*)",
+      "Bash(find ./app ./src -type f \\\\\\(-name *.ts -o -name *.tsx -o -name *.js -o -name *.jsx \\\\\\))"
     ],
     "defaultMode": "bypassPermissions"
   }

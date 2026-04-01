@@ -1,0 +1,26 @@
+{
+  "hooks": {
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "echo '{\"hookSpecificOutput\":{\"hookEventName\":\"SessionStart\",\"additionalContext\":\"This project has a /styleguide skill with the full design token reference, Tailwind 4 gotchas, and styleguide rules. Invoke it before making any visual or style changes.\"}}'",
+            "statusMessage": "Loading project context..."
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "Edit|Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "FILE=$(jq -r '.tool_input.file_path // empty' 2>/dev/null); echo \"$FILE\" | grep -qE '(globals\\.css|lib/tokens\\.ts)' && echo '{\"hookSpecificOutput\":{\"hookEventName\":\"PostToolUse\",\"additionalContext\":\"SYNC CHECK — You edited a styleguide source file. app/globals.css and lib/tokens.ts must always be 1:1. If you changed a token value in globals.css (color, size, spacing), update lib/tokens.ts to match. If you changed lib/tokens.ts, ensure globals.css reflects it. The styleguide page (app/styleguide/page.tsx) derives all display values from lib/tokens.ts and will be in sync automatically.\"}}' || true"
+          }
+        ]
+      }
+    ]
+  }
+}
