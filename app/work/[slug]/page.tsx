@@ -61,7 +61,7 @@ export default async function CaseStudyPage({
   const allMeta = [...metaRows, ...(project.team ? [{ label: "Team", value: project.team }] : [])]
 
   return (
-    <main style={{ backgroundColor: "#ffffff", color: "var(--text-primary)" }} className="pt-14">
+    <main style={{ backgroundColor: "var(--bg)", color: "var(--text-primary)" }} className="pt-14">
 
       <div className="max-w-[1200px] mx-auto px-8">
 
@@ -208,7 +208,7 @@ export default async function CaseStudyPage({
       </div>
 
       {/* ─── Prev / Next ─── */}
-      <div style={{ borderTop: "1px solid var(--border-color)", backgroundColor: "#ffffff" }}>
+      <div style={{ borderTop: "1px solid var(--border-color)", backgroundColor: "var(--bg)" }}>
         <div className="max-w-[1200px] mx-auto px-8">
           <div className="grid grid-cols-2">
             {prev ? (

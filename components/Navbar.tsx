@@ -75,8 +75,10 @@ export default function Navbar() {
           {/* Logo */}
           <Link
             href="/"
-            className={`font-mono text-[14px] font-medium transition-colors duration-300 hover:text-purple-500 ${
-              isScrolled ? "text-[color:var(--text-primary)]" : "text-white/90"
+            className={`font-mono text-[14px] font-medium transition-colors duration-300 ${
+              isScrolled
+                ? "text-[color:var(--text-primary)] hover:text-[color:var(--accent)]"
+                : "text-white/90 hover:text-[color:var(--accent-on-dark)]"
             }`}
           >
             carlos.psd
@@ -197,8 +199,10 @@ export default function Navbar() {
                 key={link.id}
                 href={link.href}
                 onClick={(e) => handleNavClick(e, link.href)}
-                className={`text-[24px] font-semibold transition-colors duration-200 hover:text-purple-500 ${
-                  isScrolled ? "text-[color:var(--text-primary)]" : "text-white/90"
+                className={`text-[24px] font-semibold transition-colors duration-200 ${
+                  isScrolled
+                    ? "text-[color:var(--text-primary)] hover:text-[color:var(--accent)]"
+                    : "text-white/90 hover:text-[color:var(--accent-on-dark)]"
                 }`}
                 style={{ letterSpacing: "-0.02em" }}
               >

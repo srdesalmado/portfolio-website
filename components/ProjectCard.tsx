@@ -50,7 +50,7 @@ export default function ProjectCard({ project }: { project: Project }) {
               </Badge>
             ))}
           </div>
-          <span className="text-[14px] shrink-0" style={{ color: "rgba(255,255,255,0.5)" }}>
+          <span className="text-[14px] shrink-0" style={{ color: "var(--dark-text-muted)" }}>
             {project.year}
           </span>
         </div>
@@ -59,13 +59,13 @@ export default function ProjectCard({ project }: { project: Project }) {
         <div className="absolute inset-x-0 bottom-0 p-6 flex flex-col gap-2 transition-all duration-300 translate-y-2 opacity-0 group-hover:translate-y-0 group-hover:opacity-100">
           <h3
             className="font-semibold text-[18px] leading-snug"
-            style={{ color: "#ffffff", letterSpacing: "-0.02em" }}
+            style={{ color: "var(--dark-text-primary)", letterSpacing: "-0.02em" }}
           >
             {project.title}
           </h3>
           <p
             className="text-[13px] leading-snug line-clamp-2"
-            style={{ color: "rgba(255,255,255,0.6)" }}
+            style={{ color: "var(--dark-text-secondary)" }}
           >
             {project.description}
           </p>

@@ -59,10 +59,10 @@ export default function AboutSection() {
               <p>{t.p1}</p>
               <p>
                 {t.p2}{" "}
-                <span style={{ color: "var(--accent)" }}>QuintoAndar</span>,{" "}
-                <span style={{ color: "var(--accent)" }}>Magazine Luiza</span>{" "}
+                <span style={{ color: "var(--accent-on-dark)" }}>QuintoAndar</span>,{" "}
+                <span style={{ color: "var(--accent-on-dark)" }}>Magazine Luiza</span>{" "}
                 {lang === "en" ? "and" : "e"}{" "}
-                <span style={{ color: "var(--accent)" }}>SPC Brasil</span>.
+                <span style={{ color: "var(--accent-on-dark)" }}>SPC Brasil</span>.
               </p>
               <p>{t.p3}</p>
             </div>

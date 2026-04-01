@@ -97,7 +97,7 @@ export default function StyleguidePage() {
         </div>
 
         {/* Tab nav */}
-        <div className="flex items-center gap-1 mb-14 p-1 w-fit rounded-full" style={{ backgroundColor: "var(--surface)" }}>
+        <div className="flex items-center gap-1 mb-6 p-1 w-fit rounded-full" style={{ backgroundColor: "var(--surface)" }}>
           {TABS.map((tab) => (
             <button
               key={tab}
@@ -113,8 +113,6 @@ export default function StyleguidePage() {
             </button>
           ))}
         </div>
-
-        <Divider />
 
         {/* ── TYPOGRAPHY ─────────────────────────────────────── */}
         {active === "Typography" && (
@@ -170,8 +168,12 @@ export default function StyleguidePage() {
             </div>
 
             <SubLabel>Accent</SubLabel>
+            <div className="flex flex-wrap gap-8 mb-10">
+              <ColorChip hex="#9333ea" name="--accent" usage="Light context hover" />
+              <ColorChip hex="#a855f7" name="--accent-on-dark" usage="Dark context hover" />
+            </div>
+            <SubLabel>Hero animation</SubLabel>
             <div className="flex flex-wrap gap-8">
-              <ColorChip hex="#9333ea" name="--accent" usage="Hover / highlight" />
               <ColorChip hex="#8a5cff" name="colorbends-purple" usage="Hero animation" />
               <ColorChip hex="#ff5c7a" name="colorbends-pink" usage="Hero animation" />
               <ColorChip hex="#00ffd1" name="colorbends-teal" usage="Hero animation" />
@@ -233,21 +235,26 @@ export default function StyleguidePage() {
             <div className="grid grid-cols-[200px_1fr] gap-12 py-10 border-b" style={{ borderColor: "var(--border-color)" }}>
               <div>
                 <p className="text-[14px] font-medium mb-1" style={{ color: "var(--text-primary)" }}>Text links</p>
-                <p className="text-[14px]" style={{ color: "var(--text-muted)" }}>underline · hover:accent — light bg</p>
+                <p className="text-[14px]" style={{ color: "var(--text-muted)" }}>hover:accent · light + dark contexts</p>
               </div>
               <div className="flex flex-col gap-6">
-                <div className="flex flex-wrap gap-8 items-center">
+                {/* Light */}
+                <div className="flex flex-wrap gap-8 items-center px-5 py-4 rounded-xl" style={{ backgroundColor: "var(--surface)", border: "1px solid var(--border-color)" }}>
                   <a href="#" className="text-[14px] font-medium text-[color:var(--text-primary)] border-b border-[color:var(--border-color)] pb-px transition-colors duration-200 hover:text-[color:var(--accent)] hover:border-[color:var(--accent)]">
                     Get in touch →
                   </a>
                   <a href="#" className="text-[14px] text-[color:var(--text-muted)] transition-colors duration-200 hover:text-[color:var(--accent)]">
-                    ← Work
+                    About me →
                   </a>
                 </div>
-                <div className="flex flex-wrap gap-1 items-center px-4 py-3 rounded-xl" style={{ backgroundColor: "var(--dark-bg)", border: "1px solid var(--dark-border)" }}>
-                  <a href="#" className="text-[14px] font-medium px-3 py-1.5 rounded-full transition-all duration-200 text-[color:var(--dark-text-primary)] hover:bg-white/[0.08]">View Work</a>
-                  <a href="#" className="text-[14px] px-3 py-1.5 rounded-full transition-all duration-200 text-[color:var(--dark-text-muted)] hover:bg-white/[0.08]">About me →</a>
-                  <span className="text-[12px] ml-auto font-mono" style={{ color: "var(--dark-border)" }}>dark · pill hover</span>
+                {/* Dark — same pattern, accent on hover */}
+                <div className="flex flex-wrap gap-8 items-center px-5 py-4 rounded-xl" style={{ backgroundColor: "var(--dark-bg)", border: "1px solid var(--dark-border)" }}>
+                  <a href="#" className="text-[14px] font-medium text-[color:var(--dark-text-primary)] border-b border-[color:var(--dark-border)] pb-px transition-colors duration-200 hover:text-[color:var(--accent-on-dark)] hover:border-[color:var(--accent-on-dark)]">
+                    Get in touch →
+                  </a>
+                  <a href="#" className="text-[14px] text-[color:var(--dark-text-muted)] transition-colors duration-200 hover:text-[color:var(--accent-on-dark)]">
+                    About me →
+                  </a>
                 </div>
               </div>
             </div>
@@ -269,22 +276,34 @@ export default function StyleguidePage() {
             <div className="grid grid-cols-[200px_1fr] gap-12 py-10 border-b" style={{ borderColor: "var(--border-color)" }}>
               <div>
                 <p className="text-[14px] font-medium mb-1" style={{ color: "var(--text-primary)" }}>Navbar</p>
-                <p className="text-[14px]" style={{ color: "var(--text-muted)" }}>sticky · blur · pill active state</p>
+                <p className="text-[14px]" style={{ color: "var(--text-muted)" }}>sticky · blur · pill active + hover</p>
               </div>
-              <div className="flex items-center justify-between px-6 h-14 rounded-xl overflow-hidden" style={{ backgroundColor: "rgba(250,250,250,0.95)", border: "1px solid var(--border-color)", backdropFilter: "blur(12px)" }}>
-                <span className="font-mono text-[14px] font-medium text-[color:var(--text-primary)]">carlos.psd</span>
-                <div className="flex items-center gap-1">
-                  <span className="text-[14px] font-medium px-3 py-1.5 rounded-full text-[color:var(--text-muted)]">Work</span>
-                  <span className="text-[14px] font-medium px-3 py-1.5 rounded-full bg-black/[0.06] text-[color:var(--text-primary)]">About</span>
-                  <span className="text-[14px] font-medium px-3 py-1.5 rounded-full text-[color:var(--text-muted)]">Contact</span>
-                </div>
-                <div className="flex items-center gap-3">
-                  <div className="flex items-center text-[14px] font-mono">
-                    <span className="px-2 py-1 text-[color:var(--text-primary)]">EN</span>
-                    <span className="text-[color:var(--border-color)]">·</span>
-                    <span className="px-2 py-1 text-[color:var(--text-muted)]">PT</span>
+              <div className="flex flex-col gap-3">
+                {/* Desktop */}
+                <div className="flex items-center justify-between px-6 h-14 rounded-xl overflow-hidden" style={{ backgroundColor: "rgba(250,250,250,0.95)", border: "1px solid var(--border-color)", backdropFilter: "blur(12px)" }}>
+                  <span className="font-mono text-[14px] font-medium text-[color:var(--text-primary)]">carlos.psd</span>
+                  <div className="flex items-center gap-1">
+                    {["Work","About","Contact"].map((l, i) => (
+                      <span key={l} className={`text-[14px] font-medium px-3 py-1.5 rounded-full cursor-pointer transition-all duration-200 hover:bg-black/[0.04] hover:text-[color:var(--text-primary)] ${i === 1 ? "bg-black/[0.06] text-[color:var(--text-primary)]" : "text-[color:var(--text-muted)]"}`}>{l}</span>
+                    ))}
                   </div>
-                  <span className="text-[14px] font-medium px-4 py-1.5 rounded-full" style={{ backgroundColor: "var(--text-primary)", color: "var(--bg)" }}>Get in touch</span>
+                  <div className="flex items-center gap-3">
+                    <div className="flex items-center text-[14px] font-mono">
+                      <span className="px-2 py-1 cursor-pointer rounded-full transition-colors duration-200 hover:bg-black/[0.04] text-[color:var(--text-primary)]">EN</span>
+                      <span style={{ color: "var(--border-color)" }}>·</span>
+                      <span className="px-2 py-1 cursor-pointer rounded-full transition-colors duration-200 hover:bg-black/[0.04] text-[color:var(--text-muted)]">PT</span>
+                    </div>
+                    <span className="text-[14px] font-medium px-4 py-1.5 rounded-full cursor-pointer transition-all duration-200 hover:opacity-80" style={{ backgroundColor: "var(--text-primary)", color: "var(--bg)" }}>Get in touch</span>
+                  </div>
+                </div>
+                {/* Mobile */}
+                <div className="flex items-center justify-between px-5 h-12 rounded-xl overflow-hidden" style={{ backgroundColor: "rgba(250,250,250,0.95)", border: "1px solid var(--border-color)", backdropFilter: "blur(12px)" }}>
+                  <span className="font-mono text-[14px] font-medium text-[color:var(--text-primary)]">carlos.psd</span>
+                  <div className="flex items-center gap-2">
+                    <span className="font-mono text-[14px] text-[color:var(--text-muted)]">EN</span>
+                    <span className="text-[14px] font-medium px-4 py-1.5 rounded-full cursor-pointer transition-all duration-200 hover:opacity-80" style={{ backgroundColor: "var(--text-primary)", color: "var(--bg)" }}>Get in touch</span>
+                    <span className="text-[14px] font-medium px-2 py-1.5 rounded-md cursor-pointer transition-all duration-200 hover:bg-black/[0.04] text-[color:var(--text-muted)]">☰</span>
+                  </div>
                 </div>
               </div>
             </div>
