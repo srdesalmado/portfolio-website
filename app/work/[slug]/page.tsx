@@ -61,15 +61,15 @@ export default async function CaseStudyPage({
   const allMeta = [...metaRows, ...(project.team ? [{ label: "Team", value: project.team }] : [])]
 
   return (
-    <main style={{ backgroundColor: "var(--bg)", color: "var(--text-primary)" }} className="pt-14">
+    <main className="bg-[var(--bg)] text-[color:var(--text-primary)] pt-14">
 
-      <div className="max-w-[1200px] mx-auto px-8">
+      <div className="max-w-case mx-auto px-8">
 
         {/* ─── Header: title left / meta table right ─── */}
         <div className="pt-16 pb-14">
           <Link
             href="/"
-            className="text-[14px] uppercase tracking-[0.18em] w-fit block mb-10 text-[color:var(--text-muted)] hover:text-[color:var(--accent)] transition-colors duration-200"
+            className="text-sm uppercase tracking-label w-fit block mb-10 text-[color:var(--text-muted)] hover:text-[color:var(--accent)] transition-colors duration-200"
           >
             ← Work
           </Link>
@@ -78,12 +78,11 @@ export default async function CaseStudyPage({
             {/* Left: title + description */}
             <div className="flex flex-col gap-3">
               <h1
-                className="text-[28px] md:text-[40px] font-semibold leading-[1.1]"
-                style={{ color: "var(--text-primary)", letterSpacing: "-0.02em" }}
+                className="text-h2 md:text-h1 font-semibold leading-heading tracking-tight-2 text-[color:var(--text-primary)]"
               >
                 {project.title}
               </h1>
-              <p className="leading-[1.75]" style={{ color: "var(--text-secondary)", fontSize: 16 }}>
+              <p className="leading-body text-base text-[color:var(--text-secondary)]">
                 {project.description}
               </p>
             </div>
@@ -93,13 +92,12 @@ export default async function CaseStudyPage({
               {allMeta.map((item, i) => (
                 <div
                   key={item.label}
-                  className="flex items-baseline justify-between gap-6 py-3"
-                  style={i < allMeta.length - 1 ? { borderBottom: "1px solid var(--border-color)" } : undefined}
+                  className={`flex items-baseline justify-between gap-6 py-3 ${i < allMeta.length - 1 ? "border-b border-[var(--border-color)]" : ""}`}
                 >
-                  <span className="text-[14px] uppercase tracking-[0.18em] shrink-0" style={{ color: "var(--text-muted)" }}>
+                  <span className="text-sm uppercase tracking-label shrink-0 text-[color:var(--text-muted)]">
                     {item.label}
                   </span>
-                  <span className="text-[14px] text-right" style={{ color: "var(--text-secondary)" }}>
+                  <span className="text-sm text-right text-[color:var(--text-secondary)]">
                     {item.value}
                   </span>
                 </div>
@@ -109,31 +107,26 @@ export default async function CaseStudyPage({
         </div>
 
         {/* ─── Cover image ─── */}
-        <div className="w-full rounded-2xl overflow-hidden flex items-center justify-center" style={{ aspectRatio: "16/9", backgroundColor: "var(--surface)" }}>
+        <div className="w-full rounded-2xl overflow-hidden flex items-center justify-center aspect-cover bg-[var(--surface)]">
           {project.coverImage ? (
             <LightboxImage src={project.coverImage} alt={project.title} className="w-full h-full object-cover" />
           ) : (
-            <span className="font-mono" style={{ color: "var(--border-color)", fontSize: 14 }}>{project.coverLabel}</span>
+            <span className="font-mono text-sm text-[color:var(--border-color)]">{project.coverLabel}</span>
           )}
         </div>
 
         {/* ─── Metrics ─── */}
         {project.metrics.length > 0 && (
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-0 py-10" style={{ borderTop: "1px solid var(--border-color)", borderBottom: "1px solid var(--border-color)" }}>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-0 py-10 border-t border-[var(--border-color)] border-b border-[var(--border-color)]">
             {project.metrics.map((m, i) => (
               <div
                 key={m.label}
-                className="py-8 flex flex-col gap-2"
-                style={{
-                  borderRight: i < project.metrics.length - 1 ? "1px solid var(--border-color)" : "none",
-                  paddingRight: i < project.metrics.length - 1 ? "3rem" : 0,
-                  paddingLeft: i > 0 ? "3rem" : 0,
-                }}
+                className={`py-8 flex flex-col gap-2 ${i < project.metrics.length - 1 ? "border-r border-[var(--border-color)] pr-[var(--spacing-metrics)]" : ""} ${i > 0 ? "pl-[var(--spacing-metrics)]" : ""}`}
               >
-                <span className="font-semibold leading-none" style={{ color: "var(--accent)", fontSize: "clamp(2rem,4vw,3rem)", letterSpacing: "-0.03em" }}>
+                <span className="font-semibold leading-none text-metric tracking-tight-3 text-[color:var(--accent)]">
                   {m.value}
                 </span>
-                <span style={{ color: "var(--text-muted)", fontSize: 14 }}>{m.label}</span>
+                <span className="text-sm text-[color:var(--text-muted)]">{m.label}</span>
               </div>
             ))}
           </div>
@@ -141,9 +134,9 @@ export default async function CaseStudyPage({
 
         {/* ─── Quote ─── */}
         {project.quote && (
-          <div className="py-14" style={{ borderBottom: "1px solid var(--border-color)" }}>
-            <blockquote className="pl-6" style={{ borderLeft: "2px solid var(--accent)" }}>
-              <p className="leading-relaxed italic" style={{ color: "var(--text-secondary)", fontSize: 16, maxWidth: "56rem" }}>
+          <div className="py-14 border-b border-[var(--border-color)]">
+            <blockquote className="pl-6 border-l-2 border-[var(--accent)]">
+              <p className="leading-relaxed italic text-base text-[color:var(--text-secondary)] max-w-[56rem]">
                 &ldquo;{project.quote}&rdquo;
               </p>
             </blockquote>
@@ -152,12 +145,11 @@ export default async function CaseStudyPage({
 
         {/* ─── Sections ─── */}
         {sections.filter(s => !s.links?.length).map((section) => (
-          <div key={section.title} className={`pt-14 ${section.links && section.links.length > 0 ? "pb-2" : "pb-6"}`} style={{ borderTop: "1px solid var(--border-color)" }}>
+          <div key={section.title} className={`pt-14 border-t border-[var(--border-color)] ${section.links && section.links.length > 0 ? "pb-2" : "pb-6"}`}>
             <div
-              className={`grid grid-cols-1 md:grid-cols-[1fr_1.8fr] gap-4 md:gap-20 ${section.links && section.links.length > 0 ? "pb-5 mb-5" : "pb-10 mb-10"}`}
-              style={section.links && section.links.length > 0 ? undefined : { borderBottom: "1px solid var(--border-color)" }}
+              className={`grid grid-cols-1 md:grid-cols-[1fr_1.8fr] gap-4 md:gap-20 ${section.links && section.links.length > 0 ? "pb-5 mb-5" : "pb-10 mb-10 border-b border-[var(--border-color)]"}`}
             >
-              <h2 className="font-semibold" style={{ color: "var(--text-primary)", fontSize: 18, letterSpacing: "-0.02em" }}>
+              <h2 className="font-semibold text-lg tracking-tight-2 text-[color:var(--text-primary)]">
                 {section.title}
               </h2>
               {section.links && section.links.length > 0 ? (
@@ -170,15 +162,15 @@ export default async function CaseStudyPage({
                       rel="noopener noreferrer"
                       className="flex items-center gap-1.5 group w-fit transition-colors duration-200 text-[color:var(--text-secondary)] hover:text-purple-600"
                     >
-                      <span className="text-[14px] leading-snug group-hover:underline underline-offset-2 decoration-1">
+                      <span className="text-sm leading-snug group-hover:underline underline-offset-2 decoration-1">
                         {link.label}
                       </span>
-                      <span style={{ flexShrink: 0, fontSize: 11 }}>↗</span>
+                      <span className="shrink-0 text-[length:var(--font-size-badge)]">↗</span>
                     </a>
                   ))}
                 </div>
               ) : (
-                <p className="text-[14px] md:text-[16px] leading-[1.75]" style={{ color: "var(--text-secondary)" }}>
+                <p className="text-sm md:text-base leading-body text-[color:var(--text-secondary)]">
                   {section.body}
                 </p>
               )}
@@ -186,29 +178,29 @@ export default async function CaseStudyPage({
 
             {section.images.length === 1 ? (
               <div className="flex flex-col gap-3">
-                <div className="w-full rounded-xl overflow-hidden flex items-center justify-center" style={{ aspectRatio: "16/9", backgroundColor: "var(--surface)" }}>
+                <div className="w-full rounded-xl overflow-hidden flex items-center justify-center aspect-cover bg-[var(--surface)]">
                   {section.images[0].src ? (
                     <LightboxImage src={section.images[0].src} alt={section.images[0].label} className="w-full h-full object-cover" />
                   ) : (
-                    <span className="font-mono" style={{ color: "var(--border-color)", fontSize: 14 }}>{section.images[0].label}</span>
+                    <span className="font-mono text-sm text-[color:var(--border-color)]">{section.images[0].label}</span>
                   )}
                 </div>
                 {section.images[0].caption && (
-                  <p className="text-center" style={{ color: "var(--text-muted)", fontSize: 14 }}>{section.images[0].caption}</p>
+                  <p className="text-center text-sm text-[color:var(--text-muted)]">{section.images[0].caption}</p>
                 )}
               </div>
             ) : section.images.length > 1 ? (
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {section.images.map((img) => (
                   <div key={img.label} className="flex flex-col gap-2">
-                    <div className="w-full rounded-xl overflow-hidden flex items-center justify-center" style={{ aspectRatio: "4/3", backgroundColor: "var(--surface)" }}>
+                    <div className="w-full rounded-xl overflow-hidden flex items-center justify-center aspect-card bg-[var(--surface)]">
                       {img.src ? (
                         <LightboxImage src={img.src} alt={img.label} className="w-full h-full object-cover" />
                       ) : (
-                        <span className="font-mono" style={{ color: "var(--border-color)", fontSize: 14 }}>{img.label}</span>
+                        <span className="font-mono text-sm text-[color:var(--border-color)]">{img.label}</span>
                       )}
                     </div>
-                    {img.caption && <p style={{ color: "var(--text-muted)", fontSize: 14 }}>{img.caption}</p>}
+                    {img.caption && <p className="text-sm text-[color:var(--text-muted)]">{img.caption}</p>}
                   </div>
                 ))}
               </div>
@@ -218,18 +210,18 @@ export default async function CaseStudyPage({
 
         {/* ─── Gallery (stacked) ─── */}
         {project.gallery && project.gallery.length > 0 && (
-          <div className="pb-14 flex flex-col gap-6" style={{ paddingTop: "0" }}>
+          <div className="pb-14 pt-0 flex flex-col gap-6">
             {project.gallery.map((item, i) =>
               Array.isArray(item) ? (
                 <div key={i} className="grid grid-cols-2 gap-6">
                   {item.map((src) => (
-                    <div key={src} className="w-full rounded-xl overflow-hidden" style={{ backgroundColor: "var(--surface)" }}>
+                    <div key={src} className="w-full rounded-xl overflow-hidden bg-[var(--surface)]">
                       <LightboxImage src={src} className="w-full object-cover" />
                     </div>
                   ))}
                 </div>
               ) : (
-                <div key={item} className="w-full rounded-xl overflow-hidden" style={{ backgroundColor: "var(--surface)" }}>
+                <div key={item} className="w-full rounded-xl overflow-hidden bg-[var(--surface)]">
                   <LightboxImage src={item} className="w-full object-cover" />
                 </div>
               )
@@ -239,9 +231,9 @@ export default async function CaseStudyPage({
 
         {/* ─── Highlight Sections (after gallery) ─── */}
         {sections.filter(s => s.links?.length).map((section) => (
-          <div key={section.title} className="pt-14 pb-2" style={{ borderTop: "1px solid var(--border-color)" }}>
+          <div key={section.title} className="pt-14 pb-2 border-t border-[var(--border-color)]">
             <div className="grid grid-cols-1 md:grid-cols-[1fr_1.8fr] gap-4 md:gap-20 pb-5 mb-5">
-              <h2 className="font-semibold" style={{ color: "var(--text-primary)", fontSize: 18, letterSpacing: "-0.02em" }}>
+              <h2 className="font-semibold text-lg tracking-tight-2 text-[color:var(--text-primary)]">
                 {section.title}
               </h2>
               <div className="flex flex-col gap-2">
@@ -253,10 +245,10 @@ export default async function CaseStudyPage({
                     rel="noopener noreferrer"
                     className="flex items-center gap-1.5 group w-fit transition-colors duration-200 text-[color:var(--text-secondary)] hover:text-purple-600"
                   >
-                    <span className="text-[14px] leading-snug group-hover:underline underline-offset-2 decoration-1">
+                    <span className="text-sm leading-snug group-hover:underline underline-offset-2 decoration-1">
                       {link.label}
                     </span>
-                    <span style={{ flexShrink: 0, fontSize: 11 }}>↗</span>
+                    <span className="shrink-0 text-[length:var(--font-size-badge)]">↗</span>
                   </a>
                 ))}
               </div>
@@ -267,13 +259,13 @@ export default async function CaseStudyPage({
       </div>
 
       {/* ─── Prev / Next ─── */}
-      <div style={{ borderTop: "1px solid var(--border-color)", backgroundColor: "var(--bg)" }}>
-        <div className="max-w-[1200px] mx-auto px-8">
+      <div className="border-t border-[var(--border-color)] bg-[var(--bg)]">
+        <div className="max-w-case mx-auto px-8">
           <div className="grid grid-cols-2">
             {prev ? (
-              <Link href={`/work/${prev.slug}`} className="py-10 flex flex-col gap-2 group" style={{ borderRight: "1px solid var(--border-color)" }}>
-                <span className="text-[14px] uppercase tracking-[0.18em] text-[color:var(--text-muted)]">← Previous</span>
-                <span className="text-[16px] font-medium text-[color:var(--text-primary)] group-hover:text-[color:var(--accent)] transition-colors duration-200">
+              <Link href={`/work/${prev.slug}`} className="py-10 flex flex-col gap-2 group border-r border-[var(--border-color)]">
+                <span className="text-sm uppercase tracking-label text-[color:var(--text-muted)]">← Previous</span>
+                <span className="text-base font-medium text-[color:var(--text-primary)] group-hover:text-[color:var(--accent)] transition-colors duration-200">
                   {prev.title}
                 </span>
               </Link>
@@ -281,8 +273,8 @@ export default async function CaseStudyPage({
 
             {next ? (
               <Link href={`/work/${next.slug}`} className="py-10 flex flex-col gap-2 items-end group pl-8">
-                <span className="text-[14px] uppercase tracking-[0.18em] text-[color:var(--text-muted)]">Next →</span>
-                <span className="text-[16px] font-medium text-right text-[color:var(--text-primary)] group-hover:text-[color:var(--accent)] transition-colors duration-200">
+                <span className="text-sm uppercase tracking-label text-[color:var(--text-muted)]">Next →</span>
+                <span className="text-base font-medium text-right text-[color:var(--text-primary)] group-hover:text-[color:var(--accent)] transition-colors duration-200">
                   {next.title}
                 </span>
               </Link>

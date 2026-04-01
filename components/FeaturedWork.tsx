@@ -11,8 +11,8 @@ export default function FeaturedWork() {
   const t = translations[lang].work
 
   return (
-    <section id="work" style={{ backgroundColor: "var(--bg)", borderTop: "1px solid var(--border-color)" }}>
-      <div className="max-w-[1100px] mx-auto px-8 py-16 md:py-20">
+    <section id="work" className="bg-[var(--bg)] border-t border-[var(--border-color)]">
+      <div className="max-w-page mx-auto px-8 py-16 md:py-20">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 12 }}
@@ -20,11 +20,9 @@ export default function FeaturedWork() {
           viewport={{ once: true, margin: "-60px" }}
           transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
           className="flex items-end justify-between mb-7"
-          style={{}}
         >
           <h2
-            className="text-[28px] md:text-[40px] font-semibold"
-            style={{ color: "var(--text-primary)", letterSpacing: "-0.025em" }}
+            className="text-h2 md:text-h1 font-semibold tracking-tight-25 text-[color:var(--text-primary)]"
           >
             {t.heading}
           </h2>

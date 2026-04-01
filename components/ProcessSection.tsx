@@ -9,8 +9,8 @@ export default function ProcessSection() {
   const t = translations[lang].process
 
   return (
-    <section style={{ backgroundColor: "var(--bg)", borderTop: "1px solid var(--border-color)" }}>
-      <div className="max-w-[1100px] mx-auto px-8 py-24 md:py-32">
+    <section className="bg-[var(--bg)] border-t border-[var(--border-color)]">
+      <div className="max-w-page mx-auto px-8 py-24 md:py-32">
         <motion.div
           initial={{ opacity: 0, y: 12 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -18,12 +18,11 @@ export default function ProcessSection() {
           transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
           className="flex flex-col gap-2 mb-20"
         >
-          <span className="text-[14px] uppercase tracking-[0.18em] font-medium" style={{ color: "var(--accent-on-dark)" }}>
+          <span className="text-sm uppercase tracking-label font-medium text-[color:var(--accent-on-dark)]">
             {t.label}
           </span>
           <h2
-            className="text-[28px] md:text-[40px] font-semibold"
-            style={{ color: "var(--text-primary)", letterSpacing: "-0.025em" }}
+            className="text-h2 md:text-h1 font-semibold tracking-tight-25 text-[color:var(--text-primary)]"
           >
             {t.heading}
           </h2>
@@ -40,14 +39,14 @@ export default function ProcessSection() {
               className="flex flex-col gap-6"
             >
               <div className="flex items-center gap-4">
-                <span className="font-mono text-[14px] tracking-[0.18em]" style={{ color: "var(--accent-on-dark)" }}>
+                <span className="font-mono text-sm tracking-label text-[color:var(--accent-on-dark)]">
                   {step.number}
                 </span>
-                <div className="h-px flex-1" style={{ backgroundColor: "var(--border-color)" }} />
+                <div className="h-px flex-1 bg-[var(--border-color)]" />
               </div>
               <div className="flex flex-col gap-3">
-                <h3 className="font-semibold text-base" style={{ color: "var(--text-primary)" }}>{step.title}</h3>
-                <p className="text-[16px] leading-[1.7]" style={{ color: "var(--text-muted)" }}>
+                <h3 className="font-semibold text-base text-[color:var(--text-primary)]">{step.title}</h3>
+                <p className="text-base leading-body-alt text-[color:var(--text-muted)]">
                   {step.description}
                 </p>
               </div>

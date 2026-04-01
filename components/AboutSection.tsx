@@ -11,10 +11,9 @@ export default function AboutSection() {
   return (
     <section
       id="about"
-      className="py-16 md:py-20"
-      style={{ backgroundColor: "var(--dark-section-bg)", borderTop: "1px solid var(--dark-border)" }}
+      className="py-16 md:py-20 bg-[var(--dark-section-bg)] border-t border-[var(--dark-border)]"
     >
-      <div className="max-w-[1100px] mx-auto px-8">
+      <div className="max-w-page mx-auto px-8">
         <div className="grid grid-cols-1 md:grid-cols-[1fr_1.4fr] gap-16 items-start">
 
           {/* Left: Photo */}
@@ -25,10 +24,9 @@ export default function AboutSection() {
             transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
           >
             <div
-              className="aspect-[4/5] w-full max-w-xs rounded-2xl overflow-hidden flex items-center justify-center"
-              style={{ backgroundColor: "var(--dark-surface)" }}
+              className="aspect-[4/5] w-full max-w-xs rounded-2xl overflow-hidden flex items-center justify-center bg-[var(--dark-surface)]"
             >
-              <span className="font-mono text-[14px]" style={{ color: "var(--dark-border)" }}>photo</span>
+              <span className="font-mono text-sm text-[color:var(--dark-border)]">photo</span>
             </div>
           </motion.div>
 
@@ -41,28 +39,26 @@ export default function AboutSection() {
             className="flex flex-col gap-6 md:pt-4"
           >
             <div className="flex flex-col gap-3">
-              <span className="text-[14px] uppercase tracking-[0.18em] font-medium" style={{ color: "var(--accent-on-dark)" }}>
+              <span className="text-sm uppercase tracking-label font-medium text-[color:var(--accent-on-dark)]">
                 {t.label}
               </span>
               <h2
-                className="text-[28px] md:text-[40px] font-semibold leading-[1.1] whitespace-pre-line"
-                style={{ color: "var(--dark-text-primary)", letterSpacing: "-0.025em" }}
+                className="text-h2 md:text-h1 font-semibold leading-heading tracking-tight-25 whitespace-pre-line text-[color:var(--dark-text-primary)]"
               >
                 {t.heading}
               </h2>
             </div>
 
             <div
-              className="flex flex-col gap-4 text-[16px] leading-[1.7]"
-              style={{ color: "var(--dark-text-secondary)" }}
+              className="flex flex-col gap-4 text-base leading-body-alt text-[color:var(--dark-text-secondary)]"
             >
               <p>{t.p1}</p>
               <p>
                 {t.p2}{" "}
-                <span style={{ color: "var(--accent-on-dark)" }}>QuintoAndar</span>,{" "}
-                <span style={{ color: "var(--accent-on-dark)" }}>Magazine Luiza</span>{" "}
+                <span className="text-[color:var(--accent-on-dark)]">QuintoAndar</span>,{" "}
+                <span className="text-[color:var(--accent-on-dark)]">Magazine Luiza</span>{" "}
                 {lang === "en" ? "and" : "e"}{" "}
-                <span style={{ color: "var(--accent-on-dark)" }}>SPC Brasil</span>.
+                <span className="text-[color:var(--accent-on-dark)]">SPC Brasil</span>.
               </p>
               <p>{t.p3}</p>
             </div>

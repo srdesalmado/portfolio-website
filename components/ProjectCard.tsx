@@ -8,8 +8,7 @@ export default function ProjectCard({ project }: { project: Project }) {
   return (
     <Link href={`/work/${project.slug}`} className="block group">
       <div
-        className="relative w-full overflow-hidden"
-        style={{ aspectRatio: "4/3", borderRadius: 12, backgroundColor: "var(--dark-surface)" }}
+        className="relative w-full overflow-hidden aspect-card rounded-xl bg-[var(--dark-surface)]"
       >
         {/* Cover image or placeholder */}
         {project.coverImage ? (
@@ -20,7 +19,7 @@ export default function ProjectCard({ project }: { project: Project }) {
           />
         ) : (
           <div className="absolute inset-0 flex items-center justify-center">
-            <span className="font-mono text-[14px]" style={{ color: "var(--dark-border)" }}>
+            <span className="font-mono text-sm text-[color:var(--dark-border)]">
               {project.coverLabel}
             </span>
           </div>
@@ -29,12 +28,9 @@ export default function ProjectCard({ project }: { project: Project }) {
         {/* Scrim — hover only */}
         <div className="absolute inset-0 transition-opacity duration-300 opacity-0 group-hover:opacity-100">
           <div
-            className="absolute inset-0"
-            style={{
-              background: "linear-gradient(to top, rgba(0,0,0,0.72) 0%, rgba(0,0,0,0.18) 50%, transparent 100%)",
-            }}
+            className="absolute inset-0 [background-image:var(--gradient-card-overlay)]"
           />
-          <div className="absolute inset-0" style={{ backgroundColor: "rgba(0,0,0,0.18)" }} />
+          <div className="absolute inset-0 [background-color:var(--overlay-card-fade)]" />
         </div>
 
         {/* Top row: badges left, year right — hover only */}
@@ -50,7 +46,7 @@ export default function ProjectCard({ project }: { project: Project }) {
               </Badge>
             ))}
           </div>
-          <span className="text-[14px] shrink-0" style={{ color: "var(--dark-text-muted)" }}>
+          <span className="text-sm shrink-0 text-[color:var(--dark-text-muted)]">
             {project.year}
           </span>
         </div>
@@ -58,14 +54,12 @@ export default function ProjectCard({ project }: { project: Project }) {
         {/* Bottom: title + description — hover only */}
         <div className="absolute inset-x-0 bottom-0 p-6 flex flex-col gap-2 transition-all duration-300 translate-y-2 opacity-0 group-hover:translate-y-0 group-hover:opacity-100">
           <h3
-            className="font-semibold text-[18px] leading-snug"
-            style={{ color: "var(--dark-text-primary)", letterSpacing: "-0.02em" }}
+            className="font-semibold text-lg leading-snug tracking-tight-2 text-[color:var(--dark-text-primary)]"
           >
             {project.title}
           </h3>
           <p
-            className="text-[13px] leading-snug line-clamp-2"
-            style={{ color: "var(--dark-text-secondary)" }}
+            className="text-badge leading-snug line-clamp-2 text-[color:var(--dark-text-secondary)]"
           >
             {project.description}
           </p>
