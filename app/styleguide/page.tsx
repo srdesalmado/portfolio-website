@@ -2,6 +2,8 @@
 
 import { useState } from "react"
 import { Badge } from "@/components/ui/badge"
+import ProjectCard from "@/components/ProjectCard"
+import { projects } from "@/lib/projects"
 
 /* ─── helpers ─────────────────────────────────────────── */
 function Divider() {
@@ -25,15 +27,20 @@ function Row({ label, children }: { label: string; children: React.ReactNode }) 
   )
 }
 
-function ColorChip({ hex, name, usage, dark = false }: { hex: string; name: string; usage: string; dark?: boolean }) {
-  const isLight = parseInt(hex.replace("#", ""), 16) > 0xaaaaaa
+function ColorChip({ varName, hex, usage, addBorder = false, dark = false }: {
+  varName: string; hex: string; usage: string; addBorder?: boolean; dark?: boolean
+}) {
   return (
     <div className="flex flex-col gap-2">
-      <div style={{ backgroundColor: hex, width: 80, height: 80, borderRadius: 8, border: isLight ? "1px solid var(--border-color)" : undefined }} />
+      <div style={{
+        backgroundColor: `var(${varName})`,
+        width: 80, height: 80, borderRadius: 8,
+        border: addBorder ? "1px solid var(--border-color)" : undefined,
+      }} />
       <div className="flex flex-col gap-0.5">
-        <span className="text-[14px] font-mono" style={{ color: dark ? "#f0f0f0" : "var(--text-primary)" }}>{name}</span>
-        <span className="text-[14px] font-mono" style={{ color: dark ? "#999" : "var(--text-muted)" }}>{hex}</span>
-        <span className="text-[14px]" style={{ color: dark ? "#666" : "var(--text-muted)" }}>{usage}</span>
+        <span className="text-[14px] font-mono" style={{ color: dark ? "var(--dark-text-primary)" : "var(--text-primary)" }}>{varName}</span>
+        <span className="text-[14px] font-mono" style={{ color: dark ? "var(--dark-text-muted)" : "var(--text-muted)" }}>{hex}</span>
+        <span className="text-[14px]" style={{ color: dark ? "var(--dark-text-muted)" : "var(--text-muted)" }}>{usage}</span>
       </div>
     </div>
   )
@@ -62,12 +69,15 @@ function SpacingChip({ label, px }: { label: string; px: number }) {
   )
 }
 
-function ShadowChip({ label, chipStyle, note }: { label: string; chipStyle: React.CSSProperties; note: string }) {
+function ShadowChip({ label, tokenName, chipStyle, note }: {
+  label: string; tokenName?: string; chipStyle: React.CSSProperties; note: string
+}) {
   return (
     <div className="flex flex-col gap-3">
       <div style={{ width: 80, height: 80, borderRadius: 8, backgroundColor: "var(--surface)", border: "1px solid var(--border-color)", ...chipStyle }} />
       <div className="flex flex-col gap-0.5">
         <span className="text-[14px] font-medium" style={{ color: "var(--text-primary)" }}>{label}</span>
+        {tokenName && <span className="text-[14px] font-mono" style={{ color: "var(--accent)" }}>{tokenName}</span>}
         <span className="text-[14px] font-mono" style={{ color: "var(--text-muted)" }}>{note}</span>
       </div>
     </div>
@@ -106,7 +116,7 @@ export default function StyleguidePage() {
               style={{
                 backgroundColor: active === tab ? "var(--bg)" : "transparent",
                 color: active === tab ? "var(--text-primary)" : "var(--text-muted)",
-                boxShadow: active === tab ? "0 1px 3px rgba(0,0,0,0.08)" : undefined,
+                boxShadow: active === tab ? "var(--shadow-xs)" : undefined,
               }}
             >
               {tab}
@@ -151,30 +161,29 @@ export default function StyleguidePage() {
           <section className="py-16">
             <SubLabel>Neutral — Light context</SubLabel>
             <div className="flex flex-wrap gap-8 mb-14">
-              <ColorChip hex="#fafafa" name="--bg" usage="Page background" />
-              <ColorChip hex="#f0f0f0" name="--surface" usage="Surface" />
-              <ColorChip hex="#e5e5e5" name="--border-color" usage="Border" />
-              <ColorChip hex="#0f0f0f" name="--text-primary" usage="Heading" />
-              <ColorChip hex="#3d3d3d" name="--text-secondary" usage="Body" />
-              <ColorChip hex="#666666" name="--text-muted" usage="Caption" />
+              <ColorChip varName="--bg" hex="#fafafa" usage="Page background" addBorder />
+              <ColorChip varName="--surface" hex="#f0f0f0" usage="Surface" addBorder />
+              <ColorChip varName="--border-color" hex="#e5e5e5" usage="Border" addBorder />
+              <ColorChip varName="--text-primary" hex="#0f0f0f" usage="Heading" />
+              <ColorChip varName="--text-secondary" hex="#3d3d3d" usage="Body" />
+              <ColorChip varName="--text-muted" hex="#666666" usage="Caption" />
             </div>
 
             <SubLabel>Dark sections — palette</SubLabel>
-            <div className="flex flex-wrap gap-8 p-8 mb-14" style={{ backgroundColor: "#080808", borderRadius: 12, border: "1px solid #1a1a1a" }}>
-              <ColorChip hex="#080808" name="--dark-bg" usage="Hero background" dark />
-              <ColorChip hex="#1a1a1a" name="--dark-surface" usage="Surface" dark />
-              <ColorChip hex="#2a2a2a" name="--dark-border" usage="Border" dark />
-              <ColorChip hex="#f0f0f0" name="--dark-text-primary" usage="Heading" dark />
-              <ColorChip hex="#c4c4c4" name="--dark-text-secondary" usage="Body" dark />
-              <ColorChip hex="#999999" name="--dark-text-muted" usage="Caption" dark />
+            <div className="flex flex-wrap gap-8 p-8 mb-14" style={{ backgroundColor: "var(--dark-bg)", borderRadius: 12, border: "1px solid var(--dark-border)" }}>
+              <ColorChip varName="--dark-bg" hex="#080808" usage="Hero background" dark />
+              <ColorChip varName="--dark-section-bg" hex="#0f0f0f" usage="About / CTA bg" dark />
+              <ColorChip varName="--dark-surface" hex="#1a1a1a" usage="Surface" dark />
+              <ColorChip varName="--dark-border" hex="#2a2a2a" usage="Border" dark />
+              <ColorChip varName="--dark-text-primary" hex="#f0f0f0" usage="Heading" dark />
+              <ColorChip varName="--dark-text-secondary" hex="#c4c4c4" usage="Body" dark />
+              <ColorChip varName="--dark-text-muted" hex="#999999" usage="Caption" dark />
             </div>
 
             <SubLabel>Accent</SubLabel>
             <div className="flex flex-wrap gap-8">
-              <ColorChip hex="#9333ea" name="--accent" usage="Hover / highlight" />
-              <ColorChip hex="#8a5cff" name="colorbends-purple" usage="Hero animation" />
-              <ColorChip hex="#ff5c7a" name="colorbends-pink" usage="Hero animation" />
-              <ColorChip hex="#00ffd1" name="colorbends-teal" usage="Hero animation" />
+              <ColorChip varName="--accent" hex="#9333ea" usage="Hover / highlight — light bg" />
+              <ColorChip varName="--accent-on-dark" hex="#c084fc" usage="Hover / highlight — dark bg" />
             </div>
           </section>
         )}
@@ -223,7 +232,10 @@ export default function StyleguidePage() {
                 <p className="text-[14px]" style={{ color: "var(--text-muted)" }}>pill · hover:opacity-80 · used in Navbar</p>
               </div>
               <div className="flex flex-wrap gap-4 items-center">
-                <button className="text-[14px] font-medium px-5 py-2 rounded-full transition-all duration-200 hover:opacity-80" style={{ backgroundColor: "var(--text-primary)", color: "var(--bg)" }}>
+                <button
+                  className="text-[14px] font-medium px-5 py-2 rounded-full transition-all duration-200 hover:opacity-80"
+                  style={{ backgroundColor: "var(--text-primary)", color: "var(--bg)" }}
+                >
                   Get in touch
                 </button>
               </div>
@@ -265,51 +277,48 @@ export default function StyleguidePage() {
               </div>
             </div>
 
-            {/* Navbar */}
+            {/* Navbar — scrolled state snapshot */}
             <div className="grid grid-cols-[200px_1fr] gap-12 py-10 border-b" style={{ borderColor: "var(--border-color)" }}>
               <div>
                 <p className="text-[14px] font-medium mb-1" style={{ color: "var(--text-primary)" }}>Navbar</p>
-                <p className="text-[14px]" style={{ color: "var(--text-muted)" }}>sticky · blur · pill active state</p>
+                <p className="text-[14px]" style={{ color: "var(--text-muted)" }}>sticky · blur(--blur-navbar) · scrolled state</p>
               </div>
-              <div className="flex items-center justify-between px-6 h-14 rounded-xl overflow-hidden" style={{ backgroundColor: "rgba(250,250,250,0.95)", border: "1px solid var(--border-color)", backdropFilter: "blur(12px)" }}>
-                <span className="font-mono text-[14px] font-medium text-[color:var(--text-primary)]">carlos.psd</span>
+              <div
+                className="flex items-center justify-between px-6 h-14 rounded-xl overflow-hidden"
+                style={{
+                  backgroundColor: "var(--navbar-bg)",
+                  border: "1px solid var(--border-color)",
+                  backdropFilter: `blur(var(--blur-navbar))`,
+                }}
+              >
+                <span className="font-mono text-[14px] font-medium" style={{ color: "var(--text-primary)" }}>carlos.psd</span>
                 <div className="flex items-center gap-1">
-                  <span className="text-[14px] font-medium px-3 py-1.5 rounded-full text-[color:var(--text-muted)]">Work</span>
-                  <span className="text-[14px] font-medium px-3 py-1.5 rounded-full bg-black/[0.06] text-[color:var(--text-primary)]">About</span>
-                  <span className="text-[14px] font-medium px-3 py-1.5 rounded-full text-[color:var(--text-muted)]">Contact</span>
+                  <span className="text-[14px] font-medium px-3 py-1.5 rounded-full" style={{ color: "var(--text-muted)" }}>Work</span>
+                  <span className="text-[14px] font-medium px-3 py-1.5 rounded-full bg-black/[0.06]" style={{ color: "var(--text-primary)" }}>About</span>
+                  <span className="text-[14px] font-medium px-3 py-1.5 rounded-full" style={{ color: "var(--text-muted)" }}>Contact</span>
                 </div>
                 <div className="flex items-center gap-3">
                   <div className="flex items-center text-[14px] font-mono">
-                    <span className="px-2 py-1 text-[color:var(--text-primary)]">EN</span>
-                    <span className="text-[color:var(--border-color)]">·</span>
-                    <span className="px-2 py-1 text-[color:var(--text-muted)]">PT</span>
+                    <span className="px-2 py-1" style={{ color: "var(--text-primary)" }}>EN</span>
+                    <span style={{ color: "var(--border-color)" }}>·</span>
+                    <span className="px-2 py-1" style={{ color: "var(--text-muted)" }}>PT</span>
                   </div>
                   <span className="text-[14px] font-medium px-4 py-1.5 rounded-full" style={{ backgroundColor: "var(--text-primary)", color: "var(--bg)" }}>Get in touch</span>
                 </div>
               </div>
             </div>
 
-            {/* Project card */}
+            {/* Project card — real component */}
             <div className="grid grid-cols-[200px_1fr] gap-12 py-10" style={{ borderColor: "var(--border-color)" }}>
               <div>
                 <p className="text-[14px] font-medium mb-1" style={{ color: "var(--text-primary)" }}>Project Card</p>
                 <p className="text-[14px]" style={{ color: "var(--text-muted)" }}>hover state · 4:3 · scrim overlay</p>
               </div>
               <div className="w-56">
-                <div className="relative w-full overflow-hidden" style={{ aspectRatio: "4/3", borderRadius: 12, backgroundColor: "var(--dark-surface)" }}>
-                  <div className="absolute inset-0" style={{ background: "linear-gradient(to top, rgba(0,0,0,0.72) 0%, rgba(0,0,0,0.18) 50%, transparent 100%)" }} />
-                  <div className="absolute inset-0" style={{ backgroundColor: "rgba(0,0,0,0.18)" }} />
-                  <div className="absolute inset-x-0 top-0 p-5 flex items-start justify-between gap-2">
-                    <Badge variant="outline" className="border-white/20 text-white/80 bg-white/10 backdrop-blur-sm">Brand Design</Badge>
-                    <span className="text-[14px]" style={{ color: "rgba(255,255,255,0.5)" }}>2022</span>
-                  </div>
-                  <div className="absolute inset-x-0 bottom-0 p-6 flex flex-col gap-2">
-                    <h3 className="font-semibold text-[18px] leading-snug" style={{ color: "#fff", letterSpacing: "-0.02em" }}>Branding — Klavi</h3>
-                    <p className="text-[13px] leading-snug line-clamp-2" style={{ color: "rgba(255,255,255,0.6)" }}>How to build a concept that differentiates a disruptive brand.</p>
-                  </div>
-                </div>
+                <ProjectCard project={projects[0]} />
               </div>
             </div>
+
           </section>
         )}
 
@@ -318,10 +327,30 @@ export default function StyleguidePage() {
           <section className="py-16">
             <SubLabel>Shadows & Blur</SubLabel>
             <div className="flex flex-wrap gap-12 mb-14">
-              <ShadowChip label="Navbar blur" note="blur(12px)" chipStyle={{ backdropFilter: "blur(12px)", boxShadow: "0 1px 0 var(--border-color)" }} />
-              <ShadowChip label="Lightbox blur" note="blur(6px)" chipStyle={{ backdropFilter: "blur(6px)" }} />
-              <ShadowChip label="shadow-xs" note="0 1px 2px rgba(0,0,0,0.08)" chipStyle={{ boxShadow: "0 1px 2px rgba(0,0,0,0.08)" }} />
-              <ShadowChip label="Purple glow" note="0 0 24px rgba(147,51,234,0.2)" chipStyle={{ boxShadow: "0 0 24px rgba(147,51,234,0.2)", border: "1px solid rgba(147,51,234,0.2)" }} />
+              <ShadowChip
+                label="Navbar blur"
+                tokenName="--blur-navbar"
+                note="blur(12px)"
+                chipStyle={{ backdropFilter: "blur(var(--blur-navbar))", boxShadow: "0 1px 0 var(--border-color)" }}
+              />
+              <ShadowChip
+                label="Lightbox blur"
+                tokenName="--blur-lightbox"
+                note="blur(6px)"
+                chipStyle={{ backdropFilter: "blur(var(--blur-lightbox))" }}
+              />
+              <ShadowChip
+                label="shadow-xs"
+                tokenName="--shadow-xs"
+                note="0 1px 2px rgba(0,0,0,0.08)"
+                chipStyle={{ boxShadow: "var(--shadow-xs)" }}
+              />
+              <ShadowChip
+                label="Accent glow"
+                tokenName="--shadow-accent-glow"
+                note="0 0 24px accent/20"
+                chipStyle={{ boxShadow: "var(--shadow-accent-glow)", border: "1px solid color-mix(in srgb, var(--accent) 20%, transparent)" }}
+              />
             </div>
 
             <Divider />
@@ -341,10 +370,11 @@ export default function StyleguidePage() {
         <Divider />
         <div className="pt-8 flex items-center justify-between">
           <span className="font-mono text-[14px]" style={{ color: "var(--text-muted)" }}>carlos.psd / styleguide</span>
-          <a href="/" className="text-[14px] text-[color:var(--text-muted)] hover:text-[color:var(--accent)] transition-colors duration-200">
+          <a href="/" className="text-[14px] transition-colors duration-200 text-[color:var(--text-muted)] hover:text-[color:var(--accent)]">
             ← Back to site
           </a>
         </div>
+
       </div>
     </main>
   )

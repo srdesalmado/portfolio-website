@@ -23,7 +23,7 @@ export default function ContactCTA() {
         >
           {/* Big heading */}
           <div className="flex flex-col gap-3 max-w-2xl">
-            <span className="text-[14px] uppercase tracking-[0.18em] font-medium" style={{ color: "rgba(168,85,247,0.7)" }}>
+            <span className="text-[14px] uppercase tracking-[0.18em] font-medium" style={{ color: "var(--accent-on-dark)" }}>
               {t.label}
             </span>
             <h2

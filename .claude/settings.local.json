@@ -1,5 +1,6 @@
 {
   "permissions": {
+    "defaultMode": "bypassPermissions",
     "allow": [
       "Bash(npx create-next-app@latest . --typescript --tailwind --eslint --app --no-src-dir --import-alias=\"@/*\" --yes)",
       "Bash(cp -r \"/Users/carlos/Documents/portfolio-site/.\" \"/Users/carlos/Documents/Site Porfolio/\")",
@@ -25,7 +26,10 @@
       "Bash(gh auth:*)",
       "Bash(ssh -T git@github.com)",
       "WebFetch(domain:work.co)",
-      "Bash(npx plugins:*)"
+      "Bash(npx plugins:*)",
+      "Bash(find /Users/carlos/Documents/Site Porfolio/.claude/worktrees/fervent-hofstadter -not -path */node_modules/* -not -path */.git/* -type f)",
+      "Skill(update-config)",
+      "Skill(update-config:*)"
     ]
   }
 }

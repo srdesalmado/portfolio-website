@@ -41,7 +41,7 @@ export default function AboutSection() {
             className="flex flex-col gap-6 md:pt-4"
           >
             <div className="flex flex-col gap-3">
-              <span className="text-[14px] uppercase tracking-[0.18em] font-medium" style={{ color: "rgba(168,85,247,0.8)" }}>
+              <span className="text-[14px] uppercase tracking-[0.18em] font-medium" style={{ color: "var(--accent-on-dark)" }}>
                 {t.label}
               </span>
               <h2
@@ -59,10 +59,10 @@ export default function AboutSection() {
               <p>{t.p1}</p>
               <p>
                 {t.p2}{" "}
-                <span style={{ color: "var(--accent)" }}>QuintoAndar</span>,{" "}
-                <span style={{ color: "var(--accent)" }}>Magazine Luiza</span>{" "}
+                <span style={{ color: "var(--accent-on-dark)" }}>QuintoAndar</span>,{" "}
+                <span style={{ color: "var(--accent-on-dark)" }}>Magazine Luiza</span>{" "}
                 {lang === "en" ? "and" : "e"}{" "}
-                <span style={{ color: "var(--accent)" }}>SPC Brasil</span>.
+                <span style={{ color: "var(--accent-on-dark)" }}>SPC Brasil</span>.
               </p>
               <p>{t.p3}</p>
             </div>
