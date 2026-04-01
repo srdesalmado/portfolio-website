@@ -8,6 +8,7 @@ export type ProjectSection = {
   title: string
   body: string
   images: ProjectImage[]
+  links?: { label: string; url: string }[]
 }
 
 export type Project = {
@@ -27,7 +28,7 @@ export type Project = {
   timeline?: string
   quote?: string
   sections?: ProjectSection[]
-  gallery?: string[]
+  gallery?: (string | [string, string])[]
 }
 
 export const projects: Project[] = [
@@ -57,12 +58,34 @@ export const projects: Project[] = [
       {
         title: "Design Strategy",
         body: "Based on the idea that connection can be the key to transformation, we created the entire Klavi design. The cubes with rounded edges and which never appear alone represent this connection between people and data, between human intelligence and technology, between Klavi, its partners and customers. The proportion between the cubes brings the idea of Klavi as a support and as a brand that puts customer success first.\n\nThe connected cubes, present both in the logo and in the visual elements, also appear outlined, representing the windows through which it is possible to see through, see a new scenario in the Brazilian financial system, as well as lines that connect people and the different paths that Klavi presents with his service.\n\nIn the photographs, people interacting with technology, bringing once again the idea of connection as the key to a world transformed by the power of open finance.",
-        images: [
-          { src: "/klavi-social-media.png", label: "Social media" },
+        images: [],
+      },
+      {
+        title: "Highlights",
+        body: "",
+        images: [],
+        links: [
+          {
+            label: "Startup que leva o Open Finance às fintechs, capta US$ 15 milhões",
+            url: "https://exame.com/negocios/klavi-startup-open-finance-capta-15-milhoes-dolares/",
+          },
+          {
+            label: "100 Startups to Watch 2022",
+            url: "https://revistapegn.globo.com/Startups-to-Watch/noticia/2022/09/conheca-100-startups-watch-2022.html",
+          },
         ],
       },
     ],
-    gallery: ["/klavi-subway-mockup.jpg", "/klavi-logo-evolution.png"],
+    gallery: [
+      "/klavi-logo-evolution.png",
+      ["/side2left.png", "/side2right.png"],
+      "/klavi-brand-grid-1.png",
+      "/klavi-subway-mockup.jpg",
+      "/klavi-social-media.png",
+      "/klavi-typography.png",
+      "/klavi-brand-grid-3.png",
+      "/klavi-brand-grid-2.png",
+    ],
   },
   {
     slug: "amfi-tokenized-credit",

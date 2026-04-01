@@ -151,15 +151,37 @@ export default async function CaseStudyPage({
         )}
 
         {/* ─── Sections ─── */}
-        {sections.map((section) => (
-          <div key={section.title} className="pt-14 pb-6" style={{ borderTop: "1px solid var(--border-color)" }}>
-            <div className="grid grid-cols-1 md:grid-cols-[1fr_1.8fr] gap-4 md:gap-20 pb-10 mb-10" style={{ borderBottom: "1px solid var(--border-color)" }}>
+        {sections.filter(s => !s.links?.length).map((section) => (
+          <div key={section.title} className={`pt-14 ${section.links && section.links.length > 0 ? "pb-2" : "pb-6"}`} style={{ borderTop: "1px solid var(--border-color)" }}>
+            <div
+              className={`grid grid-cols-1 md:grid-cols-[1fr_1.8fr] gap-4 md:gap-20 ${section.links && section.links.length > 0 ? "pb-5 mb-5" : "pb-10 mb-10"}`}
+              style={section.links && section.links.length > 0 ? undefined : { borderBottom: "1px solid var(--border-color)" }}
+            >
               <h2 className="font-semibold" style={{ color: "var(--text-primary)", fontSize: 18, letterSpacing: "-0.02em" }}>
                 {section.title}
               </h2>
-              <p className="text-[14px] md:text-[16px] leading-[1.75]" style={{ color: "var(--text-secondary)" }}>
-                {section.body}
-              </p>
+              {section.links && section.links.length > 0 ? (
+                <div className="flex flex-col gap-2">
+                  {section.links.map((link) => (
+                    <a
+                      key={link.url}
+                      href={link.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-1.5 group w-fit transition-colors duration-200 text-[color:var(--text-secondary)] hover:text-purple-600"
+                    >
+                      <span className="text-[14px] leading-snug group-hover:underline underline-offset-2 decoration-1">
+                        {link.label}
+                      </span>
+                      <span style={{ flexShrink: 0, fontSize: 11 }}>↗</span>
+                    </a>
+                  ))}
+                </div>
+              ) : (
+                <p className="text-[14px] md:text-[16px] leading-[1.75]" style={{ color: "var(--text-secondary)" }}>
+                  {section.body}
+                </p>
+              )}
             </div>
 
             {section.images.length === 1 ? (
@@ -197,13 +219,50 @@ export default async function CaseStudyPage({
         {/* ─── Gallery (stacked) ─── */}
         {project.gallery && project.gallery.length > 0 && (
           <div className="pb-14 flex flex-col gap-6" style={{ paddingTop: "0" }}>
-            {project.gallery.map((src) => (
-              <div key={src} className="w-full rounded-xl overflow-hidden" style={{ backgroundColor: "var(--surface)" }}>
-                <LightboxImage src={src} className="w-full object-cover" />
-              </div>
-            ))}
+            {project.gallery.map((item, i) =>
+              Array.isArray(item) ? (
+                <div key={i} className="grid grid-cols-2 gap-6">
+                  {item.map((src) => (
+                    <div key={src} className="w-full rounded-xl overflow-hidden" style={{ backgroundColor: "var(--surface)" }}>
+                      <LightboxImage src={src} className="w-full object-cover" />
+                    </div>
+                  ))}
+                </div>
+              ) : (
+                <div key={item} className="w-full rounded-xl overflow-hidden" style={{ backgroundColor: "var(--surface)" }}>
+                  <LightboxImage src={item} className="w-full object-cover" />
+                </div>
+              )
+            )}
           </div>
         )}
+
+        {/* ─── Highlight Sections (after gallery) ─── */}
+        {sections.filter(s => s.links?.length).map((section) => (
+          <div key={section.title} className="pt-14 pb-2" style={{ borderTop: "1px solid var(--border-color)" }}>
+            <div className="grid grid-cols-1 md:grid-cols-[1fr_1.8fr] gap-4 md:gap-20 pb-5 mb-5">
+              <h2 className="font-semibold" style={{ color: "var(--text-primary)", fontSize: 18, letterSpacing: "-0.02em" }}>
+                {section.title}
+              </h2>
+              <div className="flex flex-col gap-2">
+                {section.links!.map((link) => (
+                  <a
+                    key={link.url}
+                    href={link.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-1.5 group w-fit transition-colors duration-200 text-[color:var(--text-secondary)] hover:text-purple-600"
+                  >
+                    <span className="text-[14px] leading-snug group-hover:underline underline-offset-2 decoration-1">
+                      {link.label}
+                    </span>
+                    <span style={{ flexShrink: 0, fontSize: 11 }}>↗</span>
+                  </a>
+                ))}
+              </div>
+            </div>
+          </div>
+        ))}
 
       </div>
 
