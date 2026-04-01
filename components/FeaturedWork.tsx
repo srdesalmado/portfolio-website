@@ -19,8 +19,8 @@ export default function FeaturedWork() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-60px" }}
           transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-          className="flex items-end justify-between mb-14 border-b pb-8"
-          style={{ borderColor: "var(--border-color)" }}
+          className="flex items-end justify-between mb-14"
+          style={{}}
         >
           <h2
             className="text-[28px] md:text-[40px] font-semibold"

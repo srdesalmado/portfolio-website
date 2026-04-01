@@ -151,7 +151,7 @@ export default async function CaseStudyPage({
 
         {/* ─── Sections ─── */}
         {sections.map((section) => (
-          <div key={section.title} className="py-14" style={{ borderTop: "1px solid var(--border-color)" }}>
+          <div key={section.title} className="pt-14 pb-8" style={{ borderTop: "1px solid var(--border-color)" }}>
             <div className="grid grid-cols-1 md:grid-cols-[1fr_1.8fr] gap-4 md:gap-20 pb-10 mb-10" style={{ borderBottom: "1px solid var(--border-color)" }}>
               <h2 className="font-semibold" style={{ color: "var(--text-primary)", fontSize: 18, letterSpacing: "-0.02em" }}>
                 {section.title}
@@ -212,8 +212,8 @@ export default async function CaseStudyPage({
           <div className="grid grid-cols-2">
             {prev ? (
               <Link href={`/work/${prev.slug}`} className="py-10 flex flex-col gap-2 group" style={{ borderRight: "1px solid var(--border-color)" }}>
-                <span className="text-[14px] uppercase tracking-[0.18em]" style={{ color: "var(--text-muted)" }}>← Previous</span>
-                <span className="font-medium transition-colors duration-200 group-hover:text-purple-600" style={{ color: "var(--text-primary)", fontSize: 16 }}>
+                <span className="text-[14px] uppercase tracking-[0.18em] text-[color:var(--text-muted)]">← Previous</span>
+                <span className="text-[16px] font-medium text-[color:var(--text-primary)] group-hover:text-[color:var(--accent)] transition-colors duration-200">
                   {prev.title}
                 </span>
               </Link>
@@ -221,8 +221,8 @@ export default async function CaseStudyPage({
 
             {next ? (
               <Link href={`/work/${next.slug}`} className="py-10 flex flex-col gap-2 items-end group pl-8">
-                <span className="text-[14px] uppercase tracking-[0.18em]" style={{ color: "var(--text-muted)" }}>Next →</span>
-                <span className="font-medium transition-colors duration-200 group-hover:text-purple-600 text-right" style={{ color: "var(--text-primary)", fontSize: 16 }}>
+                <span className="text-[14px] uppercase tracking-[0.18em] text-[color:var(--text-muted)]">Next →</span>
+                <span className="text-[16px] font-medium text-right text-[color:var(--text-primary)] group-hover:text-[color:var(--accent)] transition-colors duration-200">
                   {next.title}
                 </span>
               </Link>
