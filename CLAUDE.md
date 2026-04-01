@@ -8,15 +8,42 @@ Read `STRUCTURE.md` for the full folder map, conventions, and known issues befor
 
 ---
 
-## Styleguide Rule — Single Source of Truth
+## Styleguide Rule — Two Sources of Truth
 
-`app/globals.css` is the single source of truth for all visual properties. No color, font size, spacing, border, shadow, opacity, z-index, or animation value exists outside of it. The only acceptable workflow is:
+There are exactly two sources of truth in this project, and they must always be in sync:
+
+| Source | File | Role |
+|--------|------|------|
+| **Code** | `app/globals.css` | Token definitions — the authoritative values |
+| **Visual** | `app/styleguide/page.tsx` | Live visual representation — 1:1 mirror of the tokens and components |
+
+`app/globals.css` defines what exists. `app/styleguide/page.tsx` shows what it looks like. Neither is more important than the other — a change to one is incomplete without updating the other.
+
+### Mandatory workflow — any style change
 
 1. Define or update the token in `app/globals.css`
-2. Build or update the component consuming the token via a Tailwind class or CSS class
-3. The page consumes the component
+2. Update the component consuming the token (Tailwind class or CSS class)
+3. **Update `app/styleguide/page.tsx`** so the visual representation reflects the change
+4. The page consumes the component
 
 This flow is mandatory. No exceptions. No shortcuts.
+
+### Mandatory workflow — designer-driven visual change
+
+When the designer asks to change something visual (e.g. "make the badge border thinner", "update this button's hover"):
+
+1. Identify which token(s) are involved
+2. Update the token in `app/globals.css` first
+3. Update the real component in `components/`
+4. Update the styleguide demo in `app/styleguide/page.tsx` to match
+5. All three files change together — never just one
+
+### Styleguide page rules
+
+- Every component shown in the styleguide must use the same tokens and classes as the real component
+- No specimen in the styleguide may use hardcoded values — all visual properties come from `app/globals.css` tokens
+- If a token is shown in the styleguide but not in `globals.css`, that is a violation — add the token first
+- If a real component changes and the styleguide is not updated, that is a violation — flag immediately
 
 ### Hardcoded values are absolutely forbidden — zero tolerance
 
@@ -99,7 +126,8 @@ All animation values (duration, easing, delay) must be CSS variables in `app/glo
 |------|-------|
 | Add/edit projects | `lib/projects.ts` — follow the `Project` type |
 | Add/edit UI copy | `lib/translations.ts` — always both `en` and `pt` |
-| Change a color or spacing | `app/globals.css` CSS variables first |
+| Change a color or spacing | `app/globals.css` → real component → `app/styleguide/page.tsx` |
+| Add a new token | `app/globals.css` → mirror in `lib/tokens.ts` → styleguide demo |
 | Add a homepage section | Create `components/NewSection.tsx`, add to `app/page.tsx`, add translations |
 | Add a UI primitive | `npx shadcn@latest add <component>` → scaffolds into `components/ui/` |
 

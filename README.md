@@ -6,20 +6,6 @@ A bilingual (EN/PT) portfolio website built to showcase product design work, cas
 
 Senior product designer with a background in brand, UX, and design systems. This portfolio reflects both the work I do and how I think about building products — with strong opinions on design tokens, component architecture, and visual consistency.
 
-## Tech Stack
-
-| Layer | Technology |
-|-------|-----------|
-| Framework | Next.js 16 (App Router) |
-| UI | React 19 + Tailwind CSS 4 |
-| Animation | Framer Motion 12 |
-| 3D Background | Three.js |
-| Icons | Phosphor Icons |
-| Fonts | Geist + Montserrat via `next/font` |
-| Components | shadcn/ui |
-| Language | TypeScript 5 (strict) |
-| Deployment | Vercel |
-
 ## Architecture Highlights
 
 - **Token-based design system** — `app/globals.css` is the single source of truth for all visual properties. No hardcoded hex values, no arbitrary pixel values anywhere in the codebase.
@@ -61,6 +47,6 @@ What surprised me most wasn't how much code I could ship — it was how much I l
 
 ## Author
 
-**Carlos Salmado** — Product Designer
+**Carlos Salmado**, Product Designer
 
 [LinkedIn](https://www.linkedin.com/in/carlospsd/)
