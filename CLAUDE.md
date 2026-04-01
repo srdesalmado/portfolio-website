@@ -146,9 +146,81 @@ All animation values (duration, easing, delay) must be CSS variables in `app/glo
 
 ## Adding a Project
 
-1. Add entry to `projects` array in `lib/projects.ts` following the `Project` type
-2. Homepage grid and `/work/[slug]` route update automatically
-3. Add any case study copy to `lib/translations.ts` if it needs to be bilingual
+The `branding-klavi` entry in `lib/projects.ts` is the canonical reference. Every new project must follow this pattern exactly — no shortcuts, no placeholder sections.
+
+### The Klavi pattern (mandatory for all new case studies)
+
+```ts
+{
+  // ─── Identity ───────────────────────────────────────────────
+  slug: "project-slug",          // URL: /work/project-slug
+  title: "Category — Project Name",
+  subtitle: "One sharp sentence: the core design problem or outcome.",
+  description: "Same as subtitle — shown in the case study header.",
+  tags: ["Tag 1", "Tag 2"],      // 2–3 tags max, shown as badges
+  year: "2024",
+
+  // ─── Cover ──────────────────────────────────────────────────
+  coverLabel: "Fallback text if no image",
+  coverImage: "/image-name.png", // place file in public/
+
+  // ─── Meta table (right column of header) ────────────────────
+  role: "Senior Product Designer",
+  team: "Name 1, Name 2, Name 3",
+  agency: "Agency Name",         // use agency OR timeline, not both
+  timeline: "April 2024",
+
+  // ─── Metrics (optional — only include real numbers) ─────────
+  metrics: [
+    { value: "40% ↑", label: "Task completion" },
+    { value: "3x",    label: "Faster onboarding" },
+  ],
+
+  // ─── Quote (optional) ───────────────────────────────────────
+  quote: "A direct quote from a stakeholder or user, if available.",
+
+  // ─── Sections ───────────────────────────────────────────────
+  // Sections WITHOUT links render before the gallery.
+  // Sections WITH links render after the gallery (used for highlights/press).
+  sections: [
+    {
+      title: "The Challenge",
+      body: "Full paragraph. Explain the business/design problem, the context, and what was at stake.",
+      images: [
+        { src: "/image.png", label: "Alt text", caption: "Optional caption" },
+      ],
+    },
+    {
+      title: "Design Strategy",
+      body: "Explain the approach, key decisions, and the reasoning behind them.",
+      images: [],  // empty array is valid
+    },
+    {
+      title: "Highlights",  // link-only section — renders after gallery
+      body: "",
+      images: [],
+      links: [
+        { label: "Press article or external reference", url: "https://..." },
+      ],
+    },
+  ],
+
+  // ─── Gallery ────────────────────────────────────────────────
+  // Strings = full-width. Tuples [a, b] = side-by-side 50/50.
+  gallery: [
+    "/image-1.png",
+    ["/side-left.png", "/side-right.png"],
+    "/image-2.png",
+  ],
+}
+```
+
+### Rules
+- **Never add a project without real content.** No lorem ipsum, no placeholder sections.
+- **All images go in `public/`** and use `next/image` conventions via `LightboxImage`.
+- **The `fallbackSections` in `app/work/[slug]/page.tsx` is a safety net only** — it should never be reached for published projects.
+- The homepage grid and `/work/[slug]` route update automatically when a new entry is added to `projects`.
+- If the project needs bilingual copy, add the keys to `lib/translations.ts` (both `en` and `pt`).
 
 ## Git
 
