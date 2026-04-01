@@ -256,10 +256,14 @@ export default function StyleguidePage() {
                     ← Work
                   </a>
                 </div>
-                <div className="flex flex-wrap gap-1 items-center px-4 py-3 rounded-xl" style={{ backgroundColor: "var(--dark-bg)", border: "1px solid var(--dark-border)" }}>
-                  <a href="#" className="text-[14px] font-medium px-3 py-1.5 rounded-full transition-all duration-200 text-[color:var(--dark-text-primary)] hover:bg-white/[0.08]">View Work</a>
-                  <a href="#" className="text-[14px] px-3 py-1.5 rounded-full transition-all duration-200 text-[color:var(--dark-text-muted)] hover:bg-white/[0.08]">About me →</a>
-                  <span className="text-[12px] ml-auto font-mono" style={{ color: "var(--dark-border)" }}>dark · pill hover</span>
+                <div className="flex flex-wrap gap-8 items-center px-6 py-4 rounded-xl" style={{ backgroundColor: "var(--dark-bg)", border: "1px solid var(--dark-border)" }}>
+                  <a href="#" className="text-[14px] font-medium text-[color:var(--dark-text-primary)] border-b border-[color:var(--dark-border)] pb-px transition-colors duration-200 hover:text-[color:var(--accent-on-dark)] hover:border-[color:var(--accent-on-dark)]">
+                    Get in touch →
+                  </a>
+                  <a href="#" className="text-[14px] text-[color:var(--dark-text-muted)] transition-colors duration-200 hover:text-[color:var(--accent-on-dark)]">
+                    About me →
+                  </a>
+                  <span className="text-[12px] ml-auto font-mono" style={{ color: "var(--dark-border)" }}>dark bg</span>
                 </div>
               </div>
             </div>
