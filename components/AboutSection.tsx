@@ -1,5 +1,6 @@
 "use client"
 
+import Image from "next/image"
 import { motion } from "framer-motion"
 import { useLang } from "@/context/LanguageContext"
 import { translations } from "@/lib/translations"
@@ -23,10 +24,15 @@ export default function AboutSection() {
             viewport={{ once: true, margin: "-60px" }}
             transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
           >
-            <div
-              className="aspect-[4/5] w-full max-w-xs rounded-2xl overflow-hidden flex items-center justify-center bg-[var(--dark-surface)]"
-            >
-              <span className="font-mono text-sm text-[color:var(--dark-border)]">photo</span>
+            <div className="aspect-square w-full max-w-36 sm:max-w-44 md:max-w-52 rounded-full overflow-hidden bg-[var(--dark-surface)]">
+              <Image
+                src="/profile-pic.png"
+                alt="Carlos"
+                width={400}
+                height={500}
+                className="w-full h-full object-cover object-top"
+                priority
+              />
             </div>
           </motion.div>
 
