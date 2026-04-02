@@ -6,12 +6,6 @@
       "runtimeExecutable": "/bin/bash",
       "runtimeArgs": ["/tmp/portfolio-dev.sh"],
       "port": 3000
-    },
-    {
-      "name": "Next.js Preview",
-      "runtimeExecutable": "/usr/local/bin/node",
-      "runtimeArgs": ["/usr/local/lib/node_modules/npm/bin/npm-cli.js", "run", "start"],
-      "port": 3000
     }
   ]
 }
