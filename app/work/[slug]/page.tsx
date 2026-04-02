@@ -210,9 +210,17 @@ export default async function CaseStudyPage({
 
         {/* ─── Gallery (stacked) ─── */}
         {project.gallery && project.gallery.length > 0 && (
-          <div className="pb-14 pt-0 flex flex-col gap-6">
+          <div className={`pb-14 pt-0 flex flex-col ${project.galleryGap === false ? "gap-0" : "gap-6"}`}>
             {project.gallery.map((item, i) =>
-              Array.isArray(item) ? (
+              !Array.isArray(item) && typeof item === "object" && "stack" in item ? (
+                <div key={i} className="flex flex-col gap-0">
+                  {item.stack.map((src) => (
+                    <div key={src} className="w-full overflow-hidden bg-[var(--surface)]">
+                      <LightboxImage src={src} className="w-full object-cover" />
+                    </div>
+                  ))}
+                </div>
+              ) : Array.isArray(item) ? (
                 <div key={i} className="grid grid-cols-2 gap-6">
                   {item.map((src) => (
                     <div key={src} className="w-full rounded-xl overflow-hidden bg-[var(--surface)]">

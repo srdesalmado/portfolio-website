@@ -45,7 +45,13 @@
       "Bash(cp \"/Users/carlos/Documents/Site Porfolio/public/klavi/8596d6141524267.634ec0c868a56.png\" \"/Users/carlos/Documents/Site Porfolio/.claude/worktrees/elastic-wing/public/\")",
       "Read(//Users/carlos/Documents/Site Porfolio/.claude/skills/**)",
       "Bash(xargs cat:*)",
-      "Bash(find ./app ./src -type f \\\\\\(-name *.ts -o -name *.tsx -o -name *.js -o -name *.jsx \\\\\\))"
+      "Bash(find ./app ./src -type f \\\\\\(-name *.ts -o -name *.tsx -o -name *.js -o -name *.jsx \\\\\\))",
+      "Bash(command -v npm)",
+      "Read(//usr/local/lib/node_modules/npm/bin/**)",
+      "Bash(ls ~/.nvm/versions/node/*/bin/npm)",
+      "Read(//Users/carlos/Documents/Site Porfolio/node_modules/next/dist/bin/**)",
+      "Bash(\"/usr/local/bin/node\" \"/Users/carlos/Documents/Site Porfolio/node_modules/next/dist/bin/next\" dev --help)",
+      "Bash(grep -v \"^klavi$\\\\|^quintoandar$\\\\|^brickup1$\")"
     ],
     "defaultMode": "bypassPermissions"
   }

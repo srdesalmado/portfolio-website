@@ -190,6 +190,7 @@
   /* Lightbox */
   --max-w-lightbox: 90vw;
   --max-h-lightbox: 90vh;
+  --lightbox-transition: transform 0.1s ease-out;
 
   /* Spacing */
   --spacing-metrics: 3rem;
@@ -220,6 +221,12 @@
   .font-mono {
     font-weight: 500;
   }
+}
+
+/* Lightbox zoom */
+.lightbox-img {
+  transform-origin: center;
+  transition: var(--lightbox-transition);
 }
 
 /* Marquee animation */

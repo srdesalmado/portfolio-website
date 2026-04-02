@@ -28,10 +28,74 @@ export type Project = {
   timeline?: string
   quote?: string
   sections?: ProjectSection[]
-  gallery?: (string | [string, string])[]
+  gallery?: (string | [string, string] | { stack: string[] })[]
+  galleryGap?: boolean
 }
 
 export const projects: Project[] = [
+  {
+    slug: "brickup-saas",
+    title: "UI/UX — Brickup SaaS",
+    subtitle: "Restructuring a construction management SaaS to improve navigation, planning and the overall user experience.",
+    description: "Restructuring a construction management SaaS to improve navigation, planning and the overall user experience.",
+    tags: ["UI Design", "UX Design", "SaaS"],
+    metrics: [],
+    coverLabel: "Brickup SaaS",
+    coverImage: "/brickup1/brickup-cover.png",
+    year: "2025",
+    role: "Product Designer",
+    timeline: "2025",
+    team: "Samuel Leão (Co-designer)",
+    sections: [
+      {
+        title: "The Challenge",
+        body: "We aimed to improve the user experience by restructuring the application interface through three key enhancements: hierarchical menus for improved navigation and information architecture, a new home screen and dashboard with a clearer overview of key features, and an improved planning screen for easier organization and visualization.",
+        images: [],
+      },
+    ],
+    gallery: [
+      "/brickup1/brickup-01.png",
+      "/brickup1/brickup-02.png",
+      "/brickup1/brickup-03.png",
+      "/brickup1/brickup-04.png",
+      "/brickup1/brickup-05.png",
+      "/brickup1/brickup-06.png",
+      "/brickup1/brickup-07.png",
+      "/brickup1/brickup-08.png",
+      "/brickup1/brickup-09.png",
+      "/brickup1/brickup-10.png",
+      "/brickup1/brickup-11.png",
+      "/brickup1/brickup-12.png",
+      "/brickup1/brickup-13.png",
+    ],
+  },
+  {
+    slug: "quintoandar-landing-pages",
+    title: "QuintoAndar — Landing Pages",
+    subtitle: "Building 2 landing pages for QuintoAndar's real estate company vertical, from teaser to direct conversion.",
+    description: "Building 2 landing pages for QuintoAndar's real estate company vertical, from teaser to direct conversion.",
+    tags: ["UI Design", "Landing Page"],
+    metrics: [],
+    coverLabel: "QuintoAndar Landing Pages",
+    coverImage: "/quintoandar/quintoandar-cover.png",
+    year: "2022",
+    role: "UI Designer",
+    team: "Carlos Henrique (Designer), Victor Maués (Copywriting), André Souza (Operations)",
+    agency: "Brand Gym",
+    sections: [
+      {
+        title: "The Challenge",
+        body: "QuintoAndar is the largest housing platform in Latin America, having its business model based on renting, buying and selling real estate, in a digital way. Thus, the company is today the second largest startup in Latin America.\n\nFor this project, the challenge was to build 2 landing pages for QuintoAndar's vertical aimed at real estate companies. The first is a teaser LP, aimed at attracting real estate companies interested in partnering with QuintoAndar. The second is a direct conversion page, presenting what the product is, its differentials, advantages, etc.",
+        images: [],
+      },
+    ],
+    gallery: [
+      "/quintoandar/quintoandar-01.png",
+      { stack: ["/quintoandar/quintoandar-02.png", "/quintoandar/quintoandar-03.png"] },
+      "/quintoandar/quintoandar-04.png",
+      "/quintoandar/quintoandar-05.png",
+    ],
+  },
   {
     slug: "branding-klavi",
     title: "Branding — Klavi",
