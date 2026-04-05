@@ -11,7 +11,7 @@ export const translations = {
       greeting: "Hi there",
       title: "I'm Carlos Henrique,\na Multidisciplinary\nProduct Designer.",
       description:
-        "Currently freelancing — helping startups and scale-ups craft intuitive digital products, from early concepts to polished interfaces.",
+        "Currently at AmFi, building fintech infrastructure from the ground up. Open to new projects. Get in touch.",
       cta_work: "View Work",
       cta_about: "About me",
     },
@@ -22,9 +22,12 @@ export const translations = {
     about: {
       label: "About",
       heading: "Design-led,\nfrom concept to product.",
-      p1: "I'm a multidisciplinary designer living in Florianópolis, Brazil. With previous experience in Branding, today my focus is digital products — mainly UI.",
-      p2: "I have been working with design for 4 years and during this period I have carried out projects for brands such as",
-      p3: "Since I was a child, I have always been curious, organized and self-taught. In my free time, I enjoy playing video games, hiking, taking photographs, reading and listening to rock music.",
+      bio: "I'm a multidisciplinary product designer based in Florianópolis, Brazil.",
+      p1: "With a background in branding, my focus today is digital product design, mainly complex B2B interfaces in fintech and SaaS.",
+      p2: "I have 7 years of experience in design and have worked on projects for brands like",
+      p3: "For the past 3 years, I've been building the entire product experience at AmFi, a CVM-regulated private credit tokenization infrastructure that processes over $600M in operations.",
+      p4: "Outside of Figma: hiking, photography, and video games.",
+      cta: "We should talk",
     },
     process: {
       label: "Approach",
@@ -56,7 +59,7 @@ export const translations = {
     contact: {
       label: "Contact",
       heading: "Let's build something together.",
-      subheading: "Open to freelance projects and senior positions.",
+      subheading: "Open to new projects.",
       cta: "Get in touch",
     },
   },
@@ -70,7 +73,7 @@ export const translations = {
       greeting: "Olá",
       title: "Sou Carlos Henrique,\nDesigner de Produto\nMultidisciplinar.",
       description:
-        "Atualmente freelancer — ajudando startups e scale-ups a construir produtos digitais intuitivos, do conceito inicial às interfaces finais.",
+        "Atualmente na AmFi, construindo infraestrutura fintech do zero. Aberto a novos projetos. Entre em contato.",
       cta_work: "Ver Trabalhos",
       cta_about: "Sobre mim",
     },
@@ -81,9 +84,12 @@ export const translations = {
     about: {
       label: "Sobre",
       heading: "Design na essência,\ndo conceito ao produto.",
-      p1: "Sou um designer multidisciplinar em Florianópolis, Brasil. Com experiência prévia em Branding, meu foco hoje são produtos digitais — principalmente UI.",
-      p2: "Trabalho com design há 4 anos e durante esse período desenvolvi projetos para marcas como",
-      p3: "Desde criança, sempre fui curioso, organizado e autodidata. No meu tempo livre, gosto de jogar videogame, fazer trilhas, fotografar, ler e ouvir rock.",
+      bio: "Sou um designer de produto multidisciplinar baseado em Florianópolis, Brasil.",
+      p1: "Com background em branding, meu foco hoje é design de produto digital, principalmente interfaces B2B complexas em fintech e SaaS.",
+      p2: "Tenho 7 anos de experiência em design e trabalhei em projetos para marcas como",
+      p3: "Nos últimos 3 anos, construí toda a experiência de produto na AmFi, uma infraestrutura de tokenização de crédito privado regulada pela CVM que processa mais de $600M em operações.",
+      p4: "Fora do Figma: trilhas, fotografia e videogame.",
+      cta: "Vamos conversar",
     },
     process: {
       label: "Processo",
@@ -115,7 +121,7 @@ export const translations = {
     contact: {
       label: "Contato",
       heading: "Vamos construir algo juntos.",
-      subheading: "Aberto a projetos freelance e posições sênior.",
+      subheading: "Aberto a novos projetos.",
       cta: "Entrar em contato",
     },
   },
