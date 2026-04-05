@@ -17,7 +17,8 @@ Senior product designer with a background in brand, UX, and design systems. This
 
 ```bash
 # Clone the repository
-git clone https://github.com/srdesalmado/portfolio-site
+git clone https://github.com/srdesalmado/portfolio-website
+cd portfolio-website
 
 # Install dependencies
 npm install
@@ -28,6 +29,36 @@ npm run dev
 
 Open [http://localhost:3000](http://localhost:3000) in your browser.
 
+## Running with Claude Code
+
+This project is set up to work with [Claude Code](https://claude.ai/code). After cloning:
+
+```bash
+# Install Claude Code globally if needed
+npm install -g @anthropic-ai/claude-code
+
+# Open the project
+claude
+```
+
+### Preview server setup
+
+The preview server requires a shell script that sets the correct `PATH` for Node.js. Claude Code will recreate it automatically each session, but if you need to set it up manually, run this once:
+
+```bash
+cat > /tmp/portfolio-dev.sh << 'EOF'
+#!/bin/bash
+export PATH="/usr/local/bin:/usr/bin:/bin:$PATH"
+cd "/path/to/portfolio-website"
+exec node "./node_modules/next/dist/bin/next" dev --webpack
+EOF
+chmod +x /tmp/portfolio-dev.sh
+```
+
+Replace `/path/to/portfolio-website` with the absolute path to the cloned repo, and verify that `node` is at `/usr/local/bin/node` (run `which node`). Then update `.claude/launch.json` to point to this script.
+
+> The script lives in `/tmp/` and is cleared on reboot. To recreate it, tell Claude Code: "recria o script do servidor".
+
 ## Project Structure
 
 ```
@@ -35,6 +66,9 @@ app/              # Next.js App Router (layout, pages, globals.css)
 components/       # React components (Hero, ProjectCard, AboutSection, etc.)
 lib/              # Data layer — projects.ts, translations.ts, utils.ts
 public/           # Static assets
+app/styleguide/   # Internal design system reference (/styleguide)
+CLAUDE.md         # Rules and conventions for Claude Code
+DESIGN.md         # Full design system documentation
 ```
 
 ## A Note on How This Was Built
