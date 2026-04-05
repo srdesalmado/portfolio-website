@@ -50,6 +50,9 @@ export const translations = {
         },
       ],
     },
+    related: {
+      heading: "Next Project",
+    },
     contact: {
       label: "Contact",
       heading: "Let's build something together.",
@@ -105,6 +108,9 @@ export const translations = {
             "Produzo a documentação visual e técnica final em alta fidelidade, preparando o produto para o lançamento e evolução contínua.",
         },
       ],
+    },
+    related: {
+      heading: "Próximo Projeto",
     },
     contact: {
       label: "Contato",

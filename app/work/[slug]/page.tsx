@@ -3,6 +3,7 @@ import Link from "next/link"
 import { projects } from "@/lib/projects"
 import ContactCTA from "@/components/ContactCTA"
 import LightboxImage from "@/components/LightboxImage"
+import RelatedProjects from "@/components/RelatedProjects"
 
 export function generateStaticParams() {
   return projects.map((p) => ({ slug: p.slug }))
@@ -266,30 +267,8 @@ export default async function CaseStudyPage({
 
       </div>
 
-      {/* ─── Prev / Next ─── */}
-      <div className="border-t border-[var(--border-color)] bg-[var(--bg)]">
-        <div className="max-w-case mx-auto px-8">
-          <div className="grid grid-cols-2">
-            {prev ? (
-              <Link href={`/work/${prev.slug}`} className="py-10 flex flex-col gap-2 group border-r border-[var(--border-color)]">
-                <span className="text-sm uppercase tracking-label text-[color:var(--text-muted)]">← Previous</span>
-                <span className="text-base font-medium text-[color:var(--text-primary)] group-hover:text-[color:var(--accent)] transition-colors duration-200">
-                  {prev.title}
-                </span>
-              </Link>
-            ) : <div />}
-
-            {next ? (
-              <Link href={`/work/${next.slug}`} className="py-10 flex flex-col gap-2 items-end group pl-8">
-                <span className="text-sm uppercase tracking-label text-[color:var(--text-muted)]">Next →</span>
-                <span className="text-base font-medium text-right text-[color:var(--text-primary)] group-hover:text-[color:var(--accent)] transition-colors duration-200">
-                  {next.title}
-                </span>
-              </Link>
-            ) : <div />}
-          </div>
-        </div>
-      </div>
+      {/* ─── Related Projects ─── */}
+      {(prev ?? next) && <RelatedProjects project={(prev ?? next)!} />}
 
       <ContactCTA />
     </main>
