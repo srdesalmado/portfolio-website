@@ -23,8 +23,9 @@ export default function AboutSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-60px" }}
             transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+            className="flex justify-center"
           >
-            <div className="aspect-square w-full max-w-36 sm:max-w-44 md:max-w-52 rounded-full overflow-hidden bg-[var(--dark-surface)]">
+            <div className="aspect-square w-full max-w-52 sm:max-w-64 md:max-w-72 rounded-full overflow-hidden bg-[var(--dark-surface)]">
               <Image
                 src="/profile-pic.png"
                 alt="Carlos"

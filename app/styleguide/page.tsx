@@ -363,8 +363,34 @@ export default function StyleguidePage() {
                 <p className="text-badge font-medium mb-1" style={{ color: "var(--text-primary)" }}>Project Card</p>
                 <p className="text-badge" style={{ color: "var(--text-muted)" }}>hover state · aspect-card · gradient-card-overlay scrim · used in FeaturedWork</p>
               </div>
-              <div className="w-56">
+              <div className="grid grid-cols-2 gap-6">
                 <ProjectCard project={projects[0]} />
+                <ProjectCard project={projects[1] ?? projects[0]} />
+              </div>
+            </div>
+
+            {/* Related Projects card variant */}
+            <div className="grid grid-cols-[200px_1fr] gap-12 py-10 border-b" style={{ borderColor: "var(--border-color)" }}>
+              <div>
+                <p className="text-badge font-medium mb-1" style={{ color: "var(--text-primary)" }}>Related Projects Card</p>
+                <p className="text-badge" style={{ color: "var(--text-muted)" }}>hover state · title + description centered · overlay-card-bottom scrim · used in RelatedProjects section</p>
+              </div>
+              <div className="grid grid-cols-2 gap-6">
+                {[projects[0], projects[1] ?? projects[0]].map((p) => (
+                  <div key={p.slug} className="block group">
+                    <div className="relative w-full overflow-hidden aspect-card rounded-xl" style={{ backgroundColor: "var(--dark-surface)" }}>
+                      {p.coverImage && <img src={p.coverImage} alt="" className="absolute inset-0 w-full h-full object-cover" />}
+                      <div className="absolute inset-0 transition-opacity duration-300 opacity-0 group-hover:opacity-100">
+                        <div className="absolute inset-0" style={{ backgroundImage: "var(--gradient-card-overlay)" }} />
+                        <div className="absolute inset-0" style={{ backgroundColor: "var(--overlay-card-bottom)" }} />
+                      </div>
+                      <div className="absolute inset-0 flex flex-col items-center justify-end p-6 gap-2 transition-all duration-300 translate-y-2 opacity-0 group-hover:translate-y-0 group-hover:opacity-100">
+                        <p className="font-semibold text-lg leading-snug tracking-tight-2 text-center" style={{ color: "var(--dark-text-primary)" }}>{p.title}</p>
+                        <p className="text-badge leading-snug line-clamp-2 text-center" style={{ color: "var(--dark-text-secondary)" }}>{p.description}</p>
+                      </div>
+                    </div>
+                  </div>
+                ))}
               </div>
             </div>
 
