@@ -2,6 +2,7 @@
 
 import { Badge } from "@/components/ui/badge"
 import ProjectCard from "@/components/ProjectCard"
+import Navbar from "@/components/Navbar"
 import { projects } from "@/lib/projects"
 
 /* ─── helpers ─────────────────────────────────────────────────────── */
@@ -146,7 +147,7 @@ function EffectChip({
 
 /* ─── nav links ────────────────────────────────────────────────────── */
 
-const NAV_LINKS = [
+const SECTION_LINKS = [
   { href: "#colors",     label: "Colors"     },
   { href: "#typography", label: "Typography" },
   { href: "#spacing",    label: "Spacing"    },
@@ -160,41 +161,13 @@ export default function StyleguidePage() {
   return (
     <div style={{ backgroundColor: "var(--bg)", color: "var(--text-primary)" }}>
 
-      {/* ── Sticky nav ─────────────────────────────────────────── */}
-      <nav
-        className="sticky top-0 z-50 flex items-center justify-between px-8 h-14 border-b"
-        style={{
-          backgroundColor: "var(--navbar-bg)",
-          backdropFilter: "blur(var(--blur-navbar))",
-          borderColor: "var(--border-color)",
-        }}
-      >
-        <span className="font-mono text-badge font-medium" style={{ color: "var(--text-primary)" }}>
-          carlos.psd / styleguide
-        </span>
-        <div className="hidden md:flex items-center gap-6">
-          {NAV_LINKS.map(({ href, label }) => (
-            <a
-              key={href}
-              href={href}
-              className="text-badge font-medium transition-colors duration-200 text-[color:var(--text-muted)] hover:text-[color:var(--text-primary)]"
-            >
-              {label}
-            </a>
-          ))}
-        </div>
-        <a
-          href="/"
-          className="text-badge font-medium transition-colors duration-200 text-[color:var(--text-muted)] hover:text-[color:var(--accent)]"
-        >
-          Back to site
-        </a>
-      </nav>
+      {/* ── Navbar do site ─────────────────────────────────────── */}
+      <Navbar />
 
       {/* ── Header ─────────────────────────────────────────────── */}
       <header
-        className="px-8 py-24"
-        style={{ backgroundColor: "var(--dark-bg)", borderBottom: "1px solid var(--dark-border)" }}
+        className="px-8 pt-32 pb-20"
+        style={{ backgroundColor: "var(--dark-bg)" }}
       >
         <div className="max-w-[var(--max-width-page)] mx-auto">
           <p className="text-badge uppercase tracking-label font-medium mb-4" style={{ color: "var(--dark-text-muted)" }}>
@@ -211,6 +184,28 @@ export default function StyleguidePage() {
           </p>
         </div>
       </header>
+
+      {/* ── Section pill nav ───────────────────────────────────── */}
+      <div
+        className="sticky top-14 z-40 border-b overflow-x-auto"
+        style={{
+          backgroundColor: "var(--navbar-bg-scroll-light)",
+          backdropFilter: "blur(var(--blur-navbar))",
+          borderColor: "var(--border-color)",
+        }}
+      >
+        <div className="max-w-[var(--max-width-page)] mx-auto px-6 md:px-8 h-12 flex items-center gap-1 min-w-max md:min-w-0">
+          {SECTION_LINKS.map(({ href, label }) => (
+            <a
+              key={href}
+              href={href}
+              className="text-badge font-medium px-3 py-1.5 rounded-full whitespace-nowrap transition-all duration-200 text-[color:var(--text-muted)] hover:text-[color:var(--text-primary)] hover:bg-black/[0.04]"
+            >
+              {label}
+            </a>
+          ))}
+        </div>
+      </div>
 
       <div className="max-w-[var(--max-width-page)] mx-auto px-6 md:px-8">
 
@@ -645,13 +640,11 @@ export default function StyleguidePage() {
 
       {/* ── Footer ─────────────────────────────────────────────── */}
       <footer
-        className="border-t mt-0 px-8 py-8 flex items-center justify-between"
+        className="border-t px-8 py-8 flex items-center justify-between"
         style={{ borderColor: "var(--border-color)" }}
       >
         <span className="font-mono text-badge" style={{ color: "var(--text-muted)" }}>carlos.psd / styleguide</span>
-        <a href="/" className="text-badge transition-colors duration-200 text-[color:var(--text-muted)] hover:text-[color:var(--accent)]">
-          Back to site →
-        </a>
+        <span className="text-badge" style={{ color: "var(--text-muted)" }}>internal reference</span>
       </footer>
 
     </div>
