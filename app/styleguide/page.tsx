@@ -311,6 +311,11 @@ export default function StyleguidePage() {
             cls="text-h2 font-semibold leading-heading tracking-tight-2"
           />
           <TypeSpecimen
+            sample="I'm a multidisciplinary product designer."
+            spec="H3 — text-h3 / 20px / wt 600 / lh 1.1 / tracking-tight-2 -0.02em"
+            cls="text-h3 font-semibold leading-heading tracking-tight-2"
+          />
+          <TypeSpecimen
             sample="40%"
             spec="Metric — text-metric / clamp(2rem, 4vw, 3rem) / wt 600 / lh 1.04 / tracking-tight-3 -0.03em"
             cls="text-metric font-semibold leading-hero tracking-tight-3"

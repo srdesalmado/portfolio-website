@@ -47,9 +47,9 @@ export default function AboutSection() {
               />
             </div>
 
-            <h2 className="text-h2 md:text-h1 font-semibold tracking-tight-25 text-[color:var(--dark-text-primary)]">
+            <h3 className="text-h3 font-semibold leading-heading tracking-tight-2 text-[color:var(--dark-text-primary)]">
               {t.bio}
-            </h2>
+            </h3>
 
             <div className="flex flex-col gap-4 text-base leading-body-alt text-[color:var(--dark-text-secondary)]">
               <p>{t.p1}</p>
