@@ -45,7 +45,7 @@ export const projects: Project[] = [
     year: "2025",
     role: "Product Designer",
     timeline: "2025",
-    team: "Samuel Leão (Co-designer)",
+    team: "Carlos Henrique (Lead Designer), Samuel Leão (Co-designer)",
     sections: [
       {
         title: "The Challenge",
