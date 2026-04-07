@@ -4,7 +4,7 @@
     {
       "name": "Next.js Dev",
       "runtimeExecutable": "/usr/local/bin/node",
-      "runtimeArgs": ["/Users/carlos/Documents/Site Porfolio/node_modules/next/dist/bin/next", "dev", "--webpack", "--port", "3000"],
+      "runtimeArgs": ["/Users/carlos/Documents/Site Porfolio/node_modules/next/dist/bin/next", "dev", "--webpack"],
       "port": 3000
     }
   ]

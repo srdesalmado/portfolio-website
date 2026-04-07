@@ -108,11 +108,13 @@ export default async function CaseStudyPage({
         </div>
 
         {/* ─── Cover image ─── */}
-        <div className="w-full rounded-2xl overflow-hidden flex items-center justify-center aspect-cover bg-[var(--surface)]">
+        <div className="w-full rounded-2xl overflow-hidden bg-[var(--surface)]">
           {project.coverImage ? (
-            <LightboxImage src={project.coverImage} alt={project.title} className="w-full h-full object-cover" />
+            <LightboxImage src={project.coverImage} alt={project.title} className="w-full h-auto" />
           ) : (
-            <span className="font-mono text-sm text-[color:var(--border-color)]">{project.coverLabel}</span>
+            <div className="aspect-cover flex items-center justify-center">
+              <span className="font-mono text-sm text-[color:var(--border-color)]">{project.coverLabel}</span>
+            </div>
           )}
         </div>
 
@@ -179,11 +181,13 @@ export default async function CaseStudyPage({
 
             {section.images.length === 1 ? (
               <div className="flex flex-col gap-3">
-                <div className="w-full rounded-xl overflow-hidden flex items-center justify-center aspect-cover bg-[var(--surface)]">
+                <div className="w-full rounded-xl overflow-hidden bg-[var(--bg)]">
                   {section.images[0].src ? (
-                    <LightboxImage src={section.images[0].src} alt={section.images[0].label} className="w-full h-full object-cover" />
+                    <LightboxImage src={section.images[0].src} alt={section.images[0].label} className="w-full h-auto" />
                   ) : (
-                    <span className="font-mono text-sm text-[color:var(--border-color)]">{section.images[0].label}</span>
+                    <div className="aspect-cover flex items-center justify-center">
+                      <span className="font-mono text-sm text-[color:var(--border-color)]">{section.images[0].label}</span>
+                    </div>
                   )}
                 </div>
                 {section.images[0].caption && (
@@ -191,14 +195,16 @@ export default async function CaseStudyPage({
                 )}
               </div>
             ) : section.images.length > 1 ? (
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div className="flex flex-col gap-4">
                 {section.images.map((img) => (
                   <div key={img.label} className="flex flex-col gap-2">
-                    <div className="w-full rounded-xl overflow-hidden flex items-center justify-center aspect-card bg-[var(--surface)]">
+                    <div className="w-full rounded-xl overflow-hidden bg-[var(--bg)]">
                       {img.src ? (
-                        <LightboxImage src={img.src} alt={img.label} className="w-full h-full object-cover" />
+                        <LightboxImage src={img.src} alt={img.label} className="w-full h-auto" />
                       ) : (
-                        <span className="font-mono text-sm text-[color:var(--border-color)]">{img.label}</span>
+                        <div className="aspect-cover flex items-center justify-center">
+                          <span className="font-mono text-sm text-[color:var(--border-color)]">{img.label}</span>
+                        </div>
                       )}
                     </div>
                     {img.caption && <p className="text-sm text-[color:var(--text-muted)]">{img.caption}</p>}
