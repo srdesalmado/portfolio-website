@@ -3,6 +3,7 @@
 import { motion } from "framer-motion"
 import { useLang } from "@/context/LanguageContext"
 import { translations } from "@/lib/translations"
+import SplitText from "@/components/SplitText"
 
 export default function ContactCTA() {
   const { lang } = useLang()
@@ -26,11 +27,12 @@ export default function ContactCTA() {
             <span className="text-sm uppercase tracking-label font-medium text-[color:var(--accent-on-dark)]">
               {t.label}
             </span>
-            <h2
+            <SplitText
+              as="h2"
+              text={t.heading}
+              trigger="scroll"
               className="text-h2 md:text-h1 font-semibold leading-cta tracking-tight-3 text-[color:var(--dark-text-primary)]"
-            >
-              {t.heading}
-            </h2>
+            />
           </div>
 
           {/* Bottom row */}
@@ -63,12 +65,14 @@ export default function ContactCTA() {
         <span className="text-sm font-mono text-[color:var(--dark-text-muted)]">
           © {new Date().getFullYear()} carlos.psd
         </span>
-        <a
-          href="/styleguide"
-          className="text-sm font-mono transition-colors duration-200 hover:text-[color:var(--accent-on-dark)] text-[color:var(--dark-text-muted)]"
-        >
-          styleguide
-        </a>
+        {process.env.NODE_ENV === 'development' && (
+          <a
+            href="/styleguide"
+            className="text-sm font-mono transition-colors duration-200 hover:text-[color:var(--accent-on-dark)] text-[color:var(--dark-text-muted)]"
+          >
+            styleguide
+          </a>
+        )}
       </div>
     </section>
   )

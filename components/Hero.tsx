@@ -4,6 +4,7 @@ import { motion, type Variants } from "framer-motion"
 import dynamic from "next/dynamic"
 import { useLang } from "@/context/LanguageContext"
 import { translations } from "@/lib/translations"
+import SplitText from "@/components/SplitText"
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const ColorBends = dynamic(() => import("@/components/ColorBends"), { ssr: false }) as any
@@ -65,17 +66,17 @@ export default function Hero() {
             {t.greeting}
           </motion.p>
 
-          <motion.h1
-            custom={1}
-            initial="hidden"
-            animate="visible"
-            variants={fadeUp}
+          <SplitText
+            as="h1"
+            text={
+              lang === "en"
+                ? "I'm Carlos, a Multidisciplinary Product Designer."
+                : "Sou Carlos, Designer de Produto Multidisciplinar."
+            }
+            trigger="auto"
+            baseDelay={0.15}
             className="text-hero-sm md:text-hero-lg font-semibold leading-hero tracking-tight-3 max-w-4xl text-[color:var(--dark-text-primary)]"
-          >
-            {lang === "en"
-              ? "I'm Carlos, a Multidisciplinary Product Designer."
-              : "Sou Carlos, Designer de Produto Multidisciplinar."}
-          </motion.h1>
+          />
 
           <motion.div
             custom={2}

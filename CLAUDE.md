@@ -135,9 +135,7 @@ All animation values (duration, easing, delay) must be CSS variables in `app/glo
 
 ## Known Issues (do not reintroduce)
 
-- **`components/Footer.tsx`** — orphan file, never imported. Can be deleted.
 - **`public/*.svg`** — default Next.js placeholders, not used.
-- **`components/Testimonials.tsx`** — defined but not rendered. Either add to `app/page.tsx` or delete.
 - **`app/work/[slug]/page.tsx`** — has hardcoded section content; should move to `lib/projects.ts` as project count grows.
 - **No `not-found.tsx`** — the `[slug]` route calls `notFound()` but no boundary exists.
 - **No real images** — `public/` has no portfolio assets. Use `next/image` when adding them to `public/images/`.

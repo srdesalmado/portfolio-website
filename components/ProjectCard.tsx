@@ -46,9 +46,6 @@ export default function ProjectCard({ project }: { project: Project }) {
               </Badge>
             ))}
           </div>
-          <span className="text-sm shrink-0 text-[color:var(--dark-text-primary)]">
-            {project.year}
-          </span>
         </div>
 
         {/* Bottom: title + description — hover only */}

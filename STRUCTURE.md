@@ -16,8 +16,11 @@ The architecture favors simplicity: no CMS, no external data fetching, no auth. 
 │   ├── layout.tsx              # Root layout: fonts, metadata, LanguageProvider, Navbar
 │   ├── page.tsx                # Homepage — composes Hero → FeaturedWork → About → Process → ContactCTA
 │   ├── globals.css             # Design tokens (CSS variables), global resets, animations
+│   ├── template.tsx            # Page transition curtain (re-mounts on navigation)
 │   ├── styleguide/
-│   │   └── page.tsx            # Design token reference page
+│   │   ├── layout.tsx          # Passthrough layout (ready for future sidebar)
+│   │   ├── navigation.ts       # Nav config — updated by --5-new-component
+│   │   └── page.tsx            # Design token reference page (/styleguide)
 │   └── work/
 │       └── [slug]/
 │           └── page.tsx        # Case study template (dynamic, SSG via generateStaticParams)
@@ -30,8 +33,12 @@ The architecture favors simplicity: no CMS, no external data fetching, no auth. 
 │   ├── AboutSection.tsx        # About section — two-column layout, dark theme
 │   ├── ProcessSection.tsx      # Process section — three-step approach, light theme
 │   ├── ContactCTA.tsx          # Contact section + site footer — dark theme
-│   ├── Testimonials.tsx        # Testimonials — (currently unused on homepage)
-│   ├── Footer.tsx              # ⚠️ ORPHAN — never imported, superseded by ContactCTA
+│   ├── Lightbox.tsx            # Full-screen image lightbox — used in case studies
+│   ├── LightboxImage.tsx       # Image wrapper that opens Lightbox on click
+│   ├── RelatedProjects.tsx     # Related projects grid — shown at end of case studies
+│   ├── PageTransitionProvider.tsx # Framer Motion page transition context/provider
+│   ├── SplitText.tsx           # Animated character-split heading component
+│   ├── ColorBends.jsx          # Three.js color bend background effect
 │   └── ui/                     # shadcn/ui primitives — do not add business logic here
 │       ├── button.tsx          # Button — Base UI primitive + CVA variants
 │       ├── badge.tsx           # Badge
@@ -65,7 +72,17 @@ The architecture favors simplicity: no CMS, no external data fetching, no auth. 
 
 ## Design Token System
 
-All visual values are CSS custom properties declared in `app/globals.css`. Components reference them via `style={{ color: "var(--token)" }}` or Tailwind's `[var(--token)]` syntax.
+All visual values are CSS custom properties declared in `app/globals.css`. Components apply them exclusively via Tailwind arbitrary value classes — never via inline styles. Common patterns:
+
+```
+text-[color:var(--token)]
+bg-[color:var(--token)]
+border-[color:var(--token)]
+[backdrop-filter:blur(var(--blur-navbar))]
+[background-image:var(--gradient-hero-fade)]
+```
+
+Inline `style={{}}` is forbidden in all files. If a token is needed and no Tailwind class exists for that CSS property, add an arbitrary value class using the bracket syntax above.
 
 **Token namespaces:**
 

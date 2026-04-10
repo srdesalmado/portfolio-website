@@ -3,6 +3,7 @@
 import { motion } from "framer-motion"
 import { useLang } from "@/context/LanguageContext"
 import { translations } from "@/lib/translations"
+import SplitText from "@/components/SplitText"
 
 export default function ProcessSection() {
   const { lang } = useLang()
@@ -12,20 +13,21 @@ export default function ProcessSection() {
     <section className="bg-[var(--bg)] border-t border-[var(--border-color)]">
       <div className="max-w-page mx-auto px-8 py-24 md:py-32">
         <motion.div
-          initial={{ opacity: 0, y: 12 }}
+          initial={{ opacity: 0, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-60px" }}
-          transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+          transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
           className="flex flex-col gap-2 mb-20"
         >
           <span className="text-sm uppercase tracking-label font-medium text-[color:var(--accent-on-dark)]">
             {t.label}
           </span>
-          <h2
+          <SplitText
+            as="h2"
+            text={t.heading}
+            trigger="scroll"
             className="text-h2 md:text-h1 font-semibold tracking-tight-25 text-[color:var(--text-primary)]"
-          >
-            {t.heading}
-          </h2>
+          />
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-16">

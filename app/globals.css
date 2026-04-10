@@ -195,6 +195,20 @@
 
   /* Spacing */
   --spacing-metrics: 3rem;
+
+  /* Page transition */
+  --duration-page-transition: 0.6s;
+  --ease-page-transition: cubic-bezier(0.22, 1, 0.36, 1);
+  --z-page-transition: 50;
+
+  /* Split text animation */
+  --duration-split: 0.55s;
+  --stagger-split-char: 0.025s;
+  --stagger-split-word: 0.07s;
+}
+
+.will-change-transform {
+  will-change: transform;
 }
 
 @layer base {

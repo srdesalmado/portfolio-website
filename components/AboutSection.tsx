@@ -4,6 +4,7 @@ import Image from "next/image"
 import { motion } from "framer-motion"
 import { useLang } from "@/context/LanguageContext"
 import { translations } from "@/lib/translations"
+import SplitText from "@/components/SplitText"
 
 export default function AboutSection() {
   const { lang } = useLang()
@@ -18,15 +19,12 @@ export default function AboutSection() {
         <div className="grid grid-cols-1 md:grid-cols-[1fr_1.5fr] gap-10 md:gap-16 items-start">
 
           {/* Left: title */}
-          <motion.h2
-            initial={{ opacity: 0, y: 12 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-60px" }}
-            transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+          <SplitText
+            as="h2"
+            text={t.label}
+            trigger="scroll"
             className="text-h2 md:text-h1 font-semibold tracking-tight-25 text-[color:var(--dark-text-primary)]"
-          >
-            {t.label}
-          </motion.h2>
+          />
 
           {/* Right: photo + bio + CTA */}
           <motion.div

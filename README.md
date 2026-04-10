@@ -17,7 +17,7 @@ Senior product designer with a background in brand, UX, and design systems. This
 
 ```bash
 # Clone the repository
-git clone https://github.com/srdesalmado/portfolio-website
+git clone https://github.com/caarloshq/portfolio-website
 cd portfolio-website
 
 # Install dependencies
