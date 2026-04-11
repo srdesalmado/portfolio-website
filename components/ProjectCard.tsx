@@ -8,7 +8,7 @@ export default function ProjectCard({ project }: { project: Project }) {
   return (
     <Link href={`/work/${project.slug}`} className="block group">
       <div
-        className="relative w-full overflow-hidden aspect-card rounded-xl bg-[var(--dark-surface)]"
+        className="relative w-full overflow-hidden aspect-card rounded-card bg-[var(--dark-surface)]"
       >
         {/* Cover image or placeholder */}
         {project.coverImage ? (

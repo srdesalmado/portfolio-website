@@ -1,6 +1,5 @@
 "use client"
 
-import Image from "next/image"
 import { motion } from "framer-motion"
 import { useLang } from "@/context/LanguageContext"
 import { translations } from "@/lib/translations"
@@ -34,17 +33,6 @@ export default function AboutSection() {
             transition={{ duration: 0.7, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
             className="flex flex-col gap-6"
           >
-            <div className="aspect-square w-full max-w-52 sm:max-w-64 md:max-w-72 rounded-full overflow-hidden bg-[var(--dark-surface)]">
-              <Image
-                src="/profile-pic.png"
-                alt="Carlos"
-                width={400}
-                height={500}
-                className="w-full h-full object-cover object-top"
-                priority
-              />
-            </div>
-
             <h3 className="text-h3 font-semibold leading-heading tracking-tight-2 text-[color:var(--dark-text-primary)]">
               {t.bio}
             </h3>

@@ -7,7 +7,10 @@
 @theme {
   /* Layout */
   --max-width-page: 68.75rem;   /* 1100px */
+  --max-width-grid: 90rem;       /* 1440px — project grid section */
   --max-width-case: 75rem;      /* 1200px */
+  --gap-grid: 1rem;             /* 16px — gap between project cards */
+  --px-grid: 1rem;             /* 16px — horizontal padding of project grid */
 
   /* Font sizes — Tailwind 4 maps --text-* → text-* utilities */
   --text-badge: 0.8125rem;      /* 13px */
@@ -61,6 +64,7 @@
   --radius-md: calc(var(--radius) * 0.8);
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) * 1.4);
+  --radius-card: 1.25rem;        /* 20px — project cards and case study images */
   --radius-2xl: calc(var(--radius) * 1.8);
   --font-heading: var(--font-sans);
   --color-sidebar-ring: var(--sidebar-ring);

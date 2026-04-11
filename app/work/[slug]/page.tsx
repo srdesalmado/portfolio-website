@@ -108,7 +108,7 @@ export default async function CaseStudyPage({
         </div>
 
         {/* ─── Cover image ─── */}
-        <div className="w-full rounded-2xl overflow-hidden bg-[var(--surface)]">
+        <div className="w-full rounded-card overflow-hidden bg-[var(--surface)]">
           {project.coverImage ? (
             <LightboxImage src={project.coverImage} alt={project.title} className="w-full h-auto" />
           ) : (
@@ -181,7 +181,7 @@ export default async function CaseStudyPage({
 
             {section.images.length === 1 ? (
               <div className="flex flex-col gap-3">
-                <div className="w-full rounded-xl overflow-hidden bg-[var(--bg)]">
+                <div className="w-full rounded-card overflow-hidden bg-[var(--bg)]">
                   {section.images[0].src ? (
                     <LightboxImage src={section.images[0].src} alt={section.images[0].label} className="w-full h-auto" />
                   ) : (
@@ -198,7 +198,7 @@ export default async function CaseStudyPage({
               <div className="flex flex-col gap-4">
                 {section.images.map((img) => (
                   <div key={img.label} className="flex flex-col gap-2">
-                    <div className="w-full rounded-xl overflow-hidden bg-[var(--bg)]">
+                    <div className="w-full rounded-card overflow-hidden bg-[var(--bg)]">
                       {img.src ? (
                         <LightboxImage src={img.src} alt={img.label} className="w-full h-auto" />
                       ) : (
@@ -230,13 +230,13 @@ export default async function CaseStudyPage({
               ) : Array.isArray(item) ? (
                 <div key={i} className="grid grid-cols-2 gap-6">
                   {item.map((src) => (
-                    <div key={src} className="w-full rounded-xl overflow-hidden bg-[var(--surface)]">
+                    <div key={src} className="w-full rounded-card overflow-hidden bg-[var(--surface)]">
                       <LightboxImage src={src} className="w-full object-cover" />
                     </div>
                   ))}
                 </div>
               ) : (
-                <div key={item} className="w-full rounded-xl overflow-hidden bg-[var(--surface)]">
+                <div key={item} className="w-full rounded-card overflow-hidden bg-[var(--surface)]">
                   <LightboxImage src={item} className="w-full object-cover" />
                 </div>
               )

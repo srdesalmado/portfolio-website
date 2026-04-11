@@ -345,14 +345,17 @@ export default function StyleguidePage() {
           </p>
           <div className="flex flex-col gap-0 mb-16 border-t border-[color:var(--border-color)]">
             {[
-              { token: "--max-width-page",  value: "68.75rem / 1100px",        note: "All homepage sections" },
-              { token: "--max-width-case",  value: "75rem / 1200px",           note: "Case study pages" },
-              { token: "px desktop",        value: "32px (px-8)",              note: "All sections" },
-              { token: "px mobile",         value: "24px (px-6)",              note: "Responsive" },
+              { token: "--max-width-page",  value: "68.75rem / 1100px",          note: "All homepage sections" },
+              { token: "--max-width-grid",  value: "90rem / 1440px",            note: "Project grid section only" },
+              { token: "--max-width-case",  value: "75rem / 1200px",            note: "Case study pages" },
+              { token: "--gap-grid",        value: "1rem / 16px",               note: "Gap between project cards" },
+              { token: "--px-grid",         value: "1rem / 16px",               note: "Horizontal padding of project grid" },
+              { token: "px desktop",        value: "32px (px-8)",               note: "All sections (except project grid)" },
+              { token: "px mobile",         value: "24px (px-6)",               note: "Responsive" },
               { token: "Section py",        value: "64px mobile / 80px desktop", note: "All homepage sections" },
-              { token: "--spacing-metrics", value: "3rem / 48px",              note: "Metrics row · project cards" },
-              { token: "--height-hairline", value: "1.5px",                    note: "Section dividers" },
-              { token: "--hero-min-height", value: "600px",                    note: "Hero component" },
+              { token: "--spacing-metrics", value: "3rem / 48px",               note: "Metrics row · project cards" },
+              { token: "--height-hairline", value: "1.5px",                     note: "Section dividers" },
+              { token: "--hero-min-height", value: "600px",                     note: "Hero component" },
             ].map(({ token, value, note }) => (
               <div key={token} className="grid grid-cols-[10rem_1fr_1fr] gap-6 py-4 border-b border-[color:var(--border-color)] items-baseline">
                 <span className="text-badge font-mono text-[color:var(--text-muted)]">{token}</span>
@@ -371,6 +374,7 @@ export default function StyleguidePage() {
             <RadiusSwatch label="md"   px={8}   />
             <RadiusSwatch label="lg"   px={12}  />
             <RadiusSwatch label="xl"   px={16}  />
+            <RadiusSwatch label="card" px={8}   />
             <RadiusSwatch label="full" px={500} />
           </div>
 
