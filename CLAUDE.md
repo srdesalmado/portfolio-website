@@ -114,8 +114,9 @@ Use `whileInView` + `viewport={{ once: true }}` for scroll-triggered entrance.
 All animation values (duration, easing, delay) must be CSS variables in `app/globals.css`.
 
 ### Layout widths
-- Homepage sections: `max-w-[1100px] mx-auto px-8`
-- Case study page: `max-w-[1200px] mx-auto px-8`
+- Homepage sections: `max-w-page mx-auto px-8` (`--max-width-page` = 1100px)
+- Project grid section: `max-w-grid mx-auto` (`--max-width-grid` = 1440px) with `px-[var(--px-grid)]` (16px)
+- Case study page: `max-w-case mx-auto px-8` (`--max-width-case` = 1200px)
 - Responsive: `px-6 md:px-8`
 
 ---

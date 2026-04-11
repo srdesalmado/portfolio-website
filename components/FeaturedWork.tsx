@@ -15,7 +15,7 @@ export default function FeaturedWork() {
     <section id="work" className="bg-[var(--bg)] border-t border-[var(--border-color)]">
       <div className="max-w-grid mx-auto py-16 md:py-20">
         {/* Header — constrained to standard page grid */}
-        <div className="max-w-page mx-auto w-full px-[var(--px-grid)] mb-7 flex items-end justify-between gap-8">
+        <div className="max-w-page mx-auto w-full px-8 mb-7 flex items-end justify-between gap-8">
           <SplitText
             as="h2"
             text={t.heading}

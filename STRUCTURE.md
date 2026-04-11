@@ -2,7 +2,7 @@
 
 ## Overview
 
-**carlos.psd** is a bilingual (EN/PT) portfolio site for a senior product designer. Built with Next.js 16 App Router, React 19, Tailwind CSS 4, and Framer Motion. The site is content-light by design — three projects, five homepage sections, and one case study template.
+**carlos.psd** is a bilingual (EN/PT) portfolio site for a senior product designer. Built with Next.js 16 App Router, React 19, Tailwind CSS 4, and Framer Motion. The site is content-light by design — a growing portfolio of case studies, five homepage sections, and one case study template.
 
 The architecture favors simplicity: no CMS, no external data fetching, no auth. All content lives in `lib/` as typed TypeScript constants.
 
@@ -53,6 +53,9 @@ The architecture favors simplicity: no CMS, no external data fetching, no auth. 
 │   └── utils.ts                # cn() — clsx + tailwind-merge
 │
 └── public/                     # Static assets served at /
+    ├── brickup1/               # Brickup case study images
+    ├── klavi/                  # Klavi case study images
+    ├── quintoandar/            # QuintoAndar case study images
     └── *.svg                   # Default Next.js SVGs — not used by the site
 ```
 
@@ -123,8 +126,10 @@ The site uses **intentional dark sections within a light-mode layout** — there
 - Two languages: `"en"` | `"pt"`
 
 ### Layout width
-- Homepage sections: `max-w-[1100px] mx-auto px-8`
-- Case study page: `max-w-[1200px] mx-auto px-8`
+- Homepage sections: `max-w-page mx-auto px-8` (token: `--max-width-page` = 1100px)
+- Project grid section: `max-w-grid mx-auto` (token: `--max-width-grid` = 1440px) with `--px-grid` (16px) padding
+- Case study page: `max-w-case mx-auto px-8` (token: `--max-width-case` = 1200px)
+- Responsive: `px-6 md:px-8`
 
 ---
 
@@ -159,24 +164,14 @@ The site uses **intentional dark sections within a light-mode layout** — there
 
 ## Known Issues & Cleanup Opportunities
 
-### Dead code
-- **`components/Footer.tsx`** — never imported. The copyright/footer bar is inlined at the bottom of `ContactCTA.tsx`. This file can be deleted.
-- **`public/*.svg`** — default Next.js placeholder SVGs. Not used by the site.
-
 ### Hardcoded content in case study template
 `app/work/[slug]/page.tsx` contains hardcoded text blocks (section titles and bodies, the key insight quote, Role/Timeline metadata). As the project count grows, these should move into `lib/projects.ts` on the `Project` type.
 
 ### Redundant icon libraries
 Both `lucide-react` and `@phosphor-icons/react` are installed. Consolidate to one (Phosphor is already dominant in components) and remove the other from `package.json`.
 
-### Public assets
-`public/` has no portfolio images — all image slots use placeholder `div`s. When adding real images, use `next/image` (`<Image>`) for optimization. Create `public/images/` for portfolio assets.
-
 ### Missing App Router error boundaries
 No `error.tsx` or `not-found.tsx` in the app directory. Add at minimum a `not-found.tsx` since the `[slug]` route calls `notFound()`.
-
-### Testimonials component
-`components/Testimonials.tsx` is defined but not rendered on the homepage. Either add it to `app/page.tsx` or delete it if it's a placeholder.
 
 ---
 
