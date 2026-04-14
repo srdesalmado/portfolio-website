@@ -81,6 +81,6 @@ What surprised me most wasn't how much code I could ship — it was how much I l
 
 ## Author
 
-**Carlos Salmado**, Product Designer
+**Carlos Henrique**, Product Designer
 
 [LinkedIn](https://www.linkedin.com/in/carlospsd/)
